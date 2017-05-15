@@ -1,24 +1,12 @@
-# README
+# SimplyNote
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+SimplyNote is a web application inspired by Evernote, with a Ruby on Rails
+backend and a React/Redux frontend. It is currently very much in
+development.
 
-Things you may want to cover:
+To track the progress or find out more, see
+ * [Development Readme][dev-readme]
+ * [Heroku][heroku]
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[dev-readme]: docs/README.md
+[heroku]: http://www.herokuapp.com
