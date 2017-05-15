@@ -11,6 +11,7 @@
   },
   notes: {
     1: {
+      id: 1,
       title: 'Note 1',
       body: 'Body 1',  //this will be html when in RTF (?)
       notebook_id: 1,
@@ -19,14 +20,15 @@
   },
   notebooks: {
     1: {
+      id: 1,
       title: 'Notebook 1',
       description: ""
     }
   },
   tags: {
-    1: { name: 'cool' },
-    2: { name: 'redux' },
-    3: { name: 'cats' }
+    1: { id: 1, name: 'cool' },
+    2: { id: 1, name: 'redux' },
+    3: { id: 1, name: 'cats' }
   }
 }
 ```

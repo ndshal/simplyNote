@@ -53,12 +53,10 @@
 | "/sign-up" | "AuthFormContainer" |
 | "/sign-in" | "AuthFormContainer" |
 | "/home" | "HomeContainer" |
-| "/home/notes/:noteId" | "NotesIndexContainer", "NoteDetailContainer" |
+| "/home/notes/:noteId", "/home/notebook/:notebookId/notes/:noteId", "/home/tag/:tagId/notes/:noteId" | "NotesIndexContainer", "NoteDetailContainer" |
 | "/home/notes/:noteId/show" | "NoteDetailContainer" (hide nav and index)|
 | "/home/notes/new" | "NoteFormContainer" |
 | "/home/notebooks" | "NotebooksIndexContainer" |
 | "/home/notebooks/new" | "NotebookFormContainer" |
 | "/home/tags" | "TagsIndexContainer" |
 | "/home/tags/new" | "TagFormContainer" |
-| "/home/notebook/:notebookId/note/:noteId" | "NotebooksIndexContainer", "NoteDetailContainer" |
-| "/home/tag/:tagId/note/:noteId" | "TagsIndexContainer", "NoteDetailContainer" |
