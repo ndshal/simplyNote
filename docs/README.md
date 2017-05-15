@@ -21,9 +21,9 @@ navigation, adequate seed data and sufficient CSS styling:
 - [] Notebooks
 - [] Tags
 - [] Rich-text editing
-- [] **Bonus:** Autosave and change-logs for notes
 - [] **Bonus:** Search
-- [] **Super Bonus:** LaTex-style rendering
+- [] **Bonus:** Autosave and change-logs for notes
+- [] **Bonus:** LaTex-style rendering
 
 ## Design Docs
 * [View Wireframes][wireframes]
