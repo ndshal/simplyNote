@@ -1,0 +1,19 @@
+button {
+  display: inline-block;
+
+	background-color: $green;
+	border-color: $green;
+	color: white;
+	font-weight: 700;
+	padding: 8px;
+	border-radius: 3px;
+	transition: background-color 0.3s, border-color, 0.3s;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	font-size: 10px;
+	text-align: center;
+}
+
+button:hover {
+	background-color: $darker-green;
+}

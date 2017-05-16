@@ -1,7 +1,7 @@
 import React from 'react';
 import SessionForm from './session_form';
 
-export default ({formType, loggedIn, errors, processForm}) => (
+export default ({formType, loggedIn, errors, processForm, clearErrors}) => (
   <section className='splash-screen'>
     <nav>
       <img
@@ -13,6 +13,7 @@ export default ({formType, loggedIn, errors, processForm}) => (
       formType={formType}
       loggedIn={loggedIn}
       errors={errors}
+      clearErrors={clearErrors}
       processForm={processForm} />
   </section>
 );

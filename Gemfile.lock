@@ -215,6 +215,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rack-livereload
   rails (~> 5.0.2)
+  rb-fsevent
   sass-rails (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

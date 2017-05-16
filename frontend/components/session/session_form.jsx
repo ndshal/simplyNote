@@ -12,12 +12,25 @@ class SessionForm extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
   }
 
   componentWillReceiveProps(prevState, nextState) {
     if (nextState.loggedIn) {
       history.location.push('/home');
     }
+  }
+
+  handleDemo(e) {
+    e.persist();
+    this.setState({
+      username: 'john@example.com',
+      password: 'password'
+    }, () => this.handleSubmit(e));
   }
 
   handleSubmit(e) {
@@ -34,7 +47,7 @@ class SessionForm extends Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul className='session-errors'>
         {
           this.props.errors.map(
             (err, i) => <li key={i}>{err}</li>
@@ -57,7 +70,7 @@ class SessionForm extends Component {
       return (
         <div className='session-btns'>
           <button type='submit'>Sign In</button>
-          <button>Demo</button>
+          <button onClick={this.handleDemo}>Demo</button>
         </div>
       );
     } else {
@@ -74,9 +87,8 @@ class SessionForm extends Component {
       <form
         onSubmit={this.handleSubmit}
         className='session-form'>
-        
+
         <span className='description-message'>Its for notes</span>
-        {this.renderErrors()}
 
         <input
           placeholder="Username"
@@ -88,6 +100,7 @@ class SessionForm extends Component {
           value={this.state.password}
           onChange={this.update('password')} />
 
+        {this.renderErrors()}
         {this.renderButtons()}
         {this.navLink()}
       </form>
