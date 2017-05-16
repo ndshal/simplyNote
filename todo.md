@@ -21,8 +21,8 @@
 # Phase 1: Auth
 ## Backend
 - [x] User model, database and model level validations
-- [ ] User and Session routes and controllers, nested under api/
-- [ ] Login/Logout methods
+- [x] User and Session routes and controllers, nested under api/
+- [x] Login/Logout methods
 
 ## Frontend
 - [ ] Session API Util
