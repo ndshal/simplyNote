@@ -30,7 +30,7 @@
   - keep session in one slice of state, or split into
     currentUserReducer and formsReducer (takes errors, formType)
 - [ ] Session Form and routes
-- [ ] Bootstrap currentUser
+- [x] Bootstrap currentUser
 
 
 ### Some External Packages
