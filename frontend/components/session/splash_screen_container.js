@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SessionForm from './session_form';
+import SplashScreen from './splash_screen';
 import { signin, signup } from '../../actions/session_actions';
 
 const mapStateToProps = (state, { location }) => {
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch, { location } ) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SessionForm);
+)(SplashScreen);

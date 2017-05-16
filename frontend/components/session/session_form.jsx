@@ -44,20 +44,26 @@ class SessionForm extends Component {
     );
   }
 
+  navLink() {
+    if (this.props.formType === 'signin') {
+      return <Link to='/signup'>or Sign Up</Link>;
+    } else {
+      return <Link to='/signin'>or Sign In</Link>;
+    }
+  }
+
   renderButtons() {
     if (this.props.formType === 'signin') {
       return (
-        <div>
+        <div className='session-btns'>
           <button type='submit'>Sign In</button>
           <button>Demo</button>
-          <Link to='/signup'>or Sign Up</Link>;
         </div>
       );
     } else {
       return (
-        <div>
+        <div className='session-btns'>
           <button type='submit'>Sign Up</button>
-          <Link to='/signin'>or Sign In</Link>;
         </div>
       );
     }
@@ -66,7 +72,10 @@ class SessionForm extends Component {
   render() {
     return (
       <form
-        onSubmit={this.handleSubmit} >
+        onSubmit={this.handleSubmit}
+        className='session-form'>
+        
+        <span className='description-message'>Its for notes</span>
         {this.renderErrors()}
 
         <input
@@ -80,6 +89,7 @@ class SessionForm extends Component {
           onChange={this.update('password')} />
 
         {this.renderButtons()}
+        {this.navLink()}
       </form>
     );
   }
