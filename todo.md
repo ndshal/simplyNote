@@ -29,8 +29,19 @@
 - [x] Session reducer, session state shape
   - keep session in one slice of state, or split into
     currentUserReducer and formsReducer (takes errors, formType)
-- [ ] Session Form and routes
+- [x] Session Form and Auth / Protected routes
 - [x] Bootstrap currentUser
+- [ ] Page starts at either /signin or /home
+
+## Demo User
+- [ ] Backend user object
+- [ ] Store somewhere on frontend (bootstrap it?)
+- [ ] Demo button fills out form
+
+## Style
+ - [ ] Nav with logo (placeholder for now)
+ - [ ] Splash Screen?
+
 
 
 ### Some External Packages

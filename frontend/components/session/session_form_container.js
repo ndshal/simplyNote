@@ -14,7 +14,7 @@ const mapStateToProps = (state, { location }) => {
 const mapDispatchToProps = (dispatch, { location } ) => {
   const formType = location.pathname.slice(1);
   const action = formType === 'signin' ? signin : signup;
-  return { processFrom: user => dispatch(action(user)) };
+  return { processForm: user => dispatch(action(user)) };
 };
 
 export default connect(
