@@ -16,7 +16,7 @@ class SessionForm extends Component {
 
   componentWillReceiveProps(prevState, nextState) {
     if (nextState.loggedIn) {
-      history.location.push('/');
+      history.location.push('/home');
     }
   }
 

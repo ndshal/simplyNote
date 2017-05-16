@@ -31,7 +31,7 @@
     currentUserReducer and formsReducer (takes errors, formType)
 - [x] Session Form and Auth / Protected routes
 - [x] Bootstrap currentUser
-- [ ] Page starts at either /signin or /home
+- [x] Page starts at either /signin or /home
 
 ## Demo User
 - [ ] Backend user object
