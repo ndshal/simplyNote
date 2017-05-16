@@ -19,7 +19,17 @@
 - [x] Trello board
 
 # Phase 1: Auth
--
+## Backend
+- [x] User model, database and model level validations
+- [ ] User and Session routes and controllers, nested under api/
+- [ ] Login/Logout methods
+
+## Frontend
+- [ ] Session API Util
+- [ ] Session reducer, session state shape
+- [ ] Session Form and routes
+- [ ] Bootstrap currentUser
+
 
 ### Some External Packages
 * draft.js (rtf)
