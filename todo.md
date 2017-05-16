@@ -47,6 +47,16 @@
  - [x] Splash Screen
  - [ ] Footer for Splash Screen?
 
+# Phase 2: Notes
+## Backend
+- [ ] Notes model, database and model level validations
+- [ ] Notes controller, with CRUD API resources
+  **Fetch only currentUser's notes**
+
+## Frontend
+- [ ] Notes API util, actions, reducer
+- [ ] NotesIndex, NotesIndexItem, NotesDetail components
+
 
 
 ### Some External Packages

@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute } from '../../util/route_util';
+import { Route } from 'react-router-dom';
 
 export default () => (
   <section className='splash-screen'>
@@ -13,8 +14,8 @@ export default () => (
     <section className='splash-content'>
       <iframe src="https://giphy.com/embed/mCRJDo24UvJMA" allowFullScreen></iframe>
 
-      <AuthRoute path='/signin' component={SessionFormContainer} />
-      <AuthRoute path='/signup' component={SessionFormContainer} />
+      <Route path='/signin' component={SessionFormContainer} />
+      <Route path='/signup' component={SessionFormContainer} />
     </section>
   </section>
 );
