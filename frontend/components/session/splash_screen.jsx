@@ -4,7 +4,10 @@ import SessionForm from './session_form';
 export default ({formType, loggedIn, errors, processForm}) => (
   <section className='splash-screen'>
     <nav>
-      <h2> Its a header </h2>
+      <img
+        src='https://maxcdn.icons8.com/Share/icon/dotty/User_Interface//ios_application_placeholder1600.png'
+        alt='placeholder-log' />
+      <h1>SimplyNote</h1>
     </nav>
     <SessionForm
       formType={formType}
