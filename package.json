@@ -1,0 +1,38 @@
+{
+  "name": "simplyNote",
+  "version": "1.0.0",
+  "description": "SimplyNote is a web application inspired by Evernote, with a Ruby on Rails backend and a React/Redux frontend. It is currently very much in development.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndshal/simplyNote.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ndshal/simplyNote/issues"
+  },
+  "homepage": "https://github.com/ndshal/simplyNote#readme",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "lodash": "^4.17.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "redux": "^3.6.0",
+    "webpack": "^2.5.1"
+  }
+}
