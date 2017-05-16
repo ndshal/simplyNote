@@ -5,10 +5,10 @@ import { merge } from 'lodash';
 class SessionForm extends Component {
   constructor(props) {
     super(props);
-    this.state({
+    this.state = {
       username: '',
       password: ''
-    });
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.update = this.update.bind(this);

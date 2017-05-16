@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Link, Route} from 'react-router-dom';
 import SessionFormContainer from './session/session_form_container';
 
 const App = (props) => (
@@ -7,9 +7,8 @@ const App = (props) => (
     <header>
       <h3> Welcome to SimplyNote </h3>
     </header>
-
-    <Route path='/signin' container={SessionFormContainer} />
-    <Route path='/signup' container={SessionFormContainer} />
+    <Route path='/signin' component={SessionFormContainer} />
+    <Route path='/signup' component={SessionFormContainer} />
   </div>
 );
 
