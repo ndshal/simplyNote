@@ -1,7 +1,8 @@
 import React from 'react';
-import SessionForm from './session_form';
+import SessionFormContainer from './session_form_container';
+import { AuthRoute } from '../../util/route_util';
 
-export default ({formType, loggedIn, errors, processForm, clearErrors}) => (
+export default () => (
   <section className='splash-screen'>
     <nav>
       <img
@@ -9,15 +10,11 @@ export default ({formType, loggedIn, errors, processForm, clearErrors}) => (
         alt='placeholder-log' />
       <h1>SimplyNote</h1>
     </nav>
-    <section className='session-form'>
+    <section className='splash-content'>
       <iframe src="https://giphy.com/embed/mCRJDo24UvJMA" allowFullScreen></iframe>
-      
-      <SessionForm
-        formType={formType}
-        loggedIn={loggedIn}
-        errors={errors}
-        clearErrors={clearErrors}
-        processForm={processForm} />
+
+      <AuthRoute path='/signin' component={SessionFormContainer} />
+      <AuthRoute path='/signup' component={SessionFormContainer} />
     </section>
   </section>
 );
