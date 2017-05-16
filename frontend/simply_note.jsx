@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import Root from './components/root';
 
 import { signin, signout } from './actions/session_actions';
 window.signin = signin;
@@ -18,5 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.store = store;
-  ReactDOM.render(<h1>Hello There</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
 });
