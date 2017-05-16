@@ -27,6 +27,8 @@
 ## Frontend
 - [ ] Session API Util
 - [ ] Session reducer, session state shape
+  - keep session in one slice of state, or split into
+    currentUserReducer and formsReducer (takes errors, formType)
 - [ ] Session Form and routes
 - [ ] Bootstrap currentUser
 

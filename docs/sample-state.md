@@ -4,10 +4,10 @@
     id: 1,
     username: 'john'
   },
-  forms: {
-    signin: { errors: [] },
-    signup: { errors: [] }.
-    createNote: { errors: [] }
+  errors: {
+    signin: [],
+    signup: [],
+    createNote: []
   },
   notes: {
     1: {
