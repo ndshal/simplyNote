@@ -85,8 +85,7 @@ class SessionForm extends Component {
   render() {
     return (
       <form
-        onSubmit={this.handleSubmit}
-        className='session-form'>
+        onSubmit={this.handleSubmit}>
 
         <span className='description-message'>Its for notes</span>
 

@@ -25,7 +25,9 @@
   height: 70px;
 }
 
-.session-form {
+.session-form form {
+  position: relative;
+
   font-size: 20px;
 
   display: flex;
@@ -35,7 +37,10 @@
 }
 
 .session-form .description-message {
-  font-size: 24px;
+  font-size: 30px;
+  font-family: $sans-serif;
+  color: white;
+  text-transform: uppercase;
   margin: 80px 0;
 }
 
@@ -51,9 +56,10 @@
 }
 
 .session-btns {
-  width: 40%;
+  width: 34%;
 
-  margin: 20px 0;
+  margin: 10px 0;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
 }
@@ -61,7 +67,7 @@
 .session-form button {
   flex-grow: 2;
   font-size: 16px;
-  margin: 20px;
+  margin: 0 10px;
 }
 
 .session-errors {
@@ -74,4 +80,11 @@
   color: white;
   padding: 4px;
   margin: 5px 0;
+}
+
+.session-form iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
 }

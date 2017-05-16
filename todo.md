@@ -18,6 +18,9 @@
 - [x] Implementation Timeline
 - [x] Trello board
 
+# Phase 0: Heroku
+ - [ ] Host on heroku
+
 # Phase 1: Auth
 ## Backend
 - [x] User model, database and model level validations
@@ -34,13 +37,15 @@
 - [x] Page starts at either /signin or /home
 
 ## Demo User
-- [ ] Backend user object
+- [x] Backend user object
 - [ ] Store somewhere on frontend (bootstrap it?)
-- [ ] Demo button fills out form
+   - Currently in session form, ask Luke!
+- [x] Demo button fills out form
 
 ## Style
- - [ ] Nav with logo (placeholder for now)
- - [ ] Splash Screen?
+ - [x] Nav with logo (placeholder for now)
+ - [x] Splash Screen
+ - [ ] Footer for Splash Screen?
 
 
 

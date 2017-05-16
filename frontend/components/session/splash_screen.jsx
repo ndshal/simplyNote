@@ -9,11 +9,15 @@ export default ({formType, loggedIn, errors, processForm, clearErrors}) => (
         alt='placeholder-log' />
       <h1>SimplyNote</h1>
     </nav>
-    <SessionForm
-      formType={formType}
-      loggedIn={loggedIn}
-      errors={errors}
-      clearErrors={clearErrors}
-      processForm={processForm} />
+    <section className='session-form'>
+      <iframe src="https://giphy.com/embed/mCRJDo24UvJMA" allowFullScreen></iframe>
+      
+      <SessionForm
+        formType={formType}
+        loggedIn={loggedIn}
+        errors={errors}
+        clearErrors={clearErrors}
+        processForm={processForm} />
+    </section>
   </section>
 );
