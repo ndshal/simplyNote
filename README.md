@@ -9,4 +9,4 @@ To track the progress or find out more, see
  * [Heroku][heroku]
 
 [dev-readme]: docs/README.md
-[heroku]: http://www.herokuapp.com
+[heroku]: https://simplynote.herokuapp.com/

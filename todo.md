@@ -19,7 +19,7 @@
 - [x] Trello board
 
 # Phase 0: Heroku
- - [ ] Host on heroku
+ - [x] Host on heroku
 
 # Phase 1: Auth
 ## Backend

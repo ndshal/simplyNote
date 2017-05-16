@@ -1,10 +1,10 @@
 # SimplyNote
 
-[Heroku][heroku] **Note:** Will update this once deployed
+[Heroku][heroku]
 
 [Trello][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://simplynote.herokuapp.com
 [trello]: https://trello.com/b/FotzNacu/simplynote
 
 ## Minimum Viable Product
