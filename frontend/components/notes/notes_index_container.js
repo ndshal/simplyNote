@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
+import { values } from 'lodash';
 import NotesIndex from './notes_index';
-import { selectNotesByFilter } from '../../reducers/selectors';
 
 const mapStateToProps = (state, { filter }) => {
   let heading;
@@ -12,7 +12,7 @@ const mapStateToProps = (state, { filter }) => {
   }
 
   return {
-    notes: selectNotesByFilter(state, filter),
+    notes: values(state.notes),
     heading
   };
 };

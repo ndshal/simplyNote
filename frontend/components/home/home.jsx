@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Nav from './nav';
-import Notes from './../notes/notes';
+import NotesContainer from './../notes/notes_container';
 
 class Home extends Component {
   render() {
@@ -12,8 +12,8 @@ class Home extends Component {
           <button onClick={this.props.signout}>Sign Out</button>
         </header>
         <Nav />
-        <Route path='/home/notes' component={Notes} />
-        <Route path='/home/:object/:objectId/notes' component={Notes} />
+        <Route path='/home/notes' component={NotesContainer} />
+        <Route path='/home/:object/:objectId/notes' component={NotesContainer} />
       </secion>
     );
   }

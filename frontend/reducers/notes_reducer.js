@@ -9,7 +9,7 @@ const notesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_NOTES:
-      return merge({}, state, action.notes);
+      return action.notes;
     case RECIEVE_SINGLE_NOTE:
       return merge({}, state, {[action.note.id]: action.note});
     case REMOVE_NOTE:

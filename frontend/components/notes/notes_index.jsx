@@ -1,8 +1,12 @@
 import React from 'react';
+import NoteIndexItem from './note_index_item';
 
-const NotesIndex = props => (
+const NotesIndex = ({ heading, notes }) => (
   <aside className='notes-index'>
-    <h2> {props.heading} </h2>
+    <header> {heading}</header>
+    <ul>
+      { notes.map(note => <NoteIndexItem key={note.id} {...note} />) }
+    </ul>
   </aside>
 );
 
