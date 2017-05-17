@@ -13,7 +13,7 @@
     1: {
       id: 1,
       title: 'Note 1',
-      body: 'Body 1',  //this will be html when in RTF (?)
+      body_preview: 'Body 1',  // 100 char preview of body
       notebook_id: 1,
       tag_ids: [1,2,3]
     }

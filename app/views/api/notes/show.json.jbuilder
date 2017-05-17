@@ -1,1 +1,1 @@
-json.extract! @note, :id, :title, :body, :notebook_id
+json.partial! 'note', note: @note 

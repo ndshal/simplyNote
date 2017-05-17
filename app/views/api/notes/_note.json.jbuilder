@@ -1,1 +1,1 @@
-json.extract! note, :id, :title, :body_preview, :notebook_id
+json.extract! note, :id, :title, :body, :notebook_id
