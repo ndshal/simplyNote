@@ -43,7 +43,7 @@ Note.create!(
 Note.create!(
   notebook_id: react.id,
   author_id: john.id,
-  title: 'Diffing Algorithm,
+  title: 'Diffing Algorithm',
   body: "When rendering, React creates a tree of React elements.
     When state or props update, React then renders a tree of potentially different elements.
     The diffing algorithm figures out how to efficiently update the DOM,

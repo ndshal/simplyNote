@@ -6,7 +6,7 @@ export default () => (
     <Link to='/home/notes/new'>
       <i className="fa fa-plus-circle"></i>
     </Link>
-    <Link to='/home/notes/'>
+    <Link to='/home/notes'>
       <i className="fa fa-file-text"></i>
     </Link>
     <Link to='/home/notebooks'>
