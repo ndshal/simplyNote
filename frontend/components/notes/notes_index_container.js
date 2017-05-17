@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { values } from 'lodash';
 import NotesIndex from './notes_index';
 
-const mapStateToProps = (state, { filter }) => {
+const mapStateToProps = (state, { url, filter }) => {
   let heading;
   if (filter.object) {
     const objectName = state[`${filter.object}s`][filter.objectId].name;
@@ -13,6 +13,7 @@ const mapStateToProps = (state, { filter }) => {
 
   return {
     notes: values(state.notes),
+    url,
     heading
   };
 };

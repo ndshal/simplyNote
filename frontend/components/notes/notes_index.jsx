@@ -1,11 +1,15 @@
 import React from 'react';
 import NoteIndexItem from './note_index_item';
 
-const NotesIndex = ({ heading, notes }) => (
+const NotesIndex = ({ heading, notes, url }) => (
   <aside className='notes-index'>
     <header>{heading}</header>
     <ul>
-      { notes.map(note => <NoteIndexItem key={note.id} {...note} />) }
+      { notes.map(
+        note => <NoteIndexItem
+        key={note.id}
+        linkPath={`${url}/${note.id}`}
+        {...note} />) }
     </ul>
   </aside>
 );

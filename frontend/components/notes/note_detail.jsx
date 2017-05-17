@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const NoteDetail = (props) => (
-  <section className='note-detail'>
-    <h1>Viewing note # {props.match.params.noteId}</h1>
-  </section>
-);
+class NoteDetail extends Component {
+  render() {
+    const { title, body } = this.props.note;
+
+    return (
+      <section className='note-detail'>
+        <header>
+          {title}
+        </header>
+        <p>
+          {body}
+        </p>
+      </section>
+    );
+  }
+}
+
+
 
 export default NoteDetail;

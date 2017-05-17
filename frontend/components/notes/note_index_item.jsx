@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NoteIndexItem extends Component {
   bodyPreview() {
@@ -15,8 +16,10 @@ class NoteIndexItem extends Component {
   render () {
     return (
       <li>
-        <header>{this.props.title}</header>
-        <p>{this.bodyPreview()}</p>
+        <Link to={this.props.linkPath}>
+          <header>{this.props.title}</header>
+          <p>{this.bodyPreview()}</p>
+        </Link>
       </li>
     );
   }
