@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
+  def ensure_logged_in
+    if !logged_in
+      render json: ['Must be logged in to access notes'], status: 404
+    end
+  end
+
   private
 
   def user_params

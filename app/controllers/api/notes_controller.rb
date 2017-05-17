@@ -1,6 +1,9 @@
 class Api::NotesController < ApplicationController
+  before_action :ensure_logged_in
+
   def index
-    @notes = Note.find_by(author_id: current_user.id)
+    @notes = Note.where(author_id: current_user.id)
+    debugger
   end
 
   def show
