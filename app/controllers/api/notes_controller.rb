@@ -3,7 +3,6 @@ class Api::NotesController < ApplicationController
 
   def index
     @notes = Note.where(author_id: current_user.id)
-    debugger
   end
 
   def show

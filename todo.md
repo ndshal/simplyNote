@@ -49,8 +49,8 @@
 
 # Phase 2: Notes
 ## Backend
-- [ ] Notes model, database and model level validations
-- [ ] Notes controller, with CRUD API resources
+- [x] Notes model, database and model level validations
+- [x] Notes controller, with CRUD API resources
 - [ ] Decide if index should not fetch entire not contents
   **Fetch only currentUser's notes**
 
