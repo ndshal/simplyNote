@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(username: 'john@example.com', password: 'password')
+Notebook.create(title: '_default', author_id: 1)
