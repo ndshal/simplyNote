@@ -28,6 +28,6 @@ export const signup = user => dispatch => (
 
 export const signout = () => dispatch => (
   SessionAPIUtil.signout()
-    .then(() => dispatch(receiveCurrentUser(null)))
+    .then(() => dispatch(receiveCurrentUser({})))
     .then(() => dispatch(clearErrors()))
 );

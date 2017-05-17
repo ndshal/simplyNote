@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SessionFormContainer from './session_form_container';
 import { AuthRoute } from '../../util/route_util';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
-export default () => (
+const SplashScreen = () => (
   <section className='splash-screen'>
     <nav>
       <img
@@ -14,8 +14,10 @@ export default () => (
     <section className='splash-content'>
       <iframe src="https://giphy.com/embed/mCRJDo24UvJMA" allowFullScreen></iframe>
 
-      <Route path='/signin' component={SessionFormContainer} />
-      <Route path='/signup' component={SessionFormContainer} />
+      <Route path='/splash/signin' component={SessionFormContainer} />
+      <Route path='/splash/signup' component={SessionFormContainer} />
     </section>
   </section>
 );
+
+export default withRouter(SplashScreen);

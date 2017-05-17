@@ -38,7 +38,7 @@
 
 ## Demo User
 - [x] Backend user object
-- [ ] Store somewhere on frontend (bootstrap it?)
+- [x] Store somewhere on frontend (bootstrap it?)
    - Currently in session form, ask Luke!
 - [x] Demo button fills out form
 

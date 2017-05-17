@@ -59,9 +59,9 @@ class SessionForm extends Component {
 
   navLink() {
     if (this.props.formType === 'signin') {
-      return <Link to='/signup'>or Sign Up</Link>;
+      return <Link to='/splash/signup'>or Sign Up</Link>;
     } else {
-      return <Link to='/signin'>or Sign In</Link>;
+      return <Link to='/splash/signin'>or Sign In</Link>;
     }
   }
 
@@ -100,8 +100,8 @@ class SessionForm extends Component {
           value={this.state.password}
           onChange={this.update('password')} />
 
-        {this.renderErrors()}
         {this.renderButtons()}
+        {this.renderErrors()}
         {this.navLink()}
       </form>
     );
