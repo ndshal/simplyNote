@@ -20,3 +20,6 @@ class NoteDetail extends Component {
 
 
 export default NoteDetail;
+
+
+// conditional to render
