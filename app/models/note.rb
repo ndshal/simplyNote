@@ -1,4 +1,3 @@
 class Note < ApplicationRecord
-  validates :title, :body, :author, :notebook, presence: true
-  belongs_to :author, className: User
+  validates :title, :body, presence: true
 end
