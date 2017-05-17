@@ -58,7 +58,9 @@
 - [x] Notes API util, actions, reducer
 - [ ] NotesIndex, NotesIndexItem, NotesDetail components
 
-
+# Phase 3: Notebooks
+## Backend
+ - [ ] Use params[:filter] to filter 'api_notes#index' results
 
 ### Some External Packages
 * draft.js (rtf)

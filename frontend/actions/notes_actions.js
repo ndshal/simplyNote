@@ -20,8 +20,8 @@ export const removeNote = id => ({
   id
 });
 
-export const fetchAllNotes = () => dispatch => (
-  NoteAPIUtil.fetchAllNotes()
+export const fetchAllNotes = filter => dispatch => (
+  NoteAPIUtil.fetchAllNotes(filter)
     .then(notes => dispatch(receiveAllNotes(notes)))
 );
 
