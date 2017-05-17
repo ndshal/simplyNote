@@ -55,7 +55,7 @@
   **Fetch only currentUser's notes**
 
 ## Frontend
-- [ ] Notes API util, actions, reducer
+- [x] Notes API util, actions, reducer
 - [ ] NotesIndex, NotesIndexItem, NotesDetail components
 
 

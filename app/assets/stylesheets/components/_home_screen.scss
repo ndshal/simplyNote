@@ -1,0 +1,33 @@
+.home-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home-content header {
+  width: 100%
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  flex: 1;
+  border: 1px solid black;
+}
+
+.notes {
+  flex: 19;
+  display: flex;
+}
+
+.notes-index {
+  flex: 3;
+  border: 1px solid black;
+}
+
+.note-detail {
+  flex: 7;
+  border: 1px solid black;
+}
