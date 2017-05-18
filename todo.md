@@ -57,9 +57,11 @@
 - [x] Notes API util, actions, reducer
 - [x] Refactor state so that show page is own slice
 - [x] NotesIndex
-- [ ] NotesIndexItem
+- [x] NotesIndexItem
   * Delete Button -> Form delete button, redirect to /notes,
   index will take care of showing a new note!
+- [x] Modal for delete button
+- [x] Style index
 - [ ] NotesDetail
 
 # Phase 3: Notebooks
@@ -71,6 +73,4 @@
 * quill.js / react-quill (rtf)
 * react-latex
 
-- [ ] Modal for delete button
-- [x] Style index
 - [ ] Rewrite timeline, work on rtf next!
