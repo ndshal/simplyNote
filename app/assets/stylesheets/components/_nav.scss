@@ -1,0 +1,25 @@
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $light-grey;
+  border-right: 1px solid $grey;
+}
+
+.side-nav link {
+}
+
+.side-nav i {
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: $green;
+}
+
+.side-nav i:hover {
+  font-size: 24px;
+  background: $green;
+  color: white;
+}

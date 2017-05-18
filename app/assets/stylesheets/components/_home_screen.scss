@@ -1,33 +1,28 @@
 .home-content {
   display: flex;
   flex-wrap: wrap;
+  height: 100%
 }
 
-.home-content header {
+.home-content footer {
   width: 100%
 }
 
 .side-nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-
-  flex: 1;
-  border: 1px solid black;
+  width: 4.9%;
 }
 
 .notes {
-  flex: 19;
+  width: 95%;
   display: flex;
 }
 
 .notes-index {
-  flex: 3;
-  border: 1px solid black;
+  width: 26.3%;
+  z-index: 1;
 }
 
 .note-detail {
-  flex: 7;
-  border: 1px solid black;
+  flex: 73.6%;
+  z-index: 2;
 }

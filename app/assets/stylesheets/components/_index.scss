@@ -1,0 +1,52 @@
+.notes-index {
+  border-right: 1px solid $grey;
+}
+
+.notes-index header {
+  padding-left: 30px;
+}
+
+.header-title {
+  color: $darker-grey;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.note-count {
+  color: $dark-grey;
+  font-size: 18px;
+  text-transform: lowercase;
+}
+
+.index-item:hover {
+  background: $green;
+}
+
+.index-item:hover button {
+  display: block;
+}
+
+.index-item header {
+  position: relative;
+}
+
+.index-item header h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+
+.index-item header h3 {
+
+}
+
+.index-item button {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.current-note {
+  border: 2px solid $dark-grey;
+}

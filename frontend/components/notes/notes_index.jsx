@@ -17,8 +17,8 @@ class NotesIndex extends Component {
     return(
       <aside className='notes-index'>
         <header>
-          <div>{heading}</div>
-          <div>{notes.length} Notes</div>
+          <div className='header-title'>{heading}</div>
+          <div className='note-count'>{notes.length} Notes</div>
         </header>
         <ul>
           { notes.map(

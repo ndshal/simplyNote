@@ -7,13 +7,13 @@ class Home extends Component {
   render() {
     return (
       <secion className='home-content'>
-        <header>
-          <h2> Welcome, {this.props.currentUser.username}</h2>
-          <button onClick={this.props.signout}>Sign Out</button>
-        </header>
         <Nav />
         <Route path='/home/notes' component={NotesContainer} />
         <Route path='/home/:object/:objectId/notes' component={NotesContainer} />
+        <footer>
+          <h2> Welcome, {this.props.currentUser.username}</h2>
+          <button onClick={this.props.signout}>Sign Out</button>
+        </footer>
       </secion>
     );
   }
