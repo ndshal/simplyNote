@@ -23,11 +23,22 @@ class RichEditor extends Component {
     }
     this.state = {editorState};
 
-    this.onChange = (editorState) => this.setState({editorState});
+    this.onChange = (editorState) => (
+      this.setState(
+        {editorState},
+        this.props.onChange(
+          convertToRaw(editorState.getCurrentContent())
+        )
+      )
+    );
 
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.handleExport = this.handleExport.bind(this);
+  }
+
+  componentDidUpdate() {
+    console.log('rtf editor updated!');
   }
 
   handleKeyCommand(command) {
