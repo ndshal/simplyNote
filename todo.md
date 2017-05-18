@@ -56,7 +56,12 @@
 
 ## Frontend
 - [x] Notes API util, actions, reducer
-- [ ] NotesIndex, NotesIndexItem, NotesDetail components
+- [ ] Refactor state so that show page is own slice
+- [x] NotesIndex
+- [ ] NotesIndexItem
+  * Updated At
+  * Delete Button
+- [ ] NotesDetail
 
 # Phase 3: Notebooks
 ## Backend

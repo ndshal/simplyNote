@@ -5,7 +5,7 @@ import NoteIndexItem from './note_index_item';
 class NotesIndex extends Component {
   componentWillReceiveProps(newProps) {
     const currentPath = newProps.location.pathname;
-    if(currentPath.endsWith('notes') && newProps.notes[0]) {
+    if(currentPath.endsWith('notes')) {
       newProps.history.push(
         `${currentPath}/${newProps.notes[0].id}`
       );
@@ -16,7 +16,10 @@ class NotesIndex extends Component {
     const { heading, notes, url } = this.props;
     return(
       <aside className='notes-index'>
-        <header>{heading}</header>
+        <header>
+          <div>{heading}</div>
+          <div>{notes.length} Notes</div>
+        </header>
         <ul>
           { notes.map(
             note => <NoteIndexItem

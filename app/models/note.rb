@@ -5,6 +5,7 @@ class Note < ApplicationRecord
   belongs_to :notebook
 
   def body_preview
-    self.body[0..40]
+    words = self.body.split[0..10].join(' ')
+    words.length < 40 ? words : self.body[0..40]
   end
 end

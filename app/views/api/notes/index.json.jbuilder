@@ -1,5 +1,5 @@
 @notes.each do |note|
   json.set! note.id do
-    json.partial! 'note', note: note
+    json.extract! note, :id, :title, :body_preview, :updated_at
   end
 end

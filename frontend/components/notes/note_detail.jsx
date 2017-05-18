@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
 class NoteDetail extends Component {
+   componentDidMount() {
+     this.props.fetchNote();
+   }
+
+   componentWillReceiveProps(newProps) {
+     if(this.props.pathId !== newProps.pathId) {
+       newProps.fetchNote();
+     }
+   }
+
   render() {
     const { title, body } = this.props.note;
 
@@ -17,9 +27,4 @@ class NoteDetail extends Component {
   }
 }
 
-
-
 export default NoteDetail;
-
-
-// conditional to render
