@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
+import { merge } from 'lodash';
 import RichEditor from '../editor/editor';
 
 class NoteDetail extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       title: '',
-      body: {},
+      body: '',
     };
 
     this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
    componentDidMount() {
      this.props.fetchNote();
    }
 
-   componentDidUpdate(){
-     console.log('form updated!');
-   }
-
    componentWillReceiveProps(newProps) {
      if(this.props.pathId !== newProps.pathId) {
-       newProps.fetchNote();
+       newProps.fetchNote()
+       .then(({note}) => this.setState(note));
      }
    }
 
@@ -30,20 +29,27 @@ class NoteDetail extends Component {
     return value => this.setState({[field]: value});
   }
 
-  render() {
-    const { title, body } = this.props.note;
+  handleSubmit(e) {
+    e.preventDefault();
+    const note = merge({}, this.state);
+    this.props.updateNote(note);
+  }
 
+  render() {
+    console.log(this.state);
     return (
       <from
-        className='note-detail'>
+        className='note-detail'
+        onSubmit={this.handleSubmit}>
         <input
           onChange={(e) => this.update('title')(e.target.value)}
           value={this.state.title}
           placeholder='title your note...'/>
 
         <RichEditor
-          content={body}
+          content={this.state.body}
           onChange={this.update('body')} />
+        <button type='submit'>Save Note</button>
       </from>
     );
   }

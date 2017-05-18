@@ -12,16 +12,7 @@ import { InlineStyleControls } from './style_controls';
 class RichEditor extends Component {
   constructor(props) {
     super(props);
-
-    let editorState;
-    if (this.props.content) {
-      const contentState = ContentState.createFromText(props.content);
-      editorState = EditorState.createWithContent(contentState);
-    }
-    else {
-      editorState = EditorState.createEmpty();
-    }
-    this.state = {editorState};
+    this.state = {editorState: EditorState.createEmpty()};
 
     this.onChange = (editorState) => (
       this.setState(
@@ -37,8 +28,13 @@ class RichEditor extends Component {
     this.handleExport = this.handleExport.bind(this);
   }
 
-  componentDidUpdate() {
-    console.log('rtf editor updated!');
+  componentWillReceiveProps(newProps) {
+    if (newProps.content !== this.props.content) {
+      const contentState = ContentState.createFromText(newProps.content);
+      const editorState = EditorState.createWithContent(contentState);
+
+      this.setState({editorState})
+    }
   }
 
   handleKeyCommand(command) {

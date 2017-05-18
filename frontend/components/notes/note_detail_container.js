@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSingleNote } from '../../actions/notes_actions';
+import { fetchSingleNote, updateNote } from '../../actions/notes_actions';
 import NoteDetail from './note_detail';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch, { match }) => ({
   pathId: match.params.noteId,
-  fetchNote: () => dispatch(fetchSingleNote(match.params.noteId))
+  fetchNote: () => dispatch(fetchSingleNote(match.params.noteId)),
+  updateNote: note => dispatch(updateNote(note))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoteDetail);
