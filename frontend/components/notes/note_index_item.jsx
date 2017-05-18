@@ -9,7 +9,8 @@ class NoteIndexItem extends Component {
       showDelete: false
     };
 
-    this.toggleDelete = this.toggleDelete.bind(this);
+    this.toggleDeleteView = this.toggleDeleteView.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -31,8 +32,18 @@ class NoteIndexItem extends Component {
     }
   }
 
-  toggleDelete() {
+  toggleDeleteView() {
     this.setState({showDelete: !this.state.showDelete});
+  }
+
+  handleDelete() {
+    const path = this.props.location.pathname;
+    const indexPath = path.match(/(.*)\/\d*/)[1];
+
+    this.props.deleteNote()
+      .then(
+        () => this.props.history.push(indexPath)
+      );
   }
 
   render () {
@@ -52,7 +63,7 @@ class NoteIndexItem extends Component {
           <div className='index-item-content'>
             <h3>{this.props.title}</h3>
             <h4>{this.props.updated_at} ago</h4>
-            <button onClick={this.toggleDelete}>
+            <button onClick={this.toggleDeleteView}>
               <i className='fa fa-trash'></i>
             </button>
             <p></p>
@@ -63,10 +74,10 @@ class NoteIndexItem extends Component {
             <span className='delete-btns'>
               <i
                 className='fa fa-times-circle'
-                onClick={this.toggleDelete}></i>
+                onClick={this.toggleDeleteView}></i>
               <i
                 className='fa fa-check-circle'
-                onClick={this.props.deleteNote}></i>
+                onClick={this.handleDelete}></i>
             </span>
           </div>
         </li>
