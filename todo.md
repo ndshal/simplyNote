@@ -72,5 +72,3 @@
 * draft.js (rtf)
 * quill.js / react-quill (rtf)
 * react-latex
-
-- [ ] Rewrite timeline, work on rtf next!

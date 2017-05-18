@@ -51,26 +51,26 @@ Home page with nav bar, notes index, and note detail view.
 
 **Goal Completion Date:** Fri, May 19 (w8d5)
 
+### Phase 5: Rich Text Editing of Notes (2 days)
+**Objective:** Replace notes view and editing with a WYSIWYG text editor,
+either [Draft.js][draft] or [Quill.js][quill]/[react-quill][react-quill].
+Update database structure to allow notes to be saved with styling.
+
+**Goal Completion Date:** Tues, May 25 (w9d2)
+
 ### Phase 3: Notebooks API, notebooks index (1 day)
 **Objective:** Users can create notebooks, filter notes by notebooks.
 Adequately styled views for notebooks index and home page with notes
 belonging to one particular notebook.
 
-**Goal Completion Date:** Mon, May 22 (w9d1)
+**Goal Completion Date:** Wed, May 22 (w9d3)
 
 ### Phase 4: Tags API, tags index (1 day)
 **Objective:** Users can create tags, attach multiple tags to one note.
 Adequately styled views for tags index and home page with notes
 belonging to one particular tag.
 
-**Goal Completion Date:** Tues, May 23 (w9d2)
-
-### Phase 5: Rich Text Editing of Notes (2 days)
-**Objective:** Replace notes view and editing with a WYSIWYG text editor,
-either [Draft.js][draft] or [Quill.js][quill]/[react-quill][react-quill].
-Update database structure to allow notes to be saved with styling.
-
-**Goal Completion Date:** Thur, May 25 (w9d4)
+**Goal Completion Date:** Thurs, May 23 (w9d4)
 
 [draft]: https://github.com/facebook/draft-js
 [quill]: https://quilljs.com/
