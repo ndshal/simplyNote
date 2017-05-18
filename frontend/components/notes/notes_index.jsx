@@ -25,6 +25,7 @@ class NotesIndex extends Component {
             note => <NoteIndexItem
             key={note.id}
             linkPath={`${url}/${note.id}`}
+            deleteNote={()=>this.props.deleteNote(note.id)}
             {...note} />) }
         </ul>
       </aside>

@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { values } from 'lodash';
+import { deleteNote } from '../../actions/notes_actions';
 import NotesIndex from './notes_index';
 
 const mapStateToProps = (state, { url, filter }) => {
@@ -18,4 +19,11 @@ const mapStateToProps = (state, { url, filter }) => {
   };
 };
 
-export default connect(mapStateToProps)(NotesIndex);
+const mapDispatchToProps = dispatch => ({
+  deleteNote: id => dispatch(deleteNote(id))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NotesIndex);

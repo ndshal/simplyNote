@@ -56,7 +56,7 @@
 
 ## Frontend
 - [x] Notes API util, actions, reducer
-- [ ] Refactor state so that show page is own slice
+- [x] Refactor state so that show page is own slice
 - [x] NotesIndex
 - [ ] NotesIndexItem
   * Updated At
