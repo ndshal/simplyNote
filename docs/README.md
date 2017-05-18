@@ -14,9 +14,9 @@ backend and a React/Redux frontend. By the end of Week 9, this app will,
 at minimum, support the following features with smooth, bug-free
 navigation, adequate seed data and sufficient CSS styling:
 
-- [ ] New account creation, login, guest/demo login
+- [x] New account creation, login, guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Hosting on Heroku
+- [x] Hosting on Heroku
 - [ ] Notes
 - [ ] Notebooks
 - [ ] Tags
