@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
       <secion className='home-content'>
-        <Nav />
+        <Nav signout={this.props.signout}/>
         <Route path='/home/notes' component={NotesContainer} />
         <Route path='/home/:object/:objectId/notes' component={NotesContainer} />
         <footer>

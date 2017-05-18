@@ -2,13 +2,19 @@
   border-right: 1px solid $grey;
 }
 
-.notes-index header {
-  padding-left: 30px;
+.index-item {
+  position: relative;
+}
+
+.notes-index > header {
+  padding-left: 15px;
+  padding-top: 10px;
+  border-bottom: 1px solid $grey;
 }
 
 .header-title {
   color: $darker-grey;
-  font-size: 22px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
@@ -16,28 +22,96 @@
   color: $dark-grey;
   font-size: 18px;
   text-transform: lowercase;
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+.index-item {
+  padding: 10px;
+  padding-top: 0;
+  margin-top: 2px;
+}
+
+.index-item-content {
+  position: relative;
+
+  padding-top: 10px;
+  border-top: 1px solid $grey;
+  padding-bottom: 50px; // placeholder for body preview
+}
+
+.notes-index a:first-of-type .index-item-content{
+  border-top: 0;
+}
+
+.index-item-content h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.index-item-content h4 {
+  color: $dark-grey;
+  font-size: 14;
+  margin-bottom: 2px;
+}
+
+.index-item-content p {
+  background: grey;
+}
+
+.current-note {
+  outline: 2px solid $dark-grey;
 }
 
 .index-item:hover {
   background: $green;
 }
 
+.index-item:hover .index-item-content h3 {
+  color: white;
+}
+
+.index-item:hover .index-item-content h4 {
+  color: white;
+}
+
 .index-item:hover button {
   display: block;
 }
 
-.index-item header {
-  position: relative;
+.index-item:hover .index-item-content {
+  border-top: 1px solid $green;
 }
 
-.index-item header h3 {
-  padding: 0;
-  margin: 0;
-  font-size: 16px;
+.delete-view {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: $darkest;
+  color: white;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
+  font-size: 14px;
 }
 
-.index-item header h3 {
+.delete-view span {
+  padding-left: 10px;
+}
 
+.delete-btns {
+  font-size: 20px;
+}
+
+.delete-btns i {
+  padding: 3px;
 }
 
 .index-item button {
@@ -45,8 +119,4 @@
   position: absolute;
   top: 0;
   right: 0;
-}
-
-.current-note {
-  border: 2px solid $dark-grey;
 }

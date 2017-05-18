@@ -8,7 +8,25 @@
   border-right: 1px solid $grey;
 }
 
-.side-nav link {
+.top-links {
+  padding-top: 80px;
+  margin-bottom: auto;
+}
+
+.center-links {
+  padding-left: 7px;
+}
+
+.bottom-links {
+  padding-top: 10px;
+  border-top: 1px solid $grey;
+  margin-top: auto;
+  padding-bottom: 80px;
+}
+
+.bottom-links button {
+  background: inherit;
+  color: green;
 }
 
 .side-nav i {

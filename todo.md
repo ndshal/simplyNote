@@ -51,16 +51,15 @@
 ## Backend
 - [x] Notes model, database and model level validations
 - [x] Notes controller, with CRUD API resources
-- [ ] Decide if index should not fetch entire not contents
-  **Fetch only currentUser's notes**
+- [x] Decide if index should not fetch entire not contents
 
 ## Frontend
 - [x] Notes API util, actions, reducer
 - [x] Refactor state so that show page is own slice
 - [x] NotesIndex
 - [ ] NotesIndexItem
-  * Updated At
-  * Delete Button
+  * Delete Button -> Form delete button, redirect to /notes,
+  index will take care of showing a new note!
 - [ ] NotesDetail
 
 # Phase 3: Notebooks
@@ -71,3 +70,7 @@
 * draft.js (rtf)
 * quill.js / react-quill (rtf)
 * react-latex
+
+- [ ] Modal for delete button
+- [x] Style index
+- [ ] Rewrite timeline, work on rtf next!

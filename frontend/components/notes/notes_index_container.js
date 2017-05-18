@@ -9,7 +9,7 @@ const mapStateToProps = (state, { url, filter }) => {
     const objectName = state[`${filter.object}s`][filter.objectId].name;
     heading = `${filter.object}: ${objectName}`;
   } else {
-    heading = 'all notes';
+    heading = 'notes';
   }
 
   return {
