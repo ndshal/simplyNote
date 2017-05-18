@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import RichEditor from '../editor/editor';
 
 class NoteDetail extends Component {
    componentDidMount() {
@@ -19,9 +20,7 @@ class NoteDetail extends Component {
         <header>
           {title}
         </header>
-        <p>
-          {body}
-        </p>
+        <RichEditor content={body}/>
       </section>
     );
   }
