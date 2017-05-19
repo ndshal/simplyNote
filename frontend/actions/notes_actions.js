@@ -1,4 +1,5 @@
 import * as NoteAPIUtil from '../util/note_api_util';
+import { stringifyNoteBody, parseNoteBody } from '../util/note_conversion_util.js';
 import { receiveErrors, clearErrors } from './errors_actions';
 
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
@@ -27,21 +28,21 @@ export const fetchAllNotes = filter => dispatch => (
 
 export const fetchSingleNote = id => dispatch => (
   NoteAPIUtil.fetchSingleNote(id)
-    .then(note => dispatch(receiveSingleNote(note)))
+    .then(note => dispatch(receiveSingleNote(parseNoteBody(note))))
 );
 
 export const createNote = note => dispatch => (
-  NoteAPIUtil.creatNote(note)
+  NoteAPIUtil.createNote(stringifyNoteBody(note))
     .then(
-      note => dispatch(receiveSingleNote(note)),
+      note => dispatch(receiveSingleNote(parseNoteBody(note))),
       err => dispatch(receiveErrors('createForm', err.responseJSON))
     )
     .then(() => dispatch(clearErrors()))
 );
 
 export const updateNote = note => dispatch => (
-  NoteAPIUtil.updateNote(note)
-    .then(note => dispatch(receiveSingleNote(note)))
+  NoteAPIUtil.updateNote(stringifyNoteBody(note))
+    .then(note => dispatch(receiveSingleNote(parseNoteBody(note))))
 );
 
 export const deleteNote = id => dispatch => (

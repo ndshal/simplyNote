@@ -9,6 +9,7 @@ import {
   ContentState
 } from 'draft-js';
 import { InlineStyleControls } from '../editor/style_controls';
+import { createEditorNoteBody } from '../../util/note_conversion_util';
 
 class NoteDetail extends Component {
   constructor(props) {
@@ -23,43 +24,18 @@ class NoteDetail extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
-    this.mySetState = this.mySetState.bind(this);
-  }
-
-  mySetState(note) {
-    let newState = merge({}, note);
-
-    // if(typeof newState.body === 'string') {
-    // const contentState = ContentState.createFromText(newState.body);
-    const contentState = convertFromRaw(JSON.parse(newState.body));
-    const editorState = EditorState.createWithContent(contentState);
-    newState.body = editorState;
-
-    this.setState(newState);
   }
 
    componentDidMount() {
      this.props.fetchNote()
-      .then(({note}) => this.mySetState(note));
+      .then(({note}) => this.setState(createEditorNoteBody(note)));
    }
 
    componentWillReceiveProps(newProps) {
      if(this.props.pathId !== newProps.pathId) {
        newProps.fetchNote()
-       .then(({note}) => this.mySetState(note));
+       .then(({note}) => this.setState(createEditorNoteBody(note)));
      }
-
-    //  if(this.props.body !== newProps.body) {
-    //    let contentState;
-    //    if (typeof newProps.body === 'string') {
-    //      contentState = ContentState.createFromText(newProps.body);
-    //    } else if (newProps.body.blocks) {
-    //      contentState = convertFromRaw(newProps.body);
-    //    }
-    //    const body = EditorState.createWithContent(contentState);
-     //
-    //    this.setState({body});
-    //  }
    }
 
   update(field) {
@@ -67,7 +43,7 @@ class NoteDetail extends Component {
   }
 
   handleKeyCommand(command) {
-    const newState = RichUtils.handleKeyCommand(this.state.editorState,
+    const newState = RichUtils.handleKeyCommand(this.state.body,
       command);
     if (newState) {
       this.update('body')(newState);
@@ -87,12 +63,9 @@ class NoteDetail extends Component {
   }
 
   handleSubmit(e) {
-    console.log('saving!');
-    console.log(this.state);
-
     e.preventDefault();
     const note = merge({}, this.state);
-    note.body = JSON.stringify(note.body);
+    note.body = convertToRaw(note.body.getCurrentContent());
     this.props.updateNote(note);
   }
 
