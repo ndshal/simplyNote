@@ -15,7 +15,8 @@ class NoteDetail extends Component {
   }
 
    componentDidMount() {
-     this.props.fetchNote();
+     this.props.fetchNote()
+      .then(({note}) => this.setState(note));
    }
 
    componentWillReceiveProps(newProps) {
@@ -36,7 +37,10 @@ class NoteDetail extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log('---- STATE IN NOTE DETAIL ----');
+    console.log(this.state.body);
+    console.log('---- STATE IN NOTE DETAIL ----');
+
     return (
       <from
         className='note-detail'
@@ -48,7 +52,7 @@ class NoteDetail extends Component {
 
         <RichEditor
           content={this.state.body}
-          onChange={this.update('body')} />
+          updateForm={this.update('body')} />
         <button type='submit'>Save Note</button>
       </from>
     );

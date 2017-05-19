@@ -14,14 +14,18 @@ class RichEditor extends Component {
     super(props);
     this.state = {editorState: EditorState.createEmpty()};
 
-    this.onChange = (editorState) => (
+    this.onChange = (editorState) => {
+      console.log('-----EDITOR STATE-----');
+      console.log(convertToRaw(editorState.getCurrentContent()));
+      console.log('-----EDITOR STATE-----');
+
+
       this.setState(
         {editorState},
-        this.props.onChange(
-          convertToRaw(editorState.getCurrentContent())
-        )
-      )
-    );
+        () => this.props.updateForm(convertToRaw(editorState.getCurrentContent()))
+      );
+
+    };
 
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
@@ -30,10 +34,15 @@ class RichEditor extends Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.content !== this.props.content) {
-      const contentState = ContentState.createFromText(newProps.content);
+      let contentState;
+      if (typeof newProps.content === 'string') {
+        contentState = ContentState.createFromText(newProps.content);
+      } else if (newProps.content.blocks) {
+        contentState = convertFromRaw(newProps.content);
+      }
       const editorState = EditorState.createWithContent(contentState);
 
-      this.setState({editorState})
+      this.setState({editorState});
     }
   }
 
@@ -66,6 +75,8 @@ class RichEditor extends Component {
   }
 
   render() {
+    console.log('rendering editor');
+
     const {editorState} = this.state;
 
     return (
