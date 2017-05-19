@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import NotesIndexContainer from './notes_index_container';
-import NoteDetailContainer from './note_detail_container';
+import NoteDetail from './note_detail';
 
 class Notes extends Component {
   componentDidMount() {
@@ -13,7 +13,7 @@ class Notes extends Component {
     return (
       <section className='notes'>
         <NotesIndexContainer url={url} filter={filter}/>
-        <Route path={`${url}/:noteId`} component={NoteDetailContainer} />
+        <Route path={`${url}/:noteId`} component={NoteDetail} />
       </section>
     );
   }

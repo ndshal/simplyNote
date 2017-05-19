@@ -6,24 +6,44 @@ export default ({signout}) => (
     <div className='top-links'>
       <Link to='/home/notes/new'>
         <i className="fa fa-plus-circle"></i>
+        <label className='link-label'>
+          <i className="fa fa-caret-left"></i>
+          <span>new note</span>
+        </label>
       </Link>
     </div>
 
     <div className='center-links'>
       <Link to='/home/notes'>
         <i className="fa fa-file-text"></i>
+        <label className='link-label'>
+          <i className="fa fa-caret-left"></i>
+          <span>all notes</span>
+        </label>
       </Link>
       <Link to='/home/notebooks'>
         <i className="fa fa-book"></i>
+        <label className='link-label'>
+          <i className="fa fa-caret-left"></i>
+          <span>notebooks</span>
+        </label>
       </Link>
       <Link to='/home/tags'>
         <i className="fa fa-tag"></i>
+        <label className='link-label'>
+          <i className="fa fa-caret-left"></i>
+          <span>tags</span>
+        </label>
       </Link>
     </div>
 
     <div className='bottom-links'>
       <a onClick={signout} >
         <i className="fa fa-sign-out"></i>
+        <label className='link-label'>
+          <i className="fa fa-caret-left"></i>
+          <span>logout</span>
+        </label>
       </a>
     </div>
   </nav>

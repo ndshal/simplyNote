@@ -8,14 +8,17 @@
   border-right: 1px solid $grey;
 }
 
+.top-links, .center-links, .bottom-links {
+  display: flex;
+  flex-direction: column;
+}
+
 .top-links {
   padding-top: 80px;
   margin-bottom: auto;
 }
 
 .center-links {
-  display: flex;
-  flex-direction: column;
   padding-left: 7px;
 }
 
@@ -38,8 +41,46 @@
   color: $green;
 }
 
-.side-nav i:hover {
+.side-nav a {
+  position: relative;
+}
+
+.side-nav a:hover i{
   font-size: 28px;
   background: $green;
   color: white;
+}
+
+.link-label {
+  display: none;
+  text-transform: uppercase;
+}
+
+.side-nav a:hover .link-label{
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50px;
+  top: 0;
+  bottom: 0;
+}
+
+.side-nav a:hover .link-label i {
+  font-size: 42px;
+  background: rgba(0,0,0,0);
+  padding: 0;
+  border: 0;
+  margin-right: -1.5px;
+  border-radius: 0;
+  color: $darkest;
+}
+
+.side-nav a:hover .link-label span {
+  background: $darkest;
+  color: white;
+  padding: 5px;
+  padding-right: 5px;
+  border-radius: 10%;
+  flex: 0 0 auto;
 }

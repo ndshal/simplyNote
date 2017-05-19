@@ -61,6 +61,7 @@
 
 .current-note {
   outline: 2px solid $dark-grey;
+  outline-offset: -2px;
 }
 
 .index-item:hover {

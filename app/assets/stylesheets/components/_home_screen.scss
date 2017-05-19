@@ -9,20 +9,27 @@
 }
 
 .side-nav {
-  width: 5vw;
+  flex: 1;
 }
 
 .notes {
-  width: 94vw;
+  position: relative;
+  flex: 19;
   display: flex;
 }
 
 .notes-index {
-  flex: 1;
-  z-index: 1;
+  flex: 2;
 }
 
 .note-detail {
-  flex: 2.5;
+  flex: 5;
+  background: white;
+}
+
+.full-screen {
+  width: 100%;
+  height: 100%;
   z-index: 2;
+  position: absolute;
 }

@@ -32,7 +32,6 @@ class RichEditor extends Component {
 
   render () {
     const {editorState} = this.props;
-    console.log(editorState);
 
     return (
       <div className='editor-root'>

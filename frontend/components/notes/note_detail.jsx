@@ -1,60 +1,35 @@
 import React, { Component } from 'react';
-import { EditorState } from 'draft-js';
-import { createEditorNoteBody, createRawNoteBody } from '../../util/note_conversion_util';
-import RichEditor from '../editor/editor';
+import NoteFormContainer from './note_form_container';
 
 class NoteDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: -1,
-      title: '',
-      body: EditorState.createEmpty(),
-    };
 
-    this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = { fullScreen: false };
+    this.toggleFullScreen = this.toggleFullScreen.bind(this);
   }
 
-   componentDidMount() {
-     this.props.fetchNote()
-      .then(({note}) => this.setState(createEditorNoteBody(note)));
-   }
-
-   componentWillReceiveProps(newProps) {
-     if(this.props.pathId !== newProps.pathId) {
-       newProps.fetchNote()
-       .then(({note}) => this.setState(createEditorNoteBody(note)));
-     }
-   }
-
-  update(field) {
-    return value => this.setState({[field]: value});
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.updateNote(createRawNoteBody(this.state));
+  toggleFullScreen (){
+    this.setState({
+      fullScreen: !this.state.fullScreen
+    });
   }
 
   render() {
-    const { title, body } = this.state;
+    let className='note-detail';
+    if(this.state.fullScreen) {
+      className += ' full-screen';
+    }
 
     return (
-      <from
-        className='note-detail'
-        onSubmit={this.handleSubmit}>
-        <input
-          onChange={(e) => this.update('title')(e.target.value)}
-          value={this.state.title}
-          placeholder='title your note...'/>
-
-        <RichEditor
-          onChange={this.update('body')}
-          editorState={body} />
+      <section className={className}>
         <button
-          onClick={this.handleSubmit}>Save Note</button>
-      </from>
+          onClick={this.toggleFullScreen}>
+          Toggle Full Screen
+        </button>
+        <NoteFormContainer
+          match={this.props.match}/>
+      </section>
     );
   }
 }

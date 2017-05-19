@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchSingleNote, updateNote } from '../../actions/notes_actions';
-import NoteDetail from './note_detail';
+import NoteForm from './note_form';
 
 const mapStateToProps = state => ({
   note: state.noteDetail
@@ -12,4 +12,4 @@ const mapDispatchToProps = (dispatch, { match }) => ({
   updateNote: note => dispatch(updateNote(note))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);

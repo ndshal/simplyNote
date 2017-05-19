@@ -3,7 +3,7 @@ import { stringifyNoteBody, parseNoteBody } from '../util/note_conversion_util.j
 import { receiveErrors, clearErrors } from './errors_actions';
 
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
-export const RECIEVE_SINGLE_NOTE = 'RECIEVE_SINGLE_NOTE';
+export const RECEIVE_SINGLE_NOTE = 'RECEIVE_SINGLE_NOTE';
 export const REMOVE_NOTE = 'REMOVE_NOTE';
 
 export const receiveAllNotes = notes => ({
@@ -12,7 +12,7 @@ export const receiveAllNotes = notes => ({
 });
 
 export const receiveSingleNote = note => ({
-  type: RECIEVE_SINGLE_NOTE,
+  type: RECEIVE_SINGLE_NOTE,
   note
 });
 
