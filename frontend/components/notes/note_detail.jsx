@@ -14,6 +14,7 @@ class NoteDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: -1,
       title: '',
       body: EditorState.createEmpty(),
     };
@@ -27,11 +28,12 @@ class NoteDetail extends Component {
 
   mySetState(note) {
     let newState = merge({}, note);
-    if(typeof newState.body === 'string') {
-      const contentState = ContentState.createFromText(newState.body);
-      const editorState = EditorState.createWithContent(contentState);
-      newState.body = editorState;
-    }
+
+    // if(typeof newState.body === 'string') {
+    // const contentState = ContentState.createFromText(newState.body);
+    const contentState = convertFromRaw(JSON.parse(newState.body));
+    const editorState = EditorState.createWithContent(contentState);
+    newState.body = editorState;
 
     this.setState(newState);
   }
@@ -86,9 +88,11 @@ class NoteDetail extends Component {
 
   handleSubmit(e) {
     console.log('saving!');
+    console.log(this.state);
 
     e.preventDefault();
     const note = merge({}, this.state);
+    note.body = JSON.stringify(note.body);
     this.props.updateNote(note);
   }
 

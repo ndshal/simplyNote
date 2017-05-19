@@ -8,8 +8,6 @@ const INLINE_STYLES = [
 ];
 
 export const InlineStyleControls = (props) => {
-  console.log(props);
-
   const currentStyle = props.editorState.getCurrentInlineStyle();
   return (
     <div className="RichEditor-controls">

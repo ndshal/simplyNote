@@ -4,8 +4,6 @@ class StyleButton extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
-
     this.onToggle = (e) => {
       e.preventDefault();
       this.props.onToggle(this.props.style);
