@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import { EditorState } from 'draft-js';
 import { createEditorNoteBody, createRawNoteBody } from '../../util/note_conversion_util';
@@ -7,7 +8,7 @@ class NoteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: -1,
+      id: null,
       title: '',
       body: EditorState.createEmpty(),
     };
@@ -34,7 +35,12 @@ class NoteForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateNote(createRawNoteBody(this.state));
+    const note = createRawNoteBody(this.state);
+    if(note.id) {
+      this.props.updateNote(note);
+    } else {
+      this.props.createNote(note);
+    }
   }
 
   render() {

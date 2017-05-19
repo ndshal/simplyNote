@@ -1,37 +1,44 @@
 .side-nav {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   background-color: $light-grey;
   border-right: 1px solid $grey;
+  padding: 3px;
+  margin: 0;
+
+  position: relative;
 }
 
 .top-links, .center-links, .bottom-links {
   display: flex;
   flex-direction: column;
+  position: absolute;
 }
 
 .top-links {
-  padding-top: 80px;
-  margin-bottom: auto;
+  top: 10%;
 }
 
 .center-links {
-  padding-left: 7px;
+  width: 100%;
+  top: 35%;
+  bottom: 35%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bottom-links {
-  padding-top: 10px;
-  border-top: 1px solid $grey;
-  margin-top: auto;
-  padding-bottom: 80px;
+  bottom: 5%;
 }
 
-.bottom-links button {
-  background: inherit;
-  color: green;
+.bottom-border {
+  background: $grey;
+  min-height: 1px;
+  width: 80%;
+  position: absolute;
+  bottom: 15%;
 }
 
 .side-nav i {
@@ -39,6 +46,19 @@
   border-radius: 50%;
   font-size: 24px;
   color: $green;
+}
+
+.top-links i {
+  border: 1px solid $dark-grey;
+  font-size: 14px;
+  padding: 12px;
+}
+
+.logo > i {
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 32px;
+  color: $darker-grey;
 }
 
 .side-nav a {

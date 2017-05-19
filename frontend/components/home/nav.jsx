@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 
 export default ({signout}) => (
   <nav className='side-nav'>
+    <div className='logo'>
+      <i className="fa fa-pencil-square-o"></i>
+    </div>
+
     <div className='top-links'>
       <Link to='/home/notes/new'>
-        <i className="fa fa-plus-circle"></i>
+        <i className="fa fa-plus"></i>
         <label className='link-label'>
           <i className="fa fa-caret-left"></i>
           <span>new note</span>
@@ -36,6 +40,8 @@ export default ({signout}) => (
         </label>
       </Link>
     </div>
+
+    <div className='bottom-border'></div>
 
     <div className='bottom-links'>
       <a onClick={signout} >
