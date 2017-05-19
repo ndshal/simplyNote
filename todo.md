@@ -63,7 +63,9 @@
 - [x] Modal for delete button
 - [x] Style index
 - [ ] NotesDetail
-- [ ] New note
+- [x] New note
+- [ ] Sort notes by date
+- [ ] Clear notes from state on logout
 
 ## Style
 - [x] Nav, labels on links

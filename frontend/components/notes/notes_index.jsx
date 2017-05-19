@@ -6,9 +6,11 @@ class NotesIndex extends Component {
   componentWillReceiveProps(newProps) {
     const currentPath = newProps.location.pathname;
     if(currentPath.endsWith('notes')) {
-      newProps.history.push(
-        `${currentPath}/${newProps.notes[0].id}`
-      );
+      if(newProps.notes[0]) {
+        newProps.history.push(`${currentPath}/${newProps.notes[0].id}`);
+      } else {
+        newProps.history.push(`${currentPath}/new`);
+      }
     }
   }
 

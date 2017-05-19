@@ -1,5 +1,6 @@
 import * as SessionAPIUtil from '../util/session_api_util';
 import { receiveErrors, clearErrors } from './errors_actions';
+import { receiveAllNotes } from './notes_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 
@@ -29,5 +30,6 @@ export const signup = user => dispatch => (
 export const signout = () => dispatch => (
   SessionAPIUtil.signout()
     .then(() => dispatch(receiveCurrentUser({})))
+    .then(() => dispatch(receiveAllNotes({})))
     .then(() => dispatch(clearErrors()))
 );
