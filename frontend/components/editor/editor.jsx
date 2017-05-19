@@ -1,55 +1,20 @@
 import React, { Component } from 'react';
-import {
-  convertFromRaw,
-  convertToRaw,
-  Editor,
-  EditorState,
-  RichUtils,
-  ContentState
-} from 'draft-js';
+import { Editor, RichUtils } from 'draft-js';
 import { InlineStyleControls } from './style_controls';
 
 class RichEditor extends Component {
   constructor(props) {
     super(props);
-    this.state = {editorState: EditorState.createEmpty()};
-
-    this.onChange = (editorState) => {
-      console.log('-----EDITOR STATE-----');
-      console.log(convertToRaw(editorState.getCurrentContent()));
-      console.log('-----EDITOR STATE-----');
-
-
-      this.setState(
-        {editorState},
-        () => this.props.updateForm(convertToRaw(editorState.getCurrentContent()))
-      );
-
-    };
 
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.content !== this.props.content) {
-      let contentState;
-      if (typeof newProps.content === 'string') {
-        contentState = ContentState.createFromText(newProps.content);
-      } else if (newProps.content.blocks) {
-        contentState = convertFromRaw(newProps.content);
-      }
-      const editorState = EditorState.createWithContent(contentState);
-
-      this.setState({editorState});
-    }
-  }
-
   handleKeyCommand(command) {
-    const newState = RichUtils.handleKeyCommand(this.state.editorState,
+    const newState = RichUtils.handleKeyCommand(this.props.editorState,
       command);
     if (newState) {
-      this.onChange(newState);
+      this.props.onChange(newState);
       return 'handled';
     }
 
@@ -57,20 +22,29 @@ class RichEditor extends Component {
   }
 
   toggleInlineStyle(inlineStyle) {
-    this.onChange(
+    this.props.onChange(
       RichUtils.toggleInlineStyle(
-        this.state.editorState,
+        this.props.editorState,
         inlineStyle
       )
     );
   }
 
-  render() {
-    const {editorState} = this.state;
+  render () {
+    const {editorState} = this.props;
+    console.log(editorState);
 
     return (
-      <div className="RichEditor-root">
-
+      <div className='editor-root'>
+        <InlineStyleControls
+          editorState={editorState}
+          onToggle={this.toggleInlineStyle}
+        />
+        <Editor
+          className='editor'
+          editorState={editorState}
+          handleKeyCommand={this.handleKeyCommand}
+          onChange={this.props.onChange} />
       </div>
     );
   }

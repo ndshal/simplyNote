@@ -63,14 +63,23 @@
 - [x] Modal for delete button
 - [x] Style index
 - [ ] NotesDetail
+- [ ] Note detail can be fullscreen
+- [ ] New note
+
+**STYLE THAT NAV**
 
 # Phase 3: RTF Editing
 ## Backend
 - [x] Note Body is a json object in database
 
 ## Frontend
-- [ ] note API utils parse json before and after ajax requests
-- [ ] DraftJS editor component in note detail form
+- [x] note API utils parse json before and after ajax requests
+- [x] DraftJS editor component in note detail form
+- [ ] Refactor editor Component
+ - idea: editor does not have its own state, just passes state to parent
+- [ ] Redirects on save
+- [ ] Style editor
+
 
 # Phase 4: Notebooks
 ## Backend

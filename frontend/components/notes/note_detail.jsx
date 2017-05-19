@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
-import { merge } from 'lodash';
-import {
-  convertFromRaw,
-  convertToRaw,
-  Editor,
-  EditorState,
-  RichUtils,
-  ContentState
-} from 'draft-js';
-import { InlineStyleControls } from '../editor/style_controls';
-import { createEditorNoteBody } from '../../util/note_conversion_util';
+import { EditorState } from 'draft-js';
+import { createEditorNoteBody, createRawNoteBody } from '../../util/note_conversion_util';
+import RichEditor from '../editor/editor';
 
 class NoteDetail extends Component {
   constructor(props) {
@@ -22,8 +14,6 @@ class NoteDetail extends Component {
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleKeyCommand = this.handleKeyCommand.bind(this);
-    this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
   }
 
    componentDidMount() {
@@ -42,31 +32,9 @@ class NoteDetail extends Component {
     return value => this.setState({[field]: value});
   }
 
-  handleKeyCommand(command) {
-    const newState = RichUtils.handleKeyCommand(this.state.body,
-      command);
-    if (newState) {
-      this.update('body')(newState);
-      return 'handled';
-    }
-
-    return 'not-handled';
-  }
-
-  toggleInlineStyle(inlineStyle) {
-    this.update('body')(
-      RichUtils.toggleInlineStyle(
-        this.state.body,
-        inlineStyle
-      )
-    );
-  }
-
   handleSubmit(e) {
     e.preventDefault();
-    const note = merge({}, this.state);
-    note.body = convertToRaw(note.body.getCurrentContent());
-    this.props.updateNote(note);
+    this.props.updateNote(createRawNoteBody(this.state));
   }
 
   render() {
@@ -81,15 +49,9 @@ class NoteDetail extends Component {
           value={this.state.title}
           placeholder='title your note...'/>
 
-        <InlineStyleControls
-          editorState={body}
-          onToggle={this.toggleInlineStyle}
-        />
-        <Editor
-          className='editor'
-          editorState={body}
-          handleKeyCommand={this.handleKeyCommand}
-          onChange={this.update('body')} />
+        <RichEditor
+          onChange={this.update('body')}
+          editorState={body} />
         <button
           onClick={this.handleSubmit}>Save Note</button>
       </from>
