@@ -64,7 +64,15 @@
 - [x] Style index
 - [ ] NotesDetail
 
-# Phase 3: Notebooks
+# Phase 3: RTF Editing
+## Backend
+- [x] Note Body is a json object in database
+
+## Frontend
+- [ ] note API utils parse json before and after ajax requests
+- [ ] DraftJS editor component in note detail form
+
+# Phase 4: Notebooks
 ## Backend
  - [ ] Use params[:filter] to filter 'api_notes#index' results
 
