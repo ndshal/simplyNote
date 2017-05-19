@@ -18,7 +18,6 @@ class NoteForm extends Component {
   }
 
    componentDidMount() {
-     console.log(this.props.formType);
      if(this.props.formType === 'edit') {
        this.props.fetchNote()
        .then(({note}) => this.setState(createEditorNoteBody(note)));
@@ -27,8 +26,16 @@ class NoteForm extends Component {
 
    componentWillReceiveProps(newProps) {
      if(this.props.pathId !== newProps.pathId) {
-       newProps.fetchNote()
-       .then(({note}) => this.setState(createEditorNoteBody(note)));
+       if(newProps.formType === 'new') {
+         this.setState({
+           id: null,
+           title: '',
+           body: EditorState.createEmpty(),
+         });
+       } else {
+         newProps.fetchNote()
+         .then(({note}) => this.setState(createEditorNoteBody(note)));
+       }
      }
    }
 

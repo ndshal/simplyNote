@@ -5,7 +5,7 @@ import NoteIndexItem from './note_index_item';
 class NotesIndex extends Component {
   componentWillReceiveProps(newProps) {
     const currentPath = newProps.location.pathname;
-    if(currentPath.endsWith('notesasdfadsfas')) {
+    if(currentPath.endsWith('notes')) {
       newProps.history.push(
         `${currentPath}/${newProps.notes[0].id}`
       );
