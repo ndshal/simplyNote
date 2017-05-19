@@ -29,7 +29,6 @@ class RichEditor extends Component {
 
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
-    this.handleExport = this.handleExport.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -66,34 +65,12 @@ class RichEditor extends Component {
     );
   }
 
-  handleExport(e) {
-    e.preventDefault();
-    console.log(this.state.editorState);
-    const contentState = this.state.editorState.getCurrentContent();
-    console.log(contentState);
-    console.log(convertToRaw(contentState));
-  }
-
   render() {
-    console.log('rendering editor');
-
     const {editorState} = this.state;
 
     return (
       <div className="RichEditor-root">
-        <button onClick={this.handleExport}> Log State </button>
 
-        <InlineStyleControls
-          editorState={editorState}
-          onToggle={this.toggleInlineStyle}
-        />
-        <div className="RichEditor-editor">
-          <Editor
-            className='editor'
-            editorState={editorState}
-            handleKeyCommand={this.handleKeyCommand}
-            onChange={this.onChange} />
-        </div>
       </div>
     );
   }

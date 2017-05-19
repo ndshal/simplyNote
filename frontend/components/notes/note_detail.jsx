@@ -1,45 +1,99 @@
 import React, { Component } from 'react';
 import { merge } from 'lodash';
-import RichEditor from '../editor/editor';
+import {
+  convertFromRaw,
+  convertToRaw,
+  Editor,
+  EditorState,
+  RichUtils,
+  ContentState
+} from 'draft-js';
+import { InlineStyleControls } from '../editor/style_controls';
 
 class NoteDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: '',
-      body: '',
+      body: EditorState.createEmpty(),
     };
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleKeyCommand = this.handleKeyCommand.bind(this);
+    this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
+    this.mySetState = this.mySetState.bind(this);
+  }
+
+  mySetState(note) {
+    let newState = merge({}, note);
+    if(typeof newState.body === 'string') {
+      const contentState = ContentState.createFromText(newState.body);
+      const editorState = EditorState.createWithContent(contentState);
+      newState.body = editorState;
+    }
+
+    this.setState(newState);
   }
 
    componentDidMount() {
      this.props.fetchNote()
-      .then(({note}) => this.setState(note));
+      .then(({note}) => this.mySetState(note));
    }
 
    componentWillReceiveProps(newProps) {
      if(this.props.pathId !== newProps.pathId) {
        newProps.fetchNote()
-       .then(({note}) => this.setState(note));
+       .then(({note}) => this.mySetState(note));
      }
+
+    //  if(this.props.body !== newProps.body) {
+    //    let contentState;
+    //    if (typeof newProps.body === 'string') {
+    //      contentState = ContentState.createFromText(newProps.body);
+    //    } else if (newProps.body.blocks) {
+    //      contentState = convertFromRaw(newProps.body);
+    //    }
+    //    const body = EditorState.createWithContent(contentState);
+     //
+    //    this.setState({body});
+    //  }
    }
 
   update(field) {
     return value => this.setState({[field]: value});
   }
 
+  handleKeyCommand(command) {
+    const newState = RichUtils.handleKeyCommand(this.state.editorState,
+      command);
+    if (newState) {
+      this.update('body')(newState);
+      return 'handled';
+    }
+
+    return 'not-handled';
+  }
+
+  toggleInlineStyle(inlineStyle) {
+    this.update('body')(
+      RichUtils.toggleInlineStyle(
+        this.state.body,
+        inlineStyle
+      )
+    );
+  }
+
   handleSubmit(e) {
+    console.log('saving!');
+
     e.preventDefault();
     const note = merge({}, this.state);
     this.props.updateNote(note);
   }
 
   render() {
-    console.log('---- STATE IN NOTE DETAIL ----');
-    console.log(this.state.body);
-    console.log('---- STATE IN NOTE DETAIL ----');
+    const { title, body } = this.state;
 
     return (
       <from
@@ -50,10 +104,17 @@ class NoteDetail extends Component {
           value={this.state.title}
           placeholder='title your note...'/>
 
-        <RichEditor
-          content={this.state.body}
-          updateForm={this.update('body')} />
-        <button type='submit'>Save Note</button>
+        <InlineStyleControls
+          editorState={body}
+          onToggle={this.toggleInlineStyle}
+        />
+        <Editor
+          className='editor'
+          editorState={body}
+          handleKeyCommand={this.handleKeyCommand}
+          onChange={this.update('body')} />
+        <button
+          onClick={this.handleSubmit}>Save Note</button>
       </from>
     );
   }
