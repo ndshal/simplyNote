@@ -1,5 +1,5 @@
 .editor-styleButton {
-  color: #999;
+  color: black;
   cursor: pointer;
   margin-right: 16px;
   padding: 4px 0;
@@ -13,7 +13,7 @@
 .editor-root {
   background: #fff;
   font-family: 'Georgia', serif;
-  font-size: 14px;
+  font-size: 16px;
   padding: 15px;
 }
 
@@ -30,4 +30,14 @@
   margin-bottom: 20px;
   border-bottom: 1px solid $grey;
   user-select: none;
+
+  display: flex;
+}
+
+.inline-controls, .block-controls {
+  padding-left: 16px;
+}
+
+.inline-controls {
+  border-right: 1px solid $grey;
 }
