@@ -37,7 +37,6 @@ export const createNote = note => dispatch => (
       note => dispatch(receiveSingleNote(parseNoteBody(note))),
       err => dispatch(receiveErrors('createForm', err.responseJSON))
     )
-    .then(() => dispatch(clearErrors()))
 );
 
 export const updateNote = note => dispatch => (

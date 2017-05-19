@@ -4,6 +4,7 @@ import {
   updateNote,
   createNote
 } from '../../actions/notes_actions';
+import { clearErrors } from '../../actions/errors_actions';
 import NoteForm from './note_form';
 
 const mapStateToProps = state => ({
@@ -11,10 +12,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, { match }) => ({
+  formType: match.params.noteId === 'new' ? 'new' : 'edit',
   pathId: match.params.noteId,
   fetchNote: () => dispatch(fetchSingleNote(match.params.noteId)),
   updateNote: note => dispatch(updateNote(note)),
-  createNote: note => dispatch(createNote(note))
+  createNote: note => dispatch(createNote(note)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);

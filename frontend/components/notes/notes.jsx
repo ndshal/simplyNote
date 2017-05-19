@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import NotesIndexContainer from './notes_index_container';
 import NoteDetail from './note_detail';
 

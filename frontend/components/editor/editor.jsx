@@ -10,7 +10,7 @@ class RichEditor extends Component {
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.toggleBlockType = this.toggleBlockType.bind(this);
     this.onTab = this.onTab.bind(this);
-    this.focus = this.focus.bind(this);
+    this.focus = () => this.refs.editor.focus();
   }
 
   handleKeyCommand(command) {
@@ -25,12 +25,8 @@ class RichEditor extends Component {
   }
 
   onTab(e) {
-    const maxDepth = 2;
+    const maxDepth = 4;
     this.props.onChange(RichUtils.onTab(e, this.props.editorState, maxDepth));
-  }
-
-  focus() {
-    this.refs.editor.focus();
   }
 
   toggleInlineStyle(inlineStyle) {
@@ -76,6 +72,7 @@ class RichEditor extends Component {
           onChange={this.props.onChange}
           placeholder="Just start typing!"
           ref="editor"
+          spellCheck={true}
         />
       </div>
     );

@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { EditorState } from 'draft-js';
 import { createEditorNoteBody, createRawNoteBody } from '../../util/note_conversion_util';
 import RichEditor from '../editor/editor';
@@ -12,14 +13,16 @@ class NoteForm extends Component {
       title: '',
       body: EditorState.createEmpty(),
     };
-
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
    componentDidMount() {
-     this.props.fetchNote()
-      .then(({note}) => this.setState(createEditorNoteBody(note)));
+     console.log(this.props.formType);
+     if(this.props.formType === 'edit') {
+       this.props.fetchNote()
+       .then(({note}) => this.setState(createEditorNoteBody(note)));
+     }
    }
 
    componentWillReceiveProps(newProps) {
@@ -33,14 +36,20 @@ class NoteForm extends Component {
     return value => this.setState({[field]: value});
   }
 
+  processForm(note) {
+    if(this.props.formType === 'edit') {
+      this.props.updateNote(note);
+    } else {
+      this.props.createNote(note)
+        .then(({note}) => this.props.history.push(`/home/notes/${note.id}`))
+        .then(this.props.clearErrors);
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const note = createRawNoteBody(this.state);
-    if(note.id) {
-      this.props.updateNote(note);
-    } else {
-      this.props.createNote(note);
-    }
+    this.processForm(note);
   }
 
   render() {
@@ -66,4 +75,4 @@ class NoteForm extends Component {
   }
 }
 
-export default NoteForm;
+export default withRouter(NoteForm);

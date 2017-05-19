@@ -63,13 +63,15 @@
 - [x] Modal for delete button
 - [x] Style index
 - [ ] NotesDetail
-- [x] Note detail can be fullscreen
 - [ ] New note
 
 ## Style
-- [ ] Nav, labels on links
-- [ ] Outlines on index items
-- [ ] Edit form
+- [x] Nav, labels on links
+- [x] Outlines on index items
+- [x] Edit form
+- [ ] Fullscreen edit form
+- [ ] Tabs in editor
+
 
 # Phase 3: RTF Editing
 ## Backend
