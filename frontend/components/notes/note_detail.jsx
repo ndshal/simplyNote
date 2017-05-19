@@ -15,6 +15,17 @@ class NoteDetail extends Component {
     });
   }
 
+  fullScreenBtnIcon() {
+    let dir;
+    if(this.state.fullScreen) {
+      dir = 'right';
+    } else {
+      dir = 'left';
+    }
+
+    return <i className={`fa fa-arrow-${dir}`}></i>
+  }
+
   render() {
     let className='note-detail';
     if(this.state.fullScreen) {
@@ -24,8 +35,9 @@ class NoteDetail extends Component {
     return (
       <section className={className}>
         <button
+          className='fullscreen-toggle'
           onClick={this.toggleFullScreen}>
-          Toggle Full Screen
+          {this.fullScreenBtnIcon()}
         </button>
         <NoteFormContainer
           match={this.props.match}/>

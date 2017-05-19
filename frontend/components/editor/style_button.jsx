@@ -10,9 +10,9 @@ class StyleButton extends React.Component {
     };
   }
   render() {
-    let className = 'RichEditor-styleButton';
+    let className = 'editor-styleButton';
     if (this.props.active) {
-      className += ' RichEditor-activeButton';
+      className += ' editor-activeButton';
     }
     return (
       <span className={className} onMouseDown={this.onToggle}>

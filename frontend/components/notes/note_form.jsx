@@ -48,9 +48,10 @@ class NoteForm extends Component {
 
     return (
       <from
-        className='note-edit-form'
+        className='note-form'
         onSubmit={this.handleSubmit}>
         <input
+          className='note-title'
           onChange={(e) => this.update('title')(e.target.value)}
           value={this.state.title}
           placeholder='title your note...'/>
