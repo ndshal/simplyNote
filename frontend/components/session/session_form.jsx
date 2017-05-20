@@ -45,12 +45,19 @@ class SessionForm extends Component {
     );
   }
 
-  renderErrors() {
+  renderErrors(type) {
     return (
       <ul className='session-errors'>
         {
           this.props.errors.map(
-            (err, i) => <li key={i}>{err}</li>
+            (err, i) => {
+              if(err.startsWith(type)) {
+                return <li key={i}>
+                  <i className="fa fa-caret-left"></i>
+                  <span>{err}</span>
+                </li>;
+              }
+            }
         )
       }
     </ul>
@@ -87,18 +94,27 @@ class SessionForm extends Component {
       <form
         onSubmit={this.handleSubmit}
         className='session-form'>
-        <input
-          placeholder="Username"
-          value={this.state.username}
-          onChange={this.update('username')} />
-        <input
-          placeholder="Password"
-          type='password'
-          value={this.state.password}
-          onChange={this.update('password')} />
+
+        <div className='session-inputs'>
+          <label className='input-w-error'>
+            <input
+              placeholder="Username"
+              value={this.state.username}
+              onChange={this.update('username')} />
+          {this.renderErrors('Username')}
+        </label>
+
+          <label className='input-w-error'>
+            <input
+              placeholder="Password"
+              type='password'
+              value={this.state.password}
+              onChange={this.update('password')} />
+            {this.renderErrors('Password')}
+          </label>
+        </div>
 
         {this.renderButtons()}
-        {this.renderErrors()}
 
         <div className='or-divider'>
           <span className='line'></span>

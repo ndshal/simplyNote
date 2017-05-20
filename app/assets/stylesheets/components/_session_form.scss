@@ -1,0 +1,119 @@
+
+.session-form{
+  margin-top: 50px;
+  font-size: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 40vw;
+}
+
+.session-inputs {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.session-inputs .input-w-error {
+  width: 100%;
+  display: flex;
+  margin: 5px 0;
+
+  position: relative;
+
+}
+
+
+.session-form input {
+  flex: 1;
+  background-color: white;
+  font-size: 20px;
+
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 2px;
+  padding: 10px 5px;
+}
+
+.session-form a:hover {
+  text-decoration: underline;
+}
+
+.session-btns {
+  width: 100%;
+  margin: 10px 0;
+
+  display: flex;
+}
+
+.session-form button {
+  flex-grow: 1;
+  font-size: 16px;
+  margin: 0 10px;
+}
+
+.session-errors {
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 40%;
+  z-index: 1;
+  font-size: 18px;
+}
+
+.session-errors li {
+  display: flex;
+  align-items: center;
+}
+
+.session-errors i {
+  background: rgba(0,0,0,0);
+  color: $error-red;
+  font-size: 30px;
+  margin-right: -3px;
+}
+
+.session-errors span {
+  max-width: 250px;
+  flex: 0 0 auto;
+
+  background-color: $error-red;
+  color: white;
+  padding: 4px;
+  margin: 0;
+  text-align: center;
+}
+
+.or-divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.or-divider .text {
+  padding: 10px;
+}
+
+.or-divider .line {
+  min-width: 40%;
+  min-height: 1px;
+  background: rgba(255,255,255,0.6);
+}
+
+.session-form a {
+  padding: 5px 10px;
+  background: white;
+  border: 2px solid $grey;
+  border-radius: 7%;
+  color: $darkest;
+}
