@@ -11,7 +11,7 @@ const SplashScreen = () => (
     </nav>
     <section className='splash-content'>
       <h2 className='description-heading'>
-        Smarter, Simpler Notetaking
+        Smarter, Simpler, Notes
       </h2>
       <h3 className='description-message'>
         SimplyNote lets you style, organize, and access your notes from anywhere.
