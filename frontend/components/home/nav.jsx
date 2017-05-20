@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+const linkLabel = (text) => (
+  <label className='link-label'>
+    <i className="fa fa-caret-left"></i>
+    <span>{text}</span>
+  </label>
+);
+
 export default ({signout}) => (
   <nav className='side-nav'>
     <div className='logo'>
@@ -10,34 +17,22 @@ export default ({signout}) => (
     <div className='top-links'>
       <Link to='/home/notes/new'>
         <i className="fa fa-plus"></i>
-        <label className='link-label'>
-          <i className="fa fa-caret-left"></i>
-          <span>new note</span>
-        </label>
+        linkLabel('new note');
       </Link>
     </div>
 
     <div className='center-links'>
       <Link to='/home/notes'>
         <i className="fa fa-file-text"></i>
-        <label className='link-label'>
-          <i className="fa fa-caret-left"></i>
-          <span>all notes</span>
-        </label>
+        linkLabel('all notes')
       </Link>
       <Link to='/home/notebooks'>
         <i className="fa fa-book"></i>
-        <label className='link-label'>
-          <i className="fa fa-caret-left"></i>
-          <span>notebooks</span>
-        </label>
+        linkLabel('notebooks');
       </Link>
       <Link to='/home/tags'>
         <i className="fa fa-tag"></i>
-        <label className='link-label'>
-          <i className="fa fa-caret-left"></i>
-          <span>tags</span>
-        </label>
+        linkLabel('tags')
       </Link>
     </div>
 
@@ -46,10 +41,7 @@ export default ({signout}) => (
     <div className='bottom-links'>
       <a onClick={signout} >
         <i className="fa fa-sign-out"></i>
-        <label className='link-label'>
-          <i className="fa fa-caret-left"></i>
-          <span>logout</span>
-        </label>
+        linkLabel('logout');
       </a>
     </div>
   </nav>

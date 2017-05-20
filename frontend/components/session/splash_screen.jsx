@@ -6,7 +6,7 @@ import { Route, withRouter } from 'react-router-dom';
 const SplashScreen = () => (
   <section className='splash-screen'>
     <nav>
-      <img alt='placeholder_logo' />
+      <i className='fa fa-pencil-square-o'></i>
       <h1>SimplyNote</h1>
     </nav>
     <section className='splash-content'>

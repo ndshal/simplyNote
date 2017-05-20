@@ -65,14 +65,14 @@
 - [ ] NotesDetail
 - [x] New note
 - [ ] Sort notes by date
-- [ ] Clear notes from state on logout
+- [x] Clear notes from state on logout
 
 ## Style
 - [x] Nav, labels on links
 - [x] Outlines on index items
 - [x] Edit form
 - [ ] Fullscreen edit form
-- [ ] Tabs in editor
+- [ ] Tab focus in editor
 
 
 # Phase 3: RTF Editing
@@ -90,8 +90,3 @@
 # Phase 4: Notebooks
 ## Backend
  - [ ] Use params[:filter] to filter 'api_notes#index' results
-
-### Some External Packages
-* draft.js (rtf)
-* quill.js / react-quill (rtf)
-* react-latex
