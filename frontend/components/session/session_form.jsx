@@ -59,9 +59,9 @@ class SessionForm extends Component {
 
   navLink() {
     if (this.props.formType === 'signin') {
-      return <Link to='/splash/signup'>or Sign Up</Link>;
+      return <Link to='/splash/signup'>Sign Up</Link>;
     } else {
-      return <Link to='/splash/signin'>or Sign In</Link>;
+      return <Link to='/splash/signin'>Sign In</Link>;
     }
   }
 
@@ -87,9 +87,6 @@ class SessionForm extends Component {
       <form
         onSubmit={this.handleSubmit}
         className='session-form'>
-
-        <span className='description-message'>Its for notes</span>
-
         <input
           placeholder="Username"
           value={this.state.username}
@@ -102,6 +99,13 @@ class SessionForm extends Component {
 
         {this.renderButtons()}
         {this.renderErrors()}
+
+        <div className='or-divider'>
+          <span className='line'></span>
+          <span className='text'>or</span>
+          <span className='line'></span>
+        </div>
+
         {this.navLink()}
       </form>
     );

@@ -17,22 +17,22 @@ export default ({signout}) => (
     <div className='top-links'>
       <Link to='/home/notes/new'>
         <i className="fa fa-plus"></i>
-        linkLabel('new note');
+        {linkLabel('new note')}
       </Link>
     </div>
 
     <div className='center-links'>
       <Link to='/home/notes'>
         <i className="fa fa-file-text"></i>
-        linkLabel('all notes')
+        {linkLabel('all notes')}
       </Link>
       <Link to='/home/notebooks'>
         <i className="fa fa-book"></i>
-        linkLabel('notebooks');
+        {linkLabel('notebooks')}
       </Link>
       <Link to='/home/tags'>
         <i className="fa fa-tag"></i>
-        linkLabel('tags')
+        {linkLabel('tags')}
       </Link>
     </div>
 
@@ -41,7 +41,7 @@ export default ({signout}) => (
     <div className='bottom-links'>
       <a onClick={signout} >
         <i className="fa fa-sign-out"></i>
-        linkLabel('logout');
+        {linkLabel('logout')}
       </a>
     </div>
   </nav>

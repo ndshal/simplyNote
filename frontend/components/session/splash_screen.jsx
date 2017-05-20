@@ -10,6 +10,12 @@ const SplashScreen = () => (
       <h1>SimplyNote</h1>
     </nav>
     <section className='splash-content'>
+      <h2 className='description-heading'>
+        Smarter, Simpler Notetaking
+      </h2>
+      <h3 className='description-message'>
+        SimplyNote lets you style, organize, and access your notes from anywhere.
+      </h3>
 
       <Route path='/splash/signin' component={SessionFormContainer} />
       <Route path='/splash/signup' component={SessionFormContainer} />

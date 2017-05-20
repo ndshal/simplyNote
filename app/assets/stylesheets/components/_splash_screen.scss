@@ -1,32 +1,57 @@
 .splash-screen {
   display: flex;
   flex-direction: column;
-  font-family: $sans-serif;
 }
 
 .splash-screen nav {
   width: 100%;
   font-size: 24px;
 
-  padding: 5px;
+  padding: 15px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
+  z-index: 2;
+  background: white;
 }
 
 .splash-screen nav h1 {
-  margin-left: 20px;
+  font-weight: 700;
+  margin-left: 10px;
   text-transform: uppercase;
   color: $green;
+  font-family: $sans-serif;
 }
 
 .splash-screen nav i {
-  font-size: 50px;
+  font-size: 42px;
   color: $darker-grey;
-  margin-left: 20px;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $sans-serif;
+}
+
+.description-heading {
+  font-size: 30px;
+  font-weight: 300;
+  color: white;
+  // margin-top: 75px;
+}
+
+.description-message {
+  font-size: 20px;
+  color: white;
+  font-weight: 300;
+  margin: 20px 0;
 }
 
 .session-form{
+  margin-top: 70px;
   position: relative;
 
   font-size: 20px;
@@ -35,20 +60,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  width: 40vw;
 }
 
-.session-form .description-message {
-  font-size: 30px;
-  font-family: $sans-serif;
-  color: white;
-  text-transform: uppercase;
-  margin: 80px 0;
-}
 
 .session-form input {
   background-color: white;
   font-size: 20px;
-  width: 30%;
+  width: 75%;
 
   text-align: center;
   border: 1px solid grey;
@@ -57,16 +77,12 @@
   margin: 5px;
 }
 
-.session-form a {
-  color: blue;
-}
-
 .session-form a:hover {
   text-decoration: underline;
 }
 
 .session-btns {
-  width: 34%;
+  width: 85%;
 
   margin: 10px 0;
   padding: 10px;
@@ -92,8 +108,36 @@
   margin: 5px 0;
 }
 
+.or-divider {
+  margin-top: -40px;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.or-divider .text {
+  padding: 10px;
+}
+
+.or-divider .line {
+  min-width: 40%;
+  min-height: 1px;
+  background: rgba(255,255,255,0.6);
+}
+
+.session-form a {
+  padding: 5px 10px;
+  background: white;
+  border: 2px solid $grey;
+  border-radius: 7%;
+  color: $darkest;
+}
+
 .splash-content {
-  background-image: asset-url('splashDog.gif');
+  background-image: asset-url('fabian-irsara-92113.jpg');
   background-size: cover;
-  padding-bottom: 100px;
+  padding: 75px;
 }
