@@ -5,7 +5,7 @@
   // background-size: cover;
 }
 
-.splash-screen nav {
+.splash-screen header {
   width: 100%;
   font-size: 24px;
 
@@ -17,7 +17,7 @@
   background: white;
 }
 
-.splash-screen nav h1 {
+.splash-screen header h1 {
   font-weight: 700;
   margin-left: 10px;
   text-transform: uppercase;
@@ -25,7 +25,7 @@
   font-family: $sans-serif;
 }
 
-.splash-screen nav i {
+.splash-screen header i {
   font-size: 42px;
   color: $darker-grey;
 }
@@ -56,4 +56,47 @@
   background-image: asset-url('fabian-irsara-92113.jpg');
   background-size: cover;
   padding: 75px;
+}
+
+footer {
+  background: $lighter-grey;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  margin-left: 20px;
+}
+
+.footer-links li {
+  padding: 0 5px;
+  border-right: 1px solid black;
+}
+
+.footer-links li:last-of-type {
+  border: 0;
+}
+
+.footer-links a {
+  padding: 5px;
+}
+
+.footer-links a:hover {
+  background: $darker-grey;
+  text-decoration: underline;
+}
+
+.info {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: right;
 }

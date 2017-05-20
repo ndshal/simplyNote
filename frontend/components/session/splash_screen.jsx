@@ -5,10 +5,10 @@ import { Route, withRouter } from 'react-router-dom';
 
 const SplashScreen = () => (
   <section className='splash-screen'>
-    <nav>
+    <header>
       <i className='fa fa-pencil-square-o'></i>
       <h1>SimplyNote</h1>
-    </nav>
+    </header>
     <section className='splash-content'>
       <h2 className='description-heading'>
         Smarter, Simpler, Notes
@@ -20,6 +20,22 @@ const SplashScreen = () => (
       <Route path='/splash/signin' component={SessionFormContainer} />
       <Route path='/splash/signup' component={SessionFormContainer} />
     </section>
+    <footer>
+      <ul className='footer-links'>
+        <li>
+          <a href="/">Home</a></li>
+        <li>
+          <a href='https://github.com/ndshal/simplyNote'> About </a>
+        </li>
+        <li>
+          <a href='mailto:ndshalimov@gmail.com'> Contact </a>
+        </li>
+      </ul>
+      <div className='info'>
+        <span> SimplyNote is a note taking app inspired by Evernote. </span>
+        <span> Copyright 2017 Nikita Shalimov </span>
+      </div>
+    </footer>
   </section>
 );
 
