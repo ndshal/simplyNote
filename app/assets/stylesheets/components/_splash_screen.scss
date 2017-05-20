@@ -64,6 +64,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  color: $darker-grey;
 }
 
 .footer-links {
@@ -89,7 +91,6 @@ footer {
 }
 
 .footer-links a:hover {
-  background: $darker-grey;
   text-decoration: underline;
 }
 
