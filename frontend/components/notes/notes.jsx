@@ -18,18 +18,18 @@ class Notes extends Component {
   }
 
   fullScreenBtn() {
-    let dir;
+    let iconClass;
     if(this.state.fullScreen) {
-      dir = 'right';
+      iconClass = 'fa fa-compress';
     } else {
-      dir = 'left';
+      iconClass = 'fa fa-expand';
     }
 
     return (
       <button
         className='fullscreen-toggle'
         onClick={this.toggleFullScreen}>
-        <i className={`fa fa-arrow-${dir}`}></i>
+        <i className={iconClass}></i>
       </button>
     );
   }
