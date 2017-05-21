@@ -62,7 +62,7 @@
   index will take care of showing a new note!
 - [x] Modal for delete button
 - [x] Style index
-- [ ] NotesDetail
+- [x] NotesDetail
 - [x] New note
 - [x] Sort notes by date
 - [x] Clear notes from state on logout
@@ -75,8 +75,6 @@
 - [x] Fullscreen edit form
 - [ ] New form starts fullscreen
   * maybe refactor the whole new form route
-- [ ] Tab focus in editor
-
 
 # Phase 3: RTF Editing
 ## Backend
@@ -89,6 +87,9 @@
  - idea: editor does not have its own state, just passes state to parent
 - [x] Rerenders index on save
 - [ ] Style editor
+- [x] Tab focus in editor
+- [x] Placeholder in edit form is not clickable.
+- [ ] More functions in editor
 
 # Phase 4: Notebooks
 ## Backend
