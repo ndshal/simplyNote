@@ -69,6 +69,7 @@
 
 ## Style
 - [x] Nav, labels on links
+- [x] Fix icon jiggling in nav
 - [x] Outlines on index items
 - [x] Edit form
 - [ ] Fullscreen edit form
