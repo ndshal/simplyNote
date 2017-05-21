@@ -5,7 +5,7 @@ import {
   createNote
 } from '../../actions/notes_actions';
 import { clearErrors } from '../../actions/errors_actions';
-import NoteForm from './note_form';
+import NoteDetail from './note_detail';
 
 const mapStateToProps = state => ({
   note: state.noteDetail
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch, { match }) => ({
   clearErrors: () => dispatch(clearErrors())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NoteDetail);

@@ -1,49 +1,85 @@
+
 import React, { Component } from 'react';
-import NoteFormContainer from './note_form_container';
+import { withRouter } from 'react-router-dom';
+import { EditorState } from 'draft-js';
+import { createEditorNoteBody, createRawNoteBody } from '../../util/note_conversion_util';
+import RichEditor from '../editor/editor';
 
 class NoteDetail extends Component {
   constructor(props) {
     super(props);
-
-    this.state = { fullScreen: false };
-    this.toggleFullScreen = this.toggleFullScreen.bind(this);
+    this.state = {
+      id: null,
+      title: '',
+      body: EditorState.createEmpty(),
+    };
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  toggleFullScreen (){
-    this.setState({
-      fullScreen: !this.state.fullScreen
-    });
+   componentDidMount() {
+     if(this.props.formType === 'edit') {
+       this.props.fetchNote()
+       .then(({note}) => this.setState(createEditorNoteBody(note)));
+     }
+   }
+
+   componentWillReceiveProps(newProps) {
+     if(this.props.pathId !== newProps.pathId) {
+       if(newProps.formType === 'new') {
+         this.setState({
+           id: null,
+           title: '',
+           body: EditorState.createEmpty(),
+         });
+       } else {
+         newProps.fetchNote()
+         .then(({note}) => this.setState(createEditorNoteBody(note)));
+       }
+     }
+   }
+
+  update(field) {
+    return value => this.setState({[field]: value});
   }
 
-  fullScreenBtnIcon() {
-    let dir;
-    if(this.state.fullScreen) {
-      dir = 'right';
+  processForm(note) {
+    if(this.props.formType === 'edit') {
+      this.props.updateNote(note);
     } else {
-      dir = 'left';
+      this.props.createNote(note)
+        .then(({note}) => this.props.history.push(`/home/notes/${note.id}`))
+        .then(this.props.clearErrors);
     }
+  }
 
-    return <i className={`fa fa-arrow-${dir}`}></i>
+  handleSubmit(e) {
+    e.preventDefault();
+    const note = createRawNoteBody(this.state);
+    this.processForm(note);
   }
 
   render() {
-    let className='note-detail';
-    if(this.state.fullScreen) {
-      className += ' full-screen';
-    }
+    const { title, body } = this.state;
 
     return (
-      <section className={className}>
+      <from
+        className='note-detail'
+        onSubmit={this.handleSubmit}>
+        <input
+          className='note-title'
+          onChange={(e) => this.update('title')(e.target.value)}
+          value={this.state.title}
+          placeholder='title your note...'/>
+
+        <RichEditor
+          onChange={this.update('body')}
+          editorState={body} />
         <button
-          className='fullscreen-toggle'
-          onClick={this.toggleFullScreen}>
-          {this.fullScreenBtnIcon()}
-        </button>
-        <NoteFormContainer
-          match={this.props.match}/>
-      </section>
+          onClick={this.handleSubmit}>Save Note</button>
+      </from>
     );
   }
 }
 
-export default NoteDetail;
+export default withRouter(NoteDetail);
