@@ -72,7 +72,9 @@
 - [x] Fix icon jiggling in nav
 - [x] Outlines on index items
 - [x] Edit form
-- [ ] Fullscreen edit form
+- [x] Fullscreen edit form
+- [ ] New form starts fullscreen
+  * maybe refactor the whole new form route
 - [ ] Tab focus in editor
 
 
