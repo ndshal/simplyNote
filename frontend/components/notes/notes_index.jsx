@@ -22,7 +22,7 @@ class NotesIndex extends Component {
           <div className='header-title'>{heading}</div>
           <div className='note-count'>{notes.length} Notes</div>
         </header>
-        <ul>
+        <ul className='notes-list'>
           { notes.map(
             note => <NoteIndexItem
             key={note.id}

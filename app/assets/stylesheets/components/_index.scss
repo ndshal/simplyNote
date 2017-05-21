@@ -2,6 +2,11 @@
   border-right: 1px solid $grey;
 }
 
+.notes-list {
+  height: 83vh;
+  overflow-y: scroll;
+}
+
 .index-item {
   position: relative;
 }
