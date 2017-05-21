@@ -45,7 +45,7 @@
 ## Style
  - [x] Nav with logo (placeholder for now)
  - [x] Splash Screen
- - [ ] Footer for Splash Screen?
+ - [x] Footer for Splash Screen?
 
 # Phase 2: Notes
 ## Backend
@@ -64,7 +64,7 @@
 - [x] Style index
 - [ ] NotesDetail
 - [x] New note
-- [ ] Sort notes by date
+- [x] Sort notes by date
 - [x] Clear notes from state on logout
 
 ## Style

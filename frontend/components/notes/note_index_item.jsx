@@ -62,7 +62,7 @@ class NoteIndexItem extends Component {
         <li className={className}>
           <div className='index-item-content'>
             <h3>{this.props.title}</h3>
-            <h4>{this.props.updated_at} ago</h4>
+            <h4>{this.props.updated_str} ago</h4>
             <button onClick={this.toggleDeleteView}>
               <i className='fa fa-trash'></i>
             </button>

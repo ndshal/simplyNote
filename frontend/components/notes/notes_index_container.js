@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { values } from 'lodash';
+import { sortNotesByDate } from '../../reducers/selectors';
 import { deleteNote } from '../../actions/notes_actions';
 import NotesIndex from './notes_index';
 
@@ -13,7 +13,7 @@ const mapStateToProps = (state, { url, filter }) => {
   }
 
   return {
-    notes: values(state.notes),
+    notes: sortNotesByDate(state),
     url,
     heading
   };
