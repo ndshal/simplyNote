@@ -1,18 +1,17 @@
 
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { EditorState } from 'draft-js';
-import { createEditorNoteBody, createRawNoteBody } from '../../util/note_conversion_util';
+import {
+  createEditorNoteBody,
+  createRawNoteBody,
+  createEmptyNote
+} from '../../util/note_conversion_util';
 import RichEditor from '../editor/editor';
 
 class NoteDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: null,
-      title: '',
-      body: EditorState.createEmpty(),
-    };
+    this.state = createEmptyNote();
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -27,11 +26,7 @@ class NoteDetail extends Component {
    componentWillReceiveProps(newProps) {
      if(this.props.pathId !== newProps.pathId) {
        if(newProps.formType === 'new') {
-         this.setState({
-           id: null,
-           title: '',
-           body: EditorState.createEmpty(),
-         });
+         this.setState(createEmptyNote());
        } else {
          newProps.fetchNote()
          .then(({note}) => this.setState(createEditorNoteBody(note)));

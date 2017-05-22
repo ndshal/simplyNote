@@ -40,3 +40,9 @@ export const createRawNoteBody = (note) => {
 
   return newNote;
 };
+
+export const createEmptyNote = () => ({
+    id: null,
+    title: '',
+    body: EditorState.createEmpty(),
+});
