@@ -74,6 +74,7 @@
 - [x] Edit form
 - [x] Fullscreen edit form
 - [ ] New form starts fullscreen
+- [ ] New button
   * maybe refactor the whole new form route
 
 # Phase 3: RTF Editing
@@ -93,5 +94,7 @@
 
 # Phase 4: Notebooks
 ## Backend
-  - [ ] Notebook model, associations, maybe even nest the notes route
-  - [ ] Use params[:filter] to filter 'api_notes#index' results
+  - [x] Notebook model, associations, maybe even nest the notes route
+  - [x] Use params[:filter] to filter 'api_notes#index' results
+
+## Frontend 
