@@ -45,7 +45,6 @@ class NoteDetail extends Component {
    }
 
   update(field) {
-    console.log('in update');
     return value => this.setState({[field]: value});
   }
 
