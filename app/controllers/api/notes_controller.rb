@@ -3,11 +3,6 @@ class Api::NotesController < ApplicationController
 
   def index
     @notes = Note.where(author_id: current_user.id)
-    if params[:filter]
-      @notes = @notes.where(
-        "#{params[:filter][:object]}_id = #{params[:filter][:objectId]}"
-      )
-    end
   end
 
   def show
@@ -15,6 +10,8 @@ class Api::NotesController < ApplicationController
   end
 
   def create
+    debugger
+
     @note = Note.new(note_params)
     @note.author = current_user
     if @note.save

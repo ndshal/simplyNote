@@ -35,7 +35,7 @@ class Notes extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchAllNotes(this.props.filter);
+    this.props.fetchAllNotes();
   }
 
   render (){

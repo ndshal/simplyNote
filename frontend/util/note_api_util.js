@@ -1,8 +1,7 @@
-export const fetchAllNotes = filter => (
+export const fetchAllNotes = () => (
   $.ajax({
     method: 'get',
-    url: 'api/notes',
-    data: {filter}
+    url: 'api/notes'
   })
 );
 

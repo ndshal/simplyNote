@@ -52,8 +52,12 @@ class NoteDetail extends Component {
     if(this.props.formType === 'edit') {
       this.props.updateNote(note);
     } else {
+      const path = this.props.location.pathname;
+      const indexPath = path.match(/(.*)\/\d*/)[1];
+      const savedPath = `${indexPath}/${note.id}`;
+
       this.props.createNote(note)
-        .then(({note}) => this.props.history.go(-2))
+        .then(({note}) => this.props.history.push(savedPath))
         .then(this.props.clearErrors);
     }
   }
