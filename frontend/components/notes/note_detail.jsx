@@ -54,10 +54,9 @@ class NoteDetail extends Component {
     } else {
       const path = this.props.location.pathname;
       const indexPath = path.match(/(.*)\/\d*/)[1];
-      const savedPath = `${indexPath}/${note.id}`;
 
       this.props.createNote(note)
-        .then(({note}) => this.props.history.push(savedPath))
+        .then(({note}) => this.props.history.push(`${indexPath}/${note.id}`))
         .then(this.props.clearErrors);
     }
   }
@@ -70,7 +69,6 @@ class NoteDetail extends Component {
 
   render() {
     const { title, body, notebook_id } = this.state;
-
     return (
       <from
         className='note-detail'
