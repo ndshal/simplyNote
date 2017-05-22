@@ -6,12 +6,12 @@ import {
 } from '../../actions/notes_actions';
 import { clearErrors } from '../../actions/errors_actions';
 import NoteDetail from './note_detail';
-import { sortItemsByTitle } from '../../reducers/selectors';
+import { sortItemSliceByTitle } from '../../reducers/selectors';
 
 
 const mapStateToProps = state => ({
   note: state.noteDetail,
-  notebooks: sortItemsByTitle(state.notebooks)
+  notebooks: sortItemSliceByTitle(state.notebooks)
 });
 
 const mapDispatchToProps = (dispatch, { match }) => ({

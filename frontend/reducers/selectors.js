@@ -2,31 +2,34 @@ import { values } from 'lodash';
 
 export const selectNotesByFilter = (notes, filter) => {
   let filteredNotes = [];
-  if (filter.object) {
-    const filterName = `${filter.object}_id`;
-    for (let key in notes) {
-      let note = notes[key]
-      if (note[filterName] ===  filter['id']) {
-        filteredNotes.push(note);
-      }
+  let selectFunc = note => true;
+  if(filter.object === 'notebook') {
+    selectFunc = note => note.notebook_id === parseInt(filter.objectId);
+  } else if (filter.object === 'tag') {
+    selectFunc = note => note.tag_ids.includes(parseInt(filter.objectId));
+  }
+
+  for (let key in notes) {
+    let note = notes[key]
+    if (selectFunc(note)) {
+      filteredNotes.push(note);
     }
-  } else {
-    filteredNotes = values(notes);
   }
 
   return filteredNotes;
 };
 
-
-export const sortItemsByDate = itemsSlice => {
-  let items = values(itemsSlice);
+export const sortItemsByDate = items => {
   return items.sort(
     (a,b) => (new Date(b.updated_at) - new Date(a.updated_at))
   );
 };
 
-export const sortItemsByTitle = itemsSlice => {
-  let items = values(itemsSlice);
+export const sortItemSliceByDate = itemSlice => (
+  sortItemsByDate(values(itemSlice))
+);
+
+export const sortItemsByTitle = items => {
   return items.sort(
     (a,b) => {
       if(a.title < b.title) {
@@ -38,4 +41,8 @@ export const sortItemsByTitle = itemsSlice => {
       }
     }
   );
-}
+};
+
+export const sortItemSliceByTitle = itemSlice => (
+  sortItemsByTitle(values(itemSlice))
+);
