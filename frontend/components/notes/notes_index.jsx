@@ -20,7 +20,7 @@ class NotesIndex extends Component {
       <aside className='notes-index'>
         <header>
           <div className='header-title'>{heading}</div>
-          <div className='note-count'>{notes.length} Notes</div>
+          <div className='item-count'>{notes.length} Notes</div>
         </header>
         <ul className='notes-list'>
           { notes.map(
