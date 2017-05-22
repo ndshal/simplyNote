@@ -45,6 +45,7 @@ class NoteDetail extends Component {
    }
 
   update(field) {
+    console.log('in update');
     return value => this.setState({[field]: value});
   }
 
@@ -53,7 +54,7 @@ class NoteDetail extends Component {
       this.props.updateNote(note);
     } else {
       this.props.createNote(note)
-        .then(({note}) => this.props.history.push(`/home/notes/${note.id}`))
+        .then(({note}) => this.props.history.go(-2))
         .then(this.props.clearErrors);
     }
   }
@@ -65,15 +66,28 @@ class NoteDetail extends Component {
   }
 
   render() {
-    const { title, body } = this.state;
+    const { title, body, notebook_id } = this.state;
 
     return (
       <from
         className='note-detail'
         onSubmit={this.handleSubmit}>
 
+        <select
+          value={notebook_id}
+          onChange={e => this.update('notebook_id')(e.target.value)}>
+          {
+            this.props.notebooks.map(notebook => (
+              <option
+                key={notebook.id}
+                value={notebook.id}>
+                {notebook.title}</option>
+            ))
+          }
+        </select>
+
         <RichEditor
-          title={this.state.title}
+          title={title}
           update={this.update}
           editorState={body}
           ref="form"

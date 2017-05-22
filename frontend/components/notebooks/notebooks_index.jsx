@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import NotebookIndexItem from './notebook_index_item';
 
 class NotebooksIndex extends Component {
-  componentDidMount() {
-    this.props.fetchAllNotebooks();
-  }
-
   render () {
     const { notebooks, deleteNote } = this.props;
     return(

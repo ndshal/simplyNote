@@ -6,7 +6,7 @@ import NotesIndex from './notes_index';
 const mapStateToProps = (state, { url, filter }) => {
   let heading;
   if (filter.object) {
-    const objectName = state[`${filter.object}s`][filter.objectId].name;
+    const objectName = state[`${filter.object}s`][filter.objectId].title;
     heading = `${filter.object}: ${objectName}`;
   } else {
     heading = 'notes';

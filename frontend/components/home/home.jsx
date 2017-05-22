@@ -5,6 +5,10 @@ import NotesContainer from '../notes/notes_container';
 import NotebooksIndexContainer from '../notebooks/notebooks_index_container';
 
 class Home extends Component {
+  componentDidMount() {
+    this.props.fetchAllNotebooks();
+  }
+
   render() {
     return (
       <secion className='home-content'>

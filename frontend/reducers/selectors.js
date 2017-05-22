@@ -24,3 +24,18 @@ export const sortItemsByDate = itemsSlice => {
     (a,b) => (new Date(b.updated_at) - new Date(a.updated_at))
   );
 };
+
+export const sortItemsByTitle = itemsSlice => {
+  let items = values(itemsSlice);
+  return items.sort(
+    (a,b) => {
+      if(a.title < b.title) {
+        return -1;
+      } else if (a.title > b.title) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+  );
+}
