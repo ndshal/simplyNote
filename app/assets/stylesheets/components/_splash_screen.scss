@@ -1,19 +1,19 @@
 .splash-screen {
   display: flex;
   flex-direction: column;
-  // background-image: asset-url('stanley-dai-242205.jpg');
-  // background-size: cover;
+  position: relative;
+  height: 100vh;
 }
 
 .splash-screen header {
-  width: 100%;
+  flex: 3;
+
   font-size: 24px;
 
-  padding: 15px;
+  padding: 15px 0;
   display: flex;
   align-items: center;
   border-bottom: 1px solid black;
-  z-index: 2;
   background: white;
 }
 
@@ -26,18 +26,10 @@
 }
 
 .splash-screen header i {
+  padding-left: 15px;
   font-size: 42px;
   color: $darker-grey;
 }
-
-.splash-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: $sans-serif;
-}
-
 .description-heading {
   font-size: 30px;
   font-weight: 300;
@@ -53,14 +45,25 @@
 }
 
 .splash-content {
+  flex: 30;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: $sans-serif;
+
   background-image: asset-url('fabian-irsara-92113.jpg');
   background-size: cover;
-  padding: 75px;
+
+  padding: 100px 0;
 }
 
 footer {
+  flex: 2;
+
   background: $lighter-grey;
-  padding: 10px;
+  padding: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,6 +95,7 @@ footer {
 
 .info {
   margin: auto 0;
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
