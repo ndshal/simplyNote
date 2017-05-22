@@ -1,6 +1,6 @@
 import * as NoteAPIUtil from '../util/note_api_util';
 import { stringifyNoteBody, parseNoteBody } from '../util/note_conversion_util.js';
-import { receiveErrors, clearErrors } from './errors_actions';
+import { receiveErrors } from './errors_actions';
 
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
 export const RECEIVE_SINGLE_NOTE = 'RECEIVE_SINGLE_NOTE';
