@@ -19,7 +19,11 @@ class NoteDetail extends Component {
    componentDidMount() {
      if(this.props.formType === 'edit') {
        this.props.fetchNote()
-       .then(({note}) => this.setState(createEditorNoteBody(note)));
+       .then(({note}) => this.setState(
+         createEditorNoteBody(note),
+         this.refs.form.focusBody
+        )
+      );
      }
    }
 
@@ -28,13 +32,13 @@ class NoteDetail extends Component {
        if(newProps.formType === 'new') {
          this.setState(
            createEmptyNote(),
-           this.refs.editor.focusTitle
+           this.refs.form.focusTitle
          );
        } else {
          newProps.fetchNote()
          .then(({note}) => this.setState(
            createEditorNoteBody(note),
-           this.refs.editor.focusBody
+           this.refs.form.focusBody
          ));
        }
      }
@@ -72,7 +76,7 @@ class NoteDetail extends Component {
           title={this.state.title}
           update={this.update}
           editorState={body}
-          ref="editor"
+          ref="form"
         />
         <button
           onClick={this.handleSubmit}>Save Note</button>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Editor, RichUtils } from 'draft-js';
+import { Editor, EditorState, RichUtils } from 'draft-js';
 import { InlineStyleControls, BlockStyleControls } from './style_controls';
 
 class RichEditor extends Component {
@@ -10,10 +10,19 @@ class RichEditor extends Component {
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.toggleBlockType = this.toggleBlockType.bind(this);
     this.onTab = this.onTab.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
+
     this.focusTitle = () => this.refs.title.focus();
-    this.focusBody = () => this.refs.editor.focus();
+    this.focusBody = () => this.onChange(EditorState.moveFocusToEnd(this.props.editorState));
 
     this.onChange = props.update('body');
+  }
+
+  handleEnter(e) {
+    if(e.which === 13) {
+      e.preventDefault();
+      this.focusBody();
+    }
   }
 
   handleKeyCommand(command) {
@@ -69,6 +78,7 @@ class RichEditor extends Component {
 
         <input
           className='note-title'
+          onKeyPress={this.handleEnter}
           onChange={(e) => update('title')(e.target.value)}
           value={title}
           placeholder='title your note...'
