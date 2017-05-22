@@ -93,4 +93,5 @@
 
 # Phase 4: Notebooks
 ## Backend
- - [ ] Use params[:filter] to filter 'api_notes#index' results
+  - [ ] Notebook model, associations, maybe even nest the notes route
+  - [ ] Use params[:filter] to filter 'api_notes#index' results
