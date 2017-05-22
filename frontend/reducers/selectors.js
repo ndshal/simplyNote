@@ -18,9 +18,9 @@ export const selectNotesByFilter = (notes, filter) => {
 };
 
 
-export const sortNotesByDate = state => {
-  let notes = values(state.notes);
-  return notes.sort(
+export const sortItemsByDate = itemsSlice => {
+  let items = values(itemsSlice);
+  return items.sort(
     (a,b) => (new Date(b.updated_at) - new Date(a.updated_at))
   );
 };
