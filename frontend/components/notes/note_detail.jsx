@@ -61,14 +61,10 @@ class NoteDetail extends Component {
       <from
         className='note-detail'
         onSubmit={this.handleSubmit}>
-        <input
-          className='note-title'
-          onChange={(e) => this.update('title')(e.target.value)}
-          value={this.state.title}
-          placeholder='title your note...'/>
 
         <RichEditor
-          onChange={this.update('body')}
+          title={this.state.title}
+          update={this.update}
           editorState={body} />
         <button
           onClick={this.handleSubmit}>Save Note</button>

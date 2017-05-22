@@ -11,13 +11,15 @@ class RichEditor extends Component {
     this.toggleBlockType = this.toggleBlockType.bind(this);
     this.onTab = this.onTab.bind(this);
     this.focus = () => this.refs.editor.focus();
+
+    this.onChange = props.update('body');
   }
 
   handleKeyCommand(command) {
     const newState = RichUtils.handleKeyCommand(this.props.editorState,
       command);
     if (newState) {
-      this.props.onChange(newState);
+      this.onChange(newState);
       return 'handled';
     }
 
@@ -26,11 +28,11 @@ class RichEditor extends Component {
 
   onTab(e) {
     const maxDepth = 4;
-    this.props.onChange(RichUtils.onTab(e, this.props.editorState, maxDepth));
+    this.onChange(RichUtils.onTab(e, this.props.editorState, maxDepth));
   }
 
   toggleInlineStyle(inlineStyle) {
-    this.props.onChange(
+    this.onChange(
       RichUtils.toggleInlineStyle(
         this.props.editorState,
         inlineStyle
@@ -39,7 +41,7 @@ class RichEditor extends Component {
   }
 
   toggleBlockType(blockType) {
-    this.props.onChange(
+    this.onChange(
       RichUtils.toggleBlockType(
         this.props.editorState,
         blockType
@@ -48,7 +50,7 @@ class RichEditor extends Component {
   }
 
   render () {
-    const {editorState} = this.props;
+    const {editorState, title, update} = this.props;
 
     return (
       <div className='editor-root'>
@@ -64,12 +66,20 @@ class RichEditor extends Component {
           />
         </div>
 
+        <input
+          className='note-title'
+          onChange={(e) => update('title')(e.target.value)}
+          value={title}
+          placeholder='title your note...'
+          ref="title"
+        />
+
         <Editor
           className='editor'
           editorState={editorState}
           handleKeyCommand={this.handleKeyCommand}
           onTab={this.onTab}
-          onChange={this.props.onChange}
+          onChange={this.onChange}
           placeholder="Just start typing!"
           ref="editor"
           spellCheck={true}
