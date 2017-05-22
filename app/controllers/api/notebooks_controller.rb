@@ -28,8 +28,8 @@ class Api::NotebooksController < ApplicationController
 
   private
 
-  def note_params
-    params.require(:notebook).permit(:title, :author_id)
+  def notebook_params
+    params.require(:notebook).permit(:title, :desciption, :author_id)
   end
 
 end
