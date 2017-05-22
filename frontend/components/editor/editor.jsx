@@ -10,7 +10,8 @@ class RichEditor extends Component {
     this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
     this.toggleBlockType = this.toggleBlockType.bind(this);
     this.onTab = this.onTab.bind(this);
-    this.focus = () => this.refs.editor.focus();
+    this.focusTitle = () => this.refs.title.focus();
+    this.focusBody = () => this.refs.editor.focus();
 
     this.onChange = props.update('body');
   }

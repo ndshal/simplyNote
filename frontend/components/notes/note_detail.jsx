@@ -26,10 +26,16 @@ class NoteDetail extends Component {
    componentWillReceiveProps(newProps) {
      if(this.props.pathId !== newProps.pathId) {
        if(newProps.formType === 'new') {
-         this.setState(createEmptyNote());
+         this.setState(
+           createEmptyNote(),
+           this.refs.editor.focusTitle
+         );
        } else {
          newProps.fetchNote()
-         .then(({note}) => this.setState(createEditorNoteBody(note)));
+         .then(({note}) => this.setState(
+           createEditorNoteBody(note),
+           this.refs.editor.focusBody
+         ));
        }
      }
    }
@@ -65,7 +71,9 @@ class NoteDetail extends Component {
         <RichEditor
           title={this.state.title}
           update={this.update}
-          editorState={body} />
+          editorState={body}
+          ref="editor"
+        />
         <button
           onClick={this.handleSubmit}>Save Note</button>
       </from>
