@@ -11,6 +11,7 @@ import TagFormContainer from '../tags/tag_form_container';
 class Home extends Component {
   componentDidMount() {
     this.props.fetchAllNotebooks();
+    this.props.fetchAllTags();
   }
 
   render() {
