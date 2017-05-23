@@ -1,6 +1,6 @@
 class Tagging < ApplicationRecord
   validates :note, :tag, presence: true
-  validates :note, uniquness: { scope: :tag }
+  validates :note, uniqueness: { scope: :tag }
 
   belongs_to :tag
   belongs_to :note
