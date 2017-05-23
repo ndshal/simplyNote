@@ -106,8 +106,8 @@
 
 # Phase 5: Tags!
 ## Backend
- - [ ] Tag model, controller
- - [ ] Taggings join table, associations
+ - [x] Tag model, controller
+ - [x] Taggings join table, associations
 
 ## Frontend
   - [ ] API Util, actions
