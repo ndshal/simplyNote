@@ -44,6 +44,11 @@ class NoteDetail extends Component {
      }
    }
 
+   autosetNotebook(note) {
+     const path = this.props.location.pathname;
+     const notebookMatch = path.match(/home\/notebook\/(\d+)/);
+   }
+
   update(field) {
     return value => this.setState({[field]: value});
   }
@@ -72,12 +77,7 @@ class NoteDetail extends Component {
   }
 
   render() {
-    const path = this.props.location.pathname;
-    const notebookMatch = path.match(/home\/notebook\/(\d+)/);
     let { title, body, notebook_id } = this.state;
-    if (notebook_id === '' && notebookMatch) {
-      notebook_id = parseInt(notebookMatch[1]);
-    }
 
     return (
       <from
