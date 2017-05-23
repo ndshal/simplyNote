@@ -95,8 +95,14 @@
 ## Backend
   - [x] Notebook model, associations, maybe even nest the notes route
   - [x] Use params[:filter] to filter 'api_notes#index' results
+    -> no more! filter by notebook on front end
 
 ## Frontend
   - [ ] Style notebooks index
   - [ ] Add notebook selection style to edit form
+     -> Put this in its own component?
   - [ ] Add new notebook page / button
+
+
+
+- [ ] Search inputs in notebooks and notes index
