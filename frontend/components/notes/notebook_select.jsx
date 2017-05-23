@@ -44,13 +44,9 @@ class NotebookSelect extends Component {
           <span>{currentTitle}</span>
         </button>
         <ul
-<<<<<<< HEAD
-          className={ulClass}>
-=======
           className={ulClass}
           tabIndex="0"
           onBlur={this.closeListView}>
->>>>>>> notebooks
           <li key={0} className='notebook-selector-header'>
             <div className='notebook-selector-header-text'>
               notebooks
