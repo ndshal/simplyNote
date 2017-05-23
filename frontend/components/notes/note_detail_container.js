@@ -9,10 +9,9 @@ import NoteDetail from './note_detail';
 import { sortItemSliceByTitle } from '../../reducers/selectors';
 
 
-const mapStateToProps = (state, {fullScreen}) => ({
-  fullScreen,
+const mapStateToProps = state => ({
   note: state.noteDetail,
-  notebooks: sortItemSliceByTitle(state.notebooks)
+  notebooks: state.notebooks
 });
 
 const mapDispatchToProps = (dispatch, { match }) => ({
