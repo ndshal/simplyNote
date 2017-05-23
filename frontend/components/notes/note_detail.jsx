@@ -64,7 +64,11 @@ class NoteDetail extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const note = createRawNoteBody(this.state);
-    this.processForm(note);
+    if (this.state.notebook_id === '') {
+      alert('Pick a notebook first! ***this alert is temporary***');
+    } else {
+      this.processForm(note);
+    }
   }
 
   render() {
