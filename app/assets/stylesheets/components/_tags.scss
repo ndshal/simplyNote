@@ -1,0 +1,65 @@
+.tags-index {
+  border-right: 1px solid $grey;
+}
+
+.tags-list {
+  height: 83vh;
+  overflow-y: scroll;
+}
+
+.tags-index > header {
+  position: relative;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid $grey;
+}
+
+.tags-index > header a {
+  position: absolute;
+  top: 12%;
+  right: 5%;
+}
+
+.tags-index > header i {
+  font-size: 20px;
+  color: $darker-grey;
+  padding: 3px;
+}
+
+.tags-list > li {
+  width: 100%;
+  padding: 15px;
+  padding-left: 30px;
+}
+
+.tag-index-item {
+  margin: 10px 0;
+}
+
+.tag-index-item a {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background: $light-grey;
+  border: 1px solid $text-light;
+  border-radius: 3px;
+
+  color: $darker-grey;
+  font-size: 16px;
+}
+
+.tag-index-item a:hover {
+  background: $green;
+  color: white;
+}
+
+.letter-label {
+  color: $darker-grey;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.tags-by-letter-ul {
+  display: flex;
+  flex-wrap: wrap;
+}
