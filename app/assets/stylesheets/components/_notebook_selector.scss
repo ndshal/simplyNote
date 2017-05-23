@@ -1,5 +1,7 @@
 .notebook-selector {
   position: relative;
+  border-right: 1px solid $grey;
+  padding-right: 16px;
 }
 
 .notebook-selector-ul {
@@ -7,12 +9,56 @@
   position: absolute;
   top: 100%;
 
+  max-height: 400px;
+  width: 350px;
+  overflow-y: auto;
+
   background: white;
-  padding: 15px;
-  border: 1px solid $grey;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
 }
 
-.current-notebook {
+.notebook-selector-header {
+  height: 50px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+
+.notebook-selector-header-text {
+  font-size: 14px;
+  color: $text-light;
+  margin: 0 15px;
+  padding-top: 15px;
+}
+
+.notebook-selector-item {
+  height: 50px;
+}
+
+.notebook-selector-text {
+  font-size: 14px;
+  font-family: "Scope One", serif;
+  color: $text-dark;
+  height: 100%;
+  margin: 0 15px;
+  border-top: 1px solid $grey;
+
+  display: flex;
+  align-items: center;
+}
+
+.notebook-selector-item:hover {
+  cursor: pointer;
+  background: $green;
+  color: white;
+}
+
+.notebook-selector-item:hover .notebook-selector-text {
+  color:white;
+  border-top: 1px solid $green;
+}
+
+.current-notebook .notebook-selector-text{
   color: $green;
 }
 
@@ -35,11 +81,12 @@
 }
 
 .notebook-selector-btn:hover {
-	background-color: inherit;
+  background: inherit;
+	color: $green;
 }
 
 .notebook-selector-btn i {
   color: $darker-grey;
   padding: 2px;
-  margin-right: 3px;
+  margin-right: 4px;
 }

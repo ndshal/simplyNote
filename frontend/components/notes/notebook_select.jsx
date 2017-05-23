@@ -39,7 +39,11 @@ class NotebookSelect extends Component {
           <span>{currentTitle}</span>
         </button>
         <ul className={ulClass}>
-          <li key={0} className='selector-header'>Notebooks</li>
+          <li key={0} className='notebook-selector-header'>
+            <div className='notebook-selector-header-text'>
+              notebooks
+            </div>
+          </li>
           {
             notebooks.map(notebook => {
               let liClass='notebook-selector-item';
@@ -51,7 +55,9 @@ class NotebookSelect extends Component {
                   className={liClass}
                   key={notebook.id}
                   onClick={() => update(notebook.id)}>
-                  {notebook.title}
+                  <div className='notebook-selector-text'>
+                    {notebook.title}
+                  </div>
                 </li>
               );
             })
