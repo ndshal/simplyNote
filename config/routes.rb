@@ -1,15 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-    get 'tags/index'
-  end
-
-  namespace :api do
-    get 'tags/create'
-  end
-
-  namespace :api do
-    get 'tags/destroy'
-  end
 
   root to: 'static_pages#root'
 
@@ -19,6 +8,7 @@ Rails.application.routes.draw do
 
     resources :notes, except: [:new, :edit]
     resources :notebooks, only: [:index, :create, :destroy]
+    resources :tags, only: [:index, :create, :destroy]
   end
 
 end
