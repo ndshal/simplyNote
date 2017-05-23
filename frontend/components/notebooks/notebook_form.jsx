@@ -23,9 +23,9 @@ class NotebookForm extends Component {
     e.preventDefault();
     const notebook = merge({}, this.state);
     this.props.createNotebook(notebook)
-      .then(
-        notebook => this.props.history.push(`/home/notebook/${notebook.id}`)
-      );
+      .then(({ notebook }) => (
+        this.props.history.push(`/home/notebook/${notebook.id}/notes`)
+      ));
   }
 
   update(field) {
@@ -35,7 +35,9 @@ class NotebookForm extends Component {
   newFormButtons() {
     return (
       <div className='notebook-form-btns'>
-        <button onClick={this.handleCancel}>Cancel</button>
+        <button
+          className='cancel-btn'
+          onClick={this.handleCancel}>Cancel</button>
         <button type='submit'>Create Notebook</button>
       </div>
     );
@@ -51,7 +53,7 @@ class NotebookForm extends Component {
       </header>
     );
   }
- 
+
   render() {
     const { title } = this.state;
     return (
