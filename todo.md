@@ -98,7 +98,7 @@
     -> no more! filter by notebook on front end
 
 ## Frontend
-  - [ ] Style notebooks index
+  - [x] Style notebooks index
   - [x] Add notebook selection style to edit form
      -> Put this in its own component?
   - [x] Style notebook selector ul

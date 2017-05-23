@@ -38,7 +38,8 @@ class NotebookSelect extends Component {
           <i className="fa fa-book"></i>
           <span>{currentTitle}</span>
         </button>
-        <ul className={ulClass}>
+        <ul
+          className={ulClass}>
           <li key={0} className='notebook-selector-header'>
             <div className='notebook-selector-header-text'>
               notebooks
