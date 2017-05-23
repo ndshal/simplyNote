@@ -4,7 +4,7 @@ import NotebookIndexItem from './notebook_index_item';
 
 class NotebooksIndex extends Component {
   render () {
-    const { notebooks, deleteNote } = this.props;
+    const { notebooks, deleteNotebook } = this.props;
     return(
       <aside className='notebooks-index'>
         <header>
@@ -18,7 +18,7 @@ class NotebooksIndex extends Component {
             notebook => <NotebookIndexItem
             key={notebook.id}
             linkPath={`/home/notebook/${notebook.id}/notes`}
-            deleteNotebook={()=>deleteNote(notebook.id)}
+            deleteNotebook={()=>deleteNotebook(notebook.id)}
             {...notebook} />) }
         </ul>
       </aside>
