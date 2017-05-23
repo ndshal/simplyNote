@@ -58,6 +58,7 @@ class NotebookForm extends Component {
     const { title } = this.state;
     return (
       <form
+        className='notebook-form'
         onSubmit={this.handleSubmit}>
 
         {this.newFormHeader()}
