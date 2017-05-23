@@ -1,6 +1,5 @@
 .home-content {
   display: flex;
-  flex-wrap: wrap;
   height: 100vh;
 }
 
@@ -9,12 +8,12 @@
 }
 
 .side-nav {
-  flex: 1;
+  width: 4vw;
 }
 
 .notes {
   position: relative;
-  flex: 17;
+  width: 96vw;
   display: flex;
 }
 
@@ -32,5 +31,5 @@
 }
 
 .notebooks-index {
-  flex: 17;
+  width: 36vw;
 }

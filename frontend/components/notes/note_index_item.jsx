@@ -32,7 +32,8 @@ class NoteIndexItem extends Component {
     }
   }
 
-  toggleDeleteView() {
+  toggleDeleteView(e) {
+    e.preventDefault();
     this.setState({showDelete: !this.state.showDelete});
   }
 
@@ -53,7 +54,7 @@ class NoteIndexItem extends Component {
     }
 
     let deleteClass = 'hidden';
-    if (this.state.showDelete && this.state.isCurrentNote) {
+    if (this.state.showDelete) {
       deleteClass += ' delete-view';
     }
 

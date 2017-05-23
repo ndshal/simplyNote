@@ -12,7 +12,8 @@ class NotebookIndexItem extends Component {
     this.handleDelete = this.handleDelete.bind(this);
   }
 
-  toggleDeleteView() {
+  toggleDeleteView(e) {
+    e.preventDefault();
     this.setState({showDelete: !this.state.showDelete});
   }
 
@@ -21,7 +22,7 @@ class NotebookIndexItem extends Component {
   }
 
   render () {
-    const { linkPath, title, updated_str } = this.props;
+    const { linkPath, title, note_count } = this.props;
     let className='index-item';
 
     let deleteClass = 'hidden';
@@ -34,7 +35,7 @@ class NotebookIndexItem extends Component {
         <li className={className}>
           <div className='index-item-content'>
             <h3>{title}</h3>
-            <h4>{updated_str} ago</h4>
+            <h4>{note_count} notes</h4>
             <button onClick={this.toggleDeleteView}>
               <i className='fa fa-trash'></i>
             </button>

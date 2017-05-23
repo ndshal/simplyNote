@@ -1,0 +1,43 @@
+.notebooks-index {
+  border-right: 1px solid $grey;
+}
+
+.notebooks-list {
+  height: 83vh;
+  overflow-y: scroll;
+}
+
+.notebooks-index > header {
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid $grey;
+}
+
+.notebooks-index .index-item-content {
+  position: relative;
+
+  padding: 10px 0;
+  border-top: 1px solid $grey;
+  margin-top: -2px;
+}
+
+.notebooks-list .index-item {
+  padding: 0 15px;
+}
+
+.notebooks-list .index-item button {
+  font-size: 20px;
+  top: 15%;
+}
+
+// .notebooks-list .index-item button {
+//   display: none;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+// }
+
+// .notebooks-list .index-item button:hover {
+//   display: block;
+// }

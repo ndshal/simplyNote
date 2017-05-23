@@ -8,7 +8,6 @@ class NotebooksIndex extends Component {
       <aside className='notebooks-index'>
         <header>
           <div className='header-title'>Notebooks</div>
-          <div className='item-count'>{notebooks.length} Notebooks</div>
         </header>
         <ul className='notebooks-list'>
           { notebooks.map(

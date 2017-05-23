@@ -74,7 +74,6 @@
 - [x] Edit form
 - [x] Fullscreen edit form
 - [ ] New form starts fullscreen
-- [ ] New button
   * maybe refactor the whole new form route
 
 # Phase 3: RTF Editing
@@ -97,4 +96,7 @@
   - [x] Notebook model, associations, maybe even nest the notes route
   - [x] Use params[:filter] to filter 'api_notes#index' results
 
-## Frontend 
+## Frontend
+  - [ ] Style notebooks index
+  - [ ] Add notebook selection style to edit form
+  - [ ] Add new notebook page / button
