@@ -6,9 +6,6 @@ import {
 import { merge } from 'lodash';
 
 const notebooksReducer = (state={}, action) => {
-
-  console.log(action);
-
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_ALL_NOTEBOOKS:
