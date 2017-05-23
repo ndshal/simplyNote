@@ -7,7 +7,6 @@ import {
   createEmptyNote
 } from '../../util/note_conversion_util';
 import RichEditor from '../editor/editor';
-import NotebookSelect from './notebook_select';
 
 class NoteDetail extends Component {
   constructor(props) {
@@ -75,13 +74,10 @@ class NoteDetail extends Component {
         className='note-detail'
         onSubmit={this.handleSubmit}>
 
-        <NotebookSelect
-          notebooks={this.props.notebooks}
-          value={notebook_id}
-          update={this.update('notebook_id')} />
-
         <RichEditor
           title={title}
+          notebooks={this.props.notebooks}
+          notebookId={notebook_id}
           update={this.update}
           editorState={body}
           ref="form"

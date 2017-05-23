@@ -15,14 +15,14 @@ class NotebookSelect extends Component {
   }
 
   isCurrentNotebook(notebook) {
-    notebook.id = this.props.notebook_id;
+    return notebook.id === this.props.value;
   }
 
   render() {
-    let { notebooks, notebook_id } = this.props;
+    let { notebooks, value, update } = this.props;
     let currentTitle = '';
-    if (notebooks[notebook_id]) {
-      currentTitle = notebooks[notebook_id].title;
+    if (notebooks[value]) {
+      currentTitle = notebooks[value].title;
     }
     notebooks = values(notebooks);
     let ulClass = 'hidden';
@@ -32,7 +32,9 @@ class NotebookSelect extends Component {
 
     return (
       <div className='notebook-selector'>
-        <button onClick={this.toggleListView}>
+        <button
+          className='notebook-selector-btn'
+          onClick={this.toggleListView}>
           <i className="fa fa-book"></i>
           <span>{currentTitle}</span>
         </button>
@@ -40,14 +42,15 @@ class NotebookSelect extends Component {
           <li key={0} className='selector-header'>Notebooks</li>
           {
             notebooks.map(notebook => {
-              let className='notebook-selector-item';
+              let liClass='notebook-selector-item';
               if (this.isCurrentNotebook(notebook)) {
-                className += ' current-notebook';
+                liClass += ' current-notebook';
               }
               return (
                 <li
+                  className={liClass}
                   key={notebook.id}
-                  onClick={() => this.update(notebook.id)}>
+                  onClick={() => update(notebook.id)}>
                   {notebook.title}
                 </li>
               );

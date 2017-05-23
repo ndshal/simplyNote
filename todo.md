@@ -99,8 +99,10 @@
 
 ## Frontend
   - [ ] Style notebooks index
-  - [ ] Add notebook selection style to edit form
+  - [x] Add notebook selection style to edit form
      -> Put this in its own component?
+  - [ ] Style notebook selector ul
+  - [ ] Think about refactoring editor/noteDetail form
   - [ ] Add new notebook page / button
 
 

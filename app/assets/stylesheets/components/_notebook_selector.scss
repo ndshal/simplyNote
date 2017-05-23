@@ -1,0 +1,45 @@
+.notebook-selector {
+  position: relative;
+}
+
+.notebook-selector-ul {
+  z-index: 3;
+  position: absolute;
+  top: 100%;
+
+  background: white;
+  padding: 15px;
+  border: 1px solid $grey;
+}
+
+.current-notebook {
+  color: $green;
+}
+
+.notebook-selector-btn {
+	background-color: white;
+	border: 0;
+	color: black;
+	font-weight: 300;
+	padding: 0;
+	border-radius: 0;
+	transition: none;
+	font-family: sans-serif;
+	text-transform: none;
+	font-size: 14px;
+	text-align: left;
+
+  display: flex;
+  justify-content: space-around;
+  padding: 3px;
+}
+
+.notebook-selector-btn:hover {
+	background-color: inherit;
+}
+
+.notebook-selector-btn i {
+  color: $darker-grey;
+  padding: 2px;
+  margin-right: 3px;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
 import { InlineStyleControls, BlockStyleControls } from './style_controls';
+import NotebookSelect from '../notes/notebook_select';
 
 class RichEditor extends Component {
   constructor(props) {
@@ -60,11 +61,17 @@ class RichEditor extends Component {
   }
 
   render () {
-    const {editorState, title, update} = this.props;
+    const {editorState, title, update, notebooks, notebookId} = this.props;
 
     return (
       <div className='editor-root'>
         <div className='editor-controls'>
+          <NotebookSelect
+            notebooks={notebooks}
+            value={notebookId}
+            update={update('notebook_id')}
+          />
+
           <InlineStyleControls
             editorState={editorState}
             onToggle={this.toggleInlineStyle}
