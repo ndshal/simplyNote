@@ -86,9 +86,9 @@
 - [x] Refactor editor Component
  - idea: editor does not have its own state, just passes state to parent
 - [x] Rerenders index on save
-- [ ] Style editor
 - [x] Tab focus in editor
 - [x] Placeholder in edit form is not clickable.
+- [ ] Style editor
 - [ ] More functions in editor
 
 # Phase 4: Notebooks
@@ -102,9 +102,9 @@
   - [x] Add notebook selection style to edit form
      -> Put this in its own component?
   - [x] Style notebook selector ul
-  - [ ] Add new notebook page / button
+  - [x] Add new notebook page / button
+  - [ ] New note errors!
   - [ ] Think about refactoring editor/noteDetail form
-
 
 
 - [ ] Search inputs in notebooks and notes index
