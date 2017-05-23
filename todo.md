@@ -86,10 +86,10 @@
 - [x] Refactor editor Component
  - idea: editor does not have its own state, just passes state to parent
 - [x] Rerenders index on save
-- [ ] Style editor
 - [x] Tab focus in editor
 - [x] Placeholder in edit form is not clickable.
 - [ ] More functions in editor
+- [ ] Style editor
 
 # Phase 4: Notebooks
 ## Backend
@@ -102,9 +102,21 @@
   - [x] Add notebook selection style to edit form
      -> Put this in its own component?
   - [x] Style notebook selector ul
-  - [ ] Add new notebook page / button
-  - [ ] Think about refactoring editor/noteDetail form
+  - [x] Add new notebook page / button
 
+# Phase 5: Tags!
+## Backend
+ - [ ] Tag model, controller
+ - [ ] Taggings join table, associations
+
+## Frontend
+  - [ ] API Util, actions
+  - [ ] Tag state, reducer
+    -> Add list of tags to note state
+  - [ ] Tag index, effectively a copy of notebookIndex
+  - [ ] Tag selector component in editor
+    -> Autocomplete search field
+    -> This is where you want to refactor the editor!
 
 
 - [ ] Search inputs in notebooks and notes index
