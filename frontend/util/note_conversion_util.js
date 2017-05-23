@@ -41,9 +41,17 @@ export const createRawNoteBody = (note) => {
   return newNote;
 };
 
-export const createEmptyNote = () => ({
+export const createEmptyNote = (currentPath) => {
+  const notebookMatch = currentPath.match(/home\/notebook\/(\d+)/);
+  let notebook_id = '';
+  if(notebookMatch) {
+    notebook_id = parseInt(notebookMatch[1]);
+  }
+
+  return {
     id: null,
     title: '',
     body: EditorState.createEmpty(),
-    notebook_id: ''
-});
+    notebook_id
+  };
+};

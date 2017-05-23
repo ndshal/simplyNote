@@ -11,7 +11,7 @@ import RichEditor from '../editor/editor';
 class NoteDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = createEmptyNote();
+    this.state = createEmptyNote(this.props.location.pathname);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -31,7 +31,7 @@ class NoteDetail extends Component {
      if(this.props.pathId !== newProps.pathId) {
        if(newProps.formType === 'new') {
          this.setState(
-           createEmptyNote(),
+           createEmptyNote(this.props.location.pathname),
            this.refs.form.focusTitle
          );
        } else {
@@ -42,11 +42,6 @@ class NoteDetail extends Component {
          ));
        }
      }
-   }
-
-   autosetNotebook(note) {
-     const path = this.props.location.pathname;
-     const notebookMatch = path.match(/home\/notebook\/(\d+)/);
    }
 
   update(field) {
