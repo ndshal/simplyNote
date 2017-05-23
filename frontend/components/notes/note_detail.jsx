@@ -72,7 +72,13 @@ class NoteDetail extends Component {
   }
 
   render() {
-    const { title, body, notebook_id } = this.state;
+    const path = this.props.location.pathname;
+    const notebookMatch = path.match(/home\/notebook\/(\d+)/);
+    let { title, body, notebook_id } = this.state;
+    if (notebook_id === '' && notebookMatch) {
+      notebook_id = parseInt(notebookMatch[1]);
+    }
+
     return (
       <from
         className='note-detail'
