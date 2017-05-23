@@ -17,8 +17,9 @@ class NotebookIndexItem extends Component {
     this.setState({showDelete: !this.state.showDelete});
   }
 
-  handleDelete() {
-    this.props.deleteNote();
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteNotebook();
   }
 
   render () {

@@ -34,6 +34,6 @@ export const createNotebook = notebook => dispatch => (
 );
 
 export const deleteNotebook = id => dispatch => (
-  NotebookAPIUtil.deleteNote(id)
+  NotebookAPIUtil.deleteNotebook(id)
     .then(notebook => dispatch(removeNotebook(notebook.id)))
 );
