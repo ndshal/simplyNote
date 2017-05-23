@@ -7,7 +7,12 @@ class NotebookSelect extends Component {
     this.state={listView: false};
 
     this.toggleListView = this.toggleListView.bind(this);
+    this.closeListView = this.closeListView.bind(this);
     this.isCurrentNotebook = this.isCurrentNotebook.bind(this);
+  }
+
+  closeListView() {
+    this.setState({listView: false});
   }
 
   toggleListView() {
@@ -39,7 +44,13 @@ class NotebookSelect extends Component {
           <span>{currentTitle}</span>
         </button>
         <ul
+<<<<<<< HEAD
           className={ulClass}>
+=======
+          className={ulClass}
+          tabIndex="0"
+          onBlur={this.closeListView}>
+>>>>>>> notebooks
           <li key={0} className='notebook-selector-header'>
             <div className='notebook-selector-header-text'>
               notebooks
