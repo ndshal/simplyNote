@@ -17,10 +17,10 @@ navigation, adequate seed data and sufficient CSS styling:
 - [x] New account creation, login, guest/demo login
 - [ ] A production README, replacing this README
 - [x] Hosting on Heroku
-- [ ] Notes
-- [ ] Notebooks
+- [x] Notes
+- [x] Notebooks
 - [ ] Tags
-- [ ] Rich-text editing
+- [x] Rich-text editing
 - [ ] **Bonus:** Search
 - [ ] **Bonus:** Autosave and change-logs for notes
 
