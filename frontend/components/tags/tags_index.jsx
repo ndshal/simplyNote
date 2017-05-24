@@ -20,7 +20,7 @@ class TagsIndex extends Component {
               {tags[letterKey].map(
                 tag=> <TagIndexItem
                   key={tag.id}
-                  linkPath={`/home/tag/${tag.id}/notes`}
+                  linkPath={`/home/tag/${tag.id}`}
                   deleteTag={()=>deleteTag(tag.id)}
                   {...tag} />
                 )
