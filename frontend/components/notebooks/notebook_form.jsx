@@ -14,6 +14,10 @@ class NotebookForm extends Component {
     this.update = this.update.bind(this);
   }
 
+  componentDidMount() {
+    this.refs.name.focus();
+  }
+
   handleCancel(e) {
     e.preventDefault();
     this.props.history.goBack();
@@ -66,7 +70,8 @@ class NotebookForm extends Component {
         <input
           value={name}
           onChange={this.update('name')}
-          placeholder='Title your notebook' />
+          placeholder='Title your notebook'
+          ref='name' />
 
         {this.newFormButtons()}
       </form>
