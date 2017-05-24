@@ -107,7 +107,6 @@
   - [ ] Every user gets a default notebook on create (in users controller)
       -  set notebook select to, in order,
       - note.notebook_id, path.notebook_id, default_notebook.id
-  - [ ] Think about refactoring editor/noteDetail form
 
 # Phase 5: Tags!
 ## Backend

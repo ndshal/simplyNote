@@ -9,6 +9,7 @@ class TagSelector extends Component {
 
     this.onChange = this.onChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.removeTag = this.removeTag.bind(this);
   }
 
   componentDidMount() {
@@ -24,8 +25,14 @@ class TagSelector extends Component {
       e.preventDefault();
       const newTags = merge([], this.props.tagNames);
       newTags.push(this.state.tagInput);
-      this.props.onChange(newTags);
+      this.props.onChange(newTags, this.setState({tagInput: ''}));
     }
+  }
+
+  removeTag(tagName) {
+    let newTags = [];
+    this.props.tagNames.forEach(tag => {if (tag !== tagName) newTags.push(tag)});
+    this.props.onChange(newTags);
   }
 
   render () {
@@ -36,7 +43,16 @@ class TagSelector extends Component {
       <div className='tag-selector'>
         <i className='fa fa-tag'></i>
         <ul className='current-tags'>
-          {tagNames.map(tagName => <li key={tagName}>{tagName}</li>)}
+          {tagNames.map(tagName => (
+            <li
+              key={tagName}
+              className='note-tag'>
+              <span>{tagName}</span>
+              <i
+                className='fa fa-times'
+                onClick={() => this.removeTag(tagName)}></i>
+            </li>
+          ))}
         </ul>
         <input
           value={tagInput}

@@ -48,7 +48,7 @@ class NoteDetail extends Component {
    }
 
   update(field) {
-    return value => this.setState({[field]: value});
+    return (value, cb) => this.setState({[field]: value}, cb);
   }
 
   processForm(note) {
