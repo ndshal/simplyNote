@@ -20,7 +20,6 @@ class NotebookSelect extends Component {
   }
 
   toggleListView() {
-    console.log(this.state.listView);
     this.setState(
       {listView: !this.state.listView},
       () => this.refs.listView.focus()
