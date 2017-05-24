@@ -46,3 +46,17 @@ export const sortItemsByTitle = items => {
 export const sortItemSliceByTitle = itemSlice => (
   sortItemsByTitle(values(itemSlice))
 );
+
+export const sortItemSliceAlphabetically = itemSlice => {
+  let sortedSlice = {};
+  for (let key in itemSlice) {
+    let item = itemSlice[key];
+    const letterKey = item.name[0].toLowerCase();
+    if (!sortedSlice[letterKey]) {
+      sortedSlice[letterKey] = [];
+    }
+    sortedSlice[letterKey].push(item);
+  }
+
+  return sortedSlice;
+}

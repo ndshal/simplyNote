@@ -4,13 +4,15 @@ import currentUserReducer from './current_user_reducer';
 import notesReducer from './notes_reducer';
 import noteDetailReducer from './note_detail_reducer';
 import notebooksReducer from './notebooks_reducer';
+import tagsReducer from './tags_reducer';
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
   errors: errorsReducer,
   notes: notesReducer,
   noteDetail: noteDetailReducer,
-  notebooks: notebooksReducer
+  notebooks: notebooksReducer,
+  tags: tagsReducer
 });
 
 export default rootReducer;

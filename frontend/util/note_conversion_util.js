@@ -52,6 +52,7 @@ export const createEmptyNote = (currentPath) => {
     id: null,
     title: '',
     body: EditorState.createEmpty(),
-    notebook_id
+    notebook_id,
+    tag_names: []
   };
 };

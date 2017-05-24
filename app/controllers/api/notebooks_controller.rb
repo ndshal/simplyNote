@@ -2,7 +2,7 @@ class Api::NotebooksController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    @notebooks = Notebook.where(author_id: current_user.id)
+    @notebooks = Notebook.includes(:notes).where(author_id: current_user.id)
   end
 
   def create
@@ -29,7 +29,7 @@ class Api::NotebooksController < ApplicationController
   private
 
   def notebook_params
-    params.require(:notebook).permit(:title, :description, :author_id)
+    params.require(:notebook).permit(:name, :description, :author_id)
   end
 
 end

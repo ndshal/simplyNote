@@ -32,7 +32,7 @@ class NotebookSelect extends Component {
     let { notebooks, value, update } = this.props;
     let currentTitle = '';
     if (notebooks[value]) {
-      currentTitle = notebooks[value].title;
+      currentTitle = notebooks[value].name;
     }
     notebooks = values(notebooks);
     let ulClass = 'hidden';
@@ -70,7 +70,7 @@ class NotebookSelect extends Component {
                   key={notebook.id}
                   onClick={() => update(notebook.id)}>
                   <div className='notebook-selector-text'>
-                    {notebook.title}
+                    {notebook.name}
                   </div>
                 </li>
               );

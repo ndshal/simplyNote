@@ -2,7 +2,7 @@ class Api::NotesController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    @notes = Note.where(author_id: current_user.id)
+    @notes = Note.includes(:tags).where(author_id: current_user.id)
   end
 
   def show
@@ -12,6 +12,10 @@ class Api::NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.author = current_user
+    if(params[:note][:tag_names])
+      @note.create_tags_from_names(params[:note][:tag_names])
+    end
+
     if @note.save
       render :show
     else
@@ -21,6 +25,10 @@ class Api::NotesController < ApplicationController
 
   def update
     @note = Note.find_by(id: params[:id])
+    if(params[:note][:tag_names])
+      @note.create_tags_from_names(params[:note][:tag_names])
+    end
+
     if @note.update_attributes(note_params)
       render :show
     else
@@ -41,6 +49,7 @@ class Api::NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:title, :body, :notebook_id, :author_id)
+    params.require(:note)
+      .permit(:title, :body, :notebook_id, :author_id)
   end
 end

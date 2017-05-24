@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { merge } from 'lodash';
 
-class NotebookForm extends Component {
+class TagForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ''
+       name: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,10 +25,10 @@ class NotebookForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const notebook = merge({}, this.state);
-    this.props.createNotebook(notebook)
-      .then(({ notebook }) => (
-        this.props.history.push(`/home/notebook/${notebook.id}/notes`)
+    const tag = merge({}, this.state);
+    this.props.createTag(tag)
+      .then(({ tag }) => (
+        this.props.history.push(`/home/tag/${tag.id}/notes`)
       ));
   }
 
@@ -42,7 +42,7 @@ class NotebookForm extends Component {
         <button
           className='cancel-btn'
           onClick={this.handleCancel}>Cancel</button>
-        <button type='submit'>Create Notebook</button>
+        <button type='submit'>Create Tag</button>
       </div>
     );
   }
@@ -50,9 +50,9 @@ class NotebookForm extends Component {
   newFormHeader() {
     return (
       <header className='object-form-header'>
-        <i className="fa fa-book"></i>
+        <i className="fa fa-tag"></i>
         <span className='object-form-header-text'>
-          create notebook
+          create tag
         </span>
       </header>
     );
@@ -70,8 +70,8 @@ class NotebookForm extends Component {
         <input
           value={name}
           onChange={this.update('name')}
-          placeholder='Title your notebook'
-          ref='name' />
+          placeholder='Name your tag'
+          ref='name'/>
 
         {this.newFormButtons()}
       </form>
@@ -79,4 +79,4 @@ class NotebookForm extends Component {
   }
 }
 
-export default withRouter(NotebookForm);
+export default withRouter(TagForm);

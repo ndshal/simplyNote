@@ -21,7 +21,7 @@
   notebooks: {
     1: {
       id: 1,
-      name: 'Notebook 1',
+      title: 'Notebook 1',
       description: ""
     }
   },

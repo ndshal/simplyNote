@@ -23,7 +23,7 @@ class NotebookIndexItem extends Component {
   }
 
   render () {
-    const { linkPath, title, note_count } = this.props;
+    const { linkPath, name, note_count } = this.props;
     let className='index-item';
 
     let deleteClass = 'hidden';
@@ -35,7 +35,7 @@ class NotebookIndexItem extends Component {
       <Link to={linkPath}>
         <li className={className}>
           <div className='index-item-content'>
-            <h3>{title}</h3>
+            <h3>{name}</h3>
             <h4>{note_count} notes</h4>
             <button onClick={this.toggleDeleteView}>
               <i className='fa fa-trash'></i>

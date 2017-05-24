@@ -7,6 +7,7 @@ import {
   createEmptyNote
 } from '../../util/note_conversion_util';
 import RichEditor from '../editor/editor';
+import TagSelector from '../tags/tag_selector';
 
 class NoteDetail extends Component {
   constructor(props) {
@@ -72,12 +73,17 @@ class NoteDetail extends Component {
   }
 
   render() {
-    let { title, body, notebook_id } = this.state;
+    const { title, body, notebook_id, tag_names } = this.state;
 
     return (
       <from
         className='note-detail'
         onSubmit={this.handleSubmit}>
+
+        <TagSelector
+          tagNames={tag_names}
+          onChange={this.update('tag_names')}
+          />
 
         <RichEditor
           title={title}
