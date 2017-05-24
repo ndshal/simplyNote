@@ -24,7 +24,9 @@ class TagSelector extends Component {
     if (e.which === 13) {
       e.preventDefault();
       const newTags = merge([], this.props.tagNames);
-      newTags.push(this.state.tagInput);
+      if (!newTags.includes(this.state.tagInput)) {
+        newTags.push(this.state.tagInput);
+      }
       this.props.onChange(newTags, this.setState({tagInput: ''}));
     }
   }
