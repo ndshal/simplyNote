@@ -18,7 +18,7 @@ class TagSelector extends Component {
   handleKeyPress(e) {
     if (e.which === 13) {
       e.preventDefault();
-      const newTags = merge([], this.props.tags);
+      const newTags = merge([], this.props.tagNames);
       newTags.push(this.state.tagInput);
       this.props.onChange(newTags);
     }
@@ -26,13 +26,13 @@ class TagSelector extends Component {
 
   render () {
     let { tagInput } = this.state;
-    let { tags } = this.props;
+    let { tagNames } = this.props;
 
     return(
       <div className='tag-selector'>
         <i className='fa fa-tag'></i>
         <ul className='current-tags'>
-          {tags.map(tag => <li key={tag}>{tag}</li>)}
+          {tagNames.map(tagName => <li key={tagName}>{tagName}</li>)}
         </ul>
         <input
           value={tagInput}

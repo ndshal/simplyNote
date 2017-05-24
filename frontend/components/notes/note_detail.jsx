@@ -65,21 +65,19 @@ class NoteDetail extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const note = createRawNoteBody(this.state);
-    console.log(note);
-
     this.processForm(note);
   }
 
   render() {
-    const { title, body, notebook_id, tags } = this.state;
+    const { title, body, notebook_id, tag_names } = this.state;
     return (
       <from
         className='note-detail'
         onSubmit={this.handleSubmit}>
 
         <TagSelector
-          tags={tags}
-          onChange={this.update('tags')}
+          tagNames={tag_names}
+          onChange={this.update('tag_names')}
           />
 
         <RichEditor
