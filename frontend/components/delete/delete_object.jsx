@@ -10,6 +10,29 @@ class DeleteObject extends Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
 
+  dependentsMessage() {
+    let messageHead, messageTail;
+    let noteWord = 'notes';
+    const noteCount = this.props.notes.length;
+    if (noteCount === 1) noteWord = 'note';
+
+    if (this.props.object === 'notebook') {
+      messageHead = 'This notebook contains ';
+      messageTail = ` ${noteWord}.`;
+    } else if (this.props.object === 'tag') {
+      messageHead = 'There are ';
+      messageTail = ` ${noteWord} with this tag.`;
+    }
+
+    return (
+      <p className='dependents-message'>
+        {messageHead}
+        <span className='subject'>{this.props.notes.length}</span>
+        {messageTail}
+      </p>
+    );
+  }
+
   handleCancel(e) {
     e.preventDefault();
     this.props.history.goBack();
@@ -23,7 +46,7 @@ class DeleteObject extends Component {
 
 
   render() {
-    const { name } = this.props;
+    const { name, notes, object } = this.props;
     return (
       <div className='object-form'>
         <header className='object-form-header'>
@@ -35,6 +58,8 @@ class DeleteObject extends Component {
 
         <div className='message'>
           Are you sure you want to delete <span className='subject'>{name}</span>?
+
+          {this.dependentsMessage()}
         </div>
 
         <div className='object-form-btns'>

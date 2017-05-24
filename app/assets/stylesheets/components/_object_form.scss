@@ -43,6 +43,11 @@
   font-weight: 700;
 }
 
+.object-form .message .dependents-message {
+  font-size: 20px;
+  margin: 20px auto;
+}
+
 .object-form input::placeholder {
   color: $dark-grey;
   opacity: 0.6;
