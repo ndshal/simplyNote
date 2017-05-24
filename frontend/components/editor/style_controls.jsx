@@ -1,5 +1,7 @@
 import React from 'react';
+import { RichUtils } from 'draft-js';
 import StyleButton from './style_button';
+import { INLINE_STYLES, BLOCK_TYPES } from './editor_styles';
 
 export const styleMap = {
   CODE: {
@@ -17,31 +19,14 @@ export const getBlockStyle = (block) => {
   }
 };
 
-const INLINE_STYLES = [
-  {
-    label: 'bold',
-    icon: <i className='fa fa-bold'></i>,
-    style: 'BOLD'
-  },
-  {
-    label: 'italic',
-    icon: <i className='fa fa-italic'></i>,
-    style: 'ITALIC'
-  },
-  {
-    label: 'underline',
-    icon: <i className='fa fa-underline'></i>,
-    style: 'UNDERLINE'
-  },
-  {
-    label: 'strikethrough',
-    icon: <i className='fa fa-strikethrough'></i>,
-    style: 'STRIKETHROUGH'
-  }
-];
+export const InlineStyleControls = ({editorState, onChange}) => {
+  const toggleInlineStyle = (inlineStyle) => (
+    onChange(
+      RichUtils.toggleInlineStyle(editorState, inlineStyle)
+    )
+  );
+  const currentStyle = editorState.getCurrentInlineStyle();
 
-export const InlineStyleControls = (props) => {
-  const currentStyle = props.editorState.getCurrentInlineStyle();
   return (
     <div className="inline-controls">
       {INLINE_STYLES.map(type =>
@@ -49,7 +34,7 @@ export const InlineStyleControls = (props) => {
           key={type.label}
           active={currentStyle.has(type.style)}
           label={type.icon}
-          onToggle={props.onToggle}
+          onToggle={toggleInlineStyle}
           style={type.style}
         />
       )}
@@ -57,34 +42,13 @@ export const InlineStyleControls = (props) => {
   );
 };
 
-const POSSIBLE_BLOCK_TYPES = [
-  {label: 'H1', style: 'header-one'},
-  {label: 'H2', style: 'header-two'},
-  {label: 'H3', style: 'header-three'},
-  {label: 'H4', style: 'header-four'},
-  {label: 'H5', style: 'header-five'},
-  {label: 'H6', style: 'header-six'},
-  {label: 'Blockquote', style: 'blockquote'},
-  {label: 'UL', style: 'unordered-list-item'},
-  {label: 'OL', style: 'ordered-list-item'},
-  {label: 'Code Block', style: 'code-block'},
-];
+export const BlockStyleControls = ({editorState, onChange}) => {
+  const toggleBlockType = (blockType) => (
+    onChange(
+      RichUtils.toggleBlockType(editorState, blockType)
+    )
+  );
 
-const BLOCK_TYPES = [
-  {
-    label: 'ol',
-    icon: <li className='fa fa-list-ol'></li>,
-    style: 'ordered-list-item',
-  },
-  {
-    label: 'ul',
-    icon: <li className='fa fa-list-ul'></li>,
-    style: 'unordered-list-item',
-  }
-];
-
-export const BlockStyleControls = (props) => {
-  const {editorState} = props;
   const selection = editorState.getSelection();
   const blockType = editorState
     .getCurrentContent()
@@ -97,7 +61,7 @@ export const BlockStyleControls = (props) => {
           key={type.label}
           active={type.style === blockType}
           label={type.icon}
-          onToggle={props.onToggle}
+          onToggle={toggleBlockType}
           style={type.style}
         />
       )}

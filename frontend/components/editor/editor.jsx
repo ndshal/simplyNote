@@ -8,8 +8,6 @@ class RichEditor extends Component {
     super(props);
 
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
-    this.toggleInlineStyle = this.toggleInlineStyle.bind(this);
-    this.toggleBlockType = this.toggleBlockType.bind(this);
     this.onTab = this.onTab.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
 
@@ -42,24 +40,6 @@ class RichEditor extends Component {
     this.onChange(RichUtils.onTab(e, this.props.editorState, maxDepth));
   }
 
-  toggleInlineStyle(inlineStyle) {
-    this.onChange(
-      RichUtils.toggleInlineStyle(
-        this.props.editorState,
-        inlineStyle
-      )
-    );
-  }
-
-  toggleBlockType(blockType) {
-    this.onChange(
-      RichUtils.toggleBlockType(
-        this.props.editorState,
-        blockType
-      )
-    );
-  }
-
   render () {
     const {editorState, title, update, notebooks, notebookId} = this.props;
 
@@ -73,12 +53,12 @@ class RichEditor extends Component {
 
           <InlineStyleControls
             editorState={editorState}
-            onToggle={this.toggleInlineStyle}
+            onChange={update('body')}
           />
 
           <BlockStyleControls
             editorState={editorState}
-            onToggle={this.toggleBlockType}
+            onChange={update('body')}
           />
         </div>
 
