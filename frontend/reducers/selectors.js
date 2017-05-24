@@ -51,7 +51,7 @@ export const sortItemSliceAlphabetically = itemSlice => {
   let sortedSlice = {};
   for (let key in itemSlice) {
     let item = itemSlice[key];
-    const letterKey = item.name[0];
+    const letterKey = item.name[0].toLowerCase();
     if (!sortedSlice[letterKey]) {
       sortedSlice[letterKey] = [];
     }

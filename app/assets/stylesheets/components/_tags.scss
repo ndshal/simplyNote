@@ -28,9 +28,9 @@
 }
 
 .tags-list > li {
+  box-sizing: border-box;
   width: 100%;
-  padding: 15px;
-  padding-left: 30px;
+  padding: 15px 30px;
 }
 
 .tag-index-item {
@@ -61,5 +61,6 @@
 
 .tags-by-letter-ul {
   display: flex;
+  // flex-direction: column;
   flex-wrap: wrap;
 }

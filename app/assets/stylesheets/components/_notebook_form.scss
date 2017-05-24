@@ -1,4 +1,4 @@
-.notebook-form {
+.object-form {
   flex-grow: 1;
 
   height: 100vh;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.notebook-form-header {
+.object-form-header {
   border-bottom: 1px solid $grey;
   display: flex;
   flex-direction: column;
@@ -16,31 +16,31 @@
   align-items: center;
 }
 
-.notebook-form-header i {
+.object-form-header i {
   font-size: 36px;
   color: $dark-grey;
 }
 
-.notebook-form-header-text {
+.object-form-header-text {
   padding: 10px 20px;
   font-size: 20px;
   text-transform: uppercase;
   color: $dark-grey;
 }
 
-.notebook-form input {
+.object-form input {
   margin: 30px auto;
   font-size: 30px;
   font-weight: 200;
   text-align: center;
 }
 
-.notebook-form input::placeholder {
+.object-form input::placeholder {
   color: $dark-grey;
   opacity: 0.6;
 }
 
-.notebook-form-btns {
+.object-form-btns {
   width: 40vw;
   margin: 10px auto;
   display: flex;
@@ -49,7 +49,7 @@
   margin-bottom: 50px;
 }
 
-.notebook-form-btns button {
+.object-form-btns button {
   flex-grow: 1;
   max-width: 40%;
   margin: 0 10px;

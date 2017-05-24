@@ -6,7 +6,7 @@ class NotebookForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ''
+      name: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +34,7 @@ class NotebookForm extends Component {
 
   newFormButtons() {
     return (
-      <div className='notebook-form-btns'>
+      <div className='object-form-btns'>
         <button
           className='cancel-btn'
           onClick={this.handleCancel}>Cancel</button>
@@ -45,9 +45,9 @@ class NotebookForm extends Component {
 
   newFormHeader() {
     return (
-      <header className='notebook-form-header'>
+      <header className='object-form-header'>
         <i className="fa fa-book"></i>
-        <span className='notebook-form-header-text'>
+        <span className='object-form-header-text'>
           create notebook
         </span>
       </header>
@@ -55,17 +55,17 @@ class NotebookForm extends Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { name } = this.state;
     return (
       <form
-        className='notebook-form'
+        className='object-form'
         onSubmit={this.handleSubmit}>
 
         {this.newFormHeader()}
 
         <input
-          value={title}
-          onChange={this.update('title')}
+          value={name}
+          onChange={this.update('name')}
           placeholder='Title your notebook' />
 
         {this.newFormButtons()}
