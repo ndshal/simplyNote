@@ -6,6 +6,7 @@ import NotebooksIndexContainer from '../notebooks/notebooks_index_container';
 import NotebookFormContainer from '../notebooks/notebook_form_container';
 import TagsIndexContainer from '../tags/tags_index_container';
 import TagFormContainer from '../tags/tag_form_container';
+import DeleteObjectContainer from '../delete/delete_object_container';
 
 
 class Home extends Component {
@@ -20,6 +21,8 @@ class Home extends Component {
 
         <Route exact path='/home/tags' component={TagsIndexContainer} />
         <Route exact path='/home/tags/new' component={TagFormContainer} />
+
+        <Route exact path='/home/:object/:objectId/delete' component={DeleteObjectContainer} />
       </secion>
     );
   }

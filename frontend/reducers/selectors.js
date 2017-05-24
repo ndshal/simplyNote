@@ -19,6 +19,20 @@ export const selectNotesByFilter = (notes, filter) => {
   return filteredNotes;
 };
 
+export const selectNoteTitlesByFilter = (notes, filter) => (
+  selectNotesByFilter(notes, filter).map(note => note.title)
+);
+
+export const getObjectName = (state, filter) => {
+  if(filter.object === 'notebook') {
+    return state.notebooks.byId[filter.objectId].name;
+  } else if (filter.object === 'tag') {
+    return state.tags[filter.objectId].name;
+  }
+
+  return null;
+};
+
 export const getHeadingFromFilter = (state, filter) => {
   let heading = 'notes';
   let objectName = '';
