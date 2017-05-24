@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
-import { InlineStyleControls, BlockStyleControls } from './style_controls';
-import NotebookSelectorContainer from '../notebooks/notebook_selector_container';
 
 class RichEditor extends Component {
   constructor(props) {
@@ -10,11 +8,10 @@ class RichEditor extends Component {
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.onTab = this.onTab.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-
-    this.focusTitle = () => this.refs.title.focus();
-    this.focusBody = () => this.onChange(EditorState.moveFocusToEnd(this.props.editorState));
-
     this.onChange = props.update('body');
+
+    this.focusTitle = this.refs.title.focus;
+    this.focusBody = () => this.onChange(EditorState.moveFocusToEnd(this.props.editorState));
   }
 
   handleEnter(e) {
@@ -37,31 +34,16 @@ class RichEditor extends Component {
 
   onTab(e) {
     const maxDepth = 4;
-    this.onChange(RichUtils.onTab(e, this.props.editorState, maxDepth));
+    this.onChange(
+      RichUtils.onTab(e, this.props.editorState, maxDepth)
+    );
   }
 
   render () {
-    const {editorState, title, update, notebooks, notebookId} = this.props;
+    const {editorState, title, update} = this.props;
 
     return (
       <div className='editor-root'>
-        <div className='editor-controls'>
-          <NotebookSelectorContainer
-            value={notebookId}
-            update={update('notebook_id')}
-          />
-
-          <InlineStyleControls
-            editorState={editorState}
-            onChange={update('body')}
-          />
-
-          <BlockStyleControls
-            editorState={editorState}
-            onChange={update('body')}
-          />
-        </div>
-
         <input
           className='note-title'
           onKeyPress={this.handleEnter}

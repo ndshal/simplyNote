@@ -7,7 +7,9 @@ import {
   createEmptyNote
 } from '../../util/note_conversion_util';
 import RichEditor from '../editor/editor';
+import { InlineStyleControls, BlockStyleControls } from '../editor/style_controls';
 import TagSelectorContainer from '../tags/tag_selector_container';
+import NotebookSelectorContainer from '../notebooks/notebook_selector_container';
 
 class NoteDetail extends Component {
   constructor(props) {
@@ -22,7 +24,7 @@ class NoteDetail extends Component {
        this.props.fetchNote()
        .then(({note}) => this.setState(
          createEditorNoteBody(note),
-         this.refs.form.focusBody
+         this.refs.editor.focusBody
         )
       );
      }
@@ -33,13 +35,13 @@ class NoteDetail extends Component {
        if(newProps.formType === 'new') {
          this.setState(
            createEmptyNote(this.props.location.pathname),
-           this.refs.form.focusTitle
+           this.refs.editor.focusTitle
          );
        } else {
          newProps.fetchNote()
          .then(({note}) => this.setState(
            createEditorNoteBody(note),
-           this.refs.form.focusBody
+           this.refs.editor.focusBody
          ));
        }
      }
@@ -76,17 +78,34 @@ class NoteDetail extends Component {
         className='note-detail'
         onSubmit={this.handleSubmit}>
 
-        <TagSelectorContainer
-          tagNames={tag_names}
-          onChange={this.update('tag_names')}
-        />
+        <div className='editor-controls'>
+
+          <TagSelectorContainer
+            tagNames={tag_names}
+            onChange={this.update('tag_names')}
+            />
+
+          <NotebookSelectorContainer
+            value={notebook_id}
+            update={this.update('notebook_id')}
+          />
+
+          <InlineStyleControls
+            editorState={body}
+            onChange={this.update('body')}
+          />
+
+          <BlockStyleControls
+            editorState={body}
+            onChange={this.update('body')}
+          />
+        </div>
 
         <RichEditor
           title={title}
-          notebookId={notebook_id}
           update={this.update}
           editorState={body}
-          ref="form"
+          ref="editor"
         />
         <button
           onClick={this.handleSubmit}>Save Note</button>
