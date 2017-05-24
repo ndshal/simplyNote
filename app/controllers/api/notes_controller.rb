@@ -2,7 +2,7 @@ class Api::NotesController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    @notes = Note.where(author_id: current_user.id)
+    @notes = Note.includes(:tags).where(author_id: current_user.id)
   end
 
   def show

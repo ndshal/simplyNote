@@ -2,7 +2,7 @@ class Api::TagsController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    @tags = Tag.where(author_id: current_user.id)
+    @tags = Tag.includes(:notes).where(author_id: current_user.id)
   end
 
   def create

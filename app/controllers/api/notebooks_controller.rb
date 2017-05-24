@@ -2,7 +2,7 @@ class Api::NotebooksController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    @notebooks = Notebook.where(author_id: current_user.id)
+    @notebooks = Notebook.includes(:notes).where(author_id: current_user.id)
   end
 
   def create

@@ -120,3 +120,5 @@
 
 
 - [ ] Search inputs in notebooks and notes index
+
+- [ ] You got some n+1 queries, kid
