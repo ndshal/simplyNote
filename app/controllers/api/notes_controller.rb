@@ -30,6 +30,8 @@ class Api::NotesController < ApplicationController
     end
 
     if @note.update_attributes(note_params)
+      @note.updated_at = Time.now
+      # adding tags is note updating the note object
       render :show
     else
       render json: @note.errors.full_messages, status: 422
