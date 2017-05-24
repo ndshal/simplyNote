@@ -14,8 +14,10 @@ const mapStateToProps = (state, { match} ) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, {object, objectId}) => {
-  const deleteAction = object === 'notebook'? deleteNotebook : deleteTag;
+const mapDispatchToProps = (dispatch, { match }) => {
+  const { object, objectId } = match.params;
+  const deleteAction = (object === 'notebook'? deleteNotebook : deleteTag);
+
   return {
     deleteObject: () => dispatch(deleteAction(objectId))
   };

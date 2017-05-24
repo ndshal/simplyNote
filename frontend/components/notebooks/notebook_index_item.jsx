@@ -32,11 +32,15 @@ class NotebookIndexItem extends Component {
     }
 
     return (
-      <Link to={linkPath}>
+      <Link to={`${linkPath}/notes`}>
         <li className={className}>
           <div className='index-item-content'>
             <h3>{name}</h3>
             <h4>{note_count} notes</h4>
+            <Link to={`${linkPath}/delete`}>
+              <i className='fa fa-trash'></i>
+            </Link>
+
             <button onClick={this.toggleDeleteView}>
               <i className='fa fa-trash'></i>
             </button>

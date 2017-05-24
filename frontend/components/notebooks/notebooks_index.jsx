@@ -21,7 +21,7 @@ class NotebooksIndex extends Component {
           { notebooks.map(
             notebook => <NotebookIndexItem
             key={notebook.id}
-            linkPath={`/home/notebook/${notebook.id}/notes`}
+            linkPath={`/home/notebook/${notebook.id}`}
             deleteNotebook={()=>deleteNotebook(notebook.id)}
             {...notebook} />) }
         </ul>

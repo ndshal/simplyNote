@@ -23,6 +23,8 @@ class DeleteObject extends Component {
 
 
   render() {
+    console.log(this.props.deleteObject);
+
     const { name } = this.props;
     return (
       <div className='object-form'>
