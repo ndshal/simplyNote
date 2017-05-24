@@ -74,9 +74,6 @@ class NoteDetail extends Component {
 
   render() {
     const { title, body, notebook_id, tag_names } = this.state;
-
-    console.log(notebook_id);
-    
     return (
       <from
         className='note-detail'
