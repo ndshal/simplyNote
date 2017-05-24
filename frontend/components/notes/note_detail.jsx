@@ -7,7 +7,7 @@ import {
   createEmptyNote
 } from '../../util/note_conversion_util';
 import RichEditor from '../editor/editor';
-import TagSelector from '../tags/tag_selector';
+import TagSelectorContainer from '../tags/tag_selector_container';
 
 class NoteDetail extends Component {
   constructor(props) {
@@ -65,11 +65,7 @@ class NoteDetail extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const note = createRawNoteBody(this.state);
-    if (this.state.notebook_id === '') {
-      alert('Pick a notebook first! ***this alert is temporary***');
-    } else {
-      this.processForm(note);
-    }
+    this.processForm(note);
   }
 
   render() {
@@ -80,14 +76,13 @@ class NoteDetail extends Component {
         className='note-detail'
         onSubmit={this.handleSubmit}>
 
-        <TagSelector
+        <TagSelectorContainer
           tagNames={tag_names}
           onChange={this.update('tag_names')}
-          />
+        />
 
         <RichEditor
           title={title}
-          notebooks={this.props.notebooks}
           notebookId={notebook_id}
           update={this.update}
           editorState={body}

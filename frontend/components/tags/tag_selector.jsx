@@ -11,6 +11,10 @@ class TagSelector extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchAllTags();
+  }
+
   onChange(e) {
     this.setState({tagInput: e.target.value});
   }

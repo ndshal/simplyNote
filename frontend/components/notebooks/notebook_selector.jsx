@@ -11,6 +11,10 @@ class NotebookSelect extends Component {
     this.isCurrentNotebook = this.isCurrentNotebook.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchAllNotebooks();
+  }
+
   closeListView() {
     this.setState({listView: false});
   }

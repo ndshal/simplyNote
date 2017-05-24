@@ -34,12 +34,8 @@ class Notes extends Component {
     );
   }
 
-  componentDidMount() {
-    this.props.fetchAllNotes();
-  }
-
   render (){
-    const { url, filter } = this.props;
+    const { url, params } = this.props.match;
     let className='notes';
     if(this.state.fullScreen) {
       className += ' detail-full-screen';
@@ -47,7 +43,7 @@ class Notes extends Component {
 
     return (
       <section className={className}>
-        <NotesIndexContainer url={url} filter={filter}/>
+        <NotesIndexContainer url={url} filter={params}/>
         <Route path={`${url}/:noteId`} component={NoteDetailContainer} />
 
         {this.fullScreenBtn()}

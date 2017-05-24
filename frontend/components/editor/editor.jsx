@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
 import { InlineStyleControls, BlockStyleControls } from './style_controls';
-import NotebookSelect from '../notes/notebook_select';
+import NotebookSelectorContainer from '../notebooks/notebook_selector_container';
 
 class RichEditor extends Component {
   constructor(props) {
@@ -66,8 +66,7 @@ class RichEditor extends Component {
     return (
       <div className='editor-root'>
         <div className='editor-controls'>
-          <NotebookSelect
-            notebooks={notebooks}
+          <NotebookSelectorContainer
             value={notebookId}
             update={update('notebook_id')}
           />

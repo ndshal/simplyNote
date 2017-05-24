@@ -124,6 +124,8 @@
     -> Autocomplete search field
     -> This is where you want to refactor the editor!
 
-- [ ] Search inputs in notebooks and notes index
-
-- [ ] You got some n+1 queries, kid
+# Phase 6: General Bug Fixes
+  - [ ] Search inputs in notebooks and notes index
+  - [ ] You got some n+1 queries, kid
+  - [ ] Tags are not sorted alphabetically
+  - [ ] NotebookSelector ul doesnt close on click

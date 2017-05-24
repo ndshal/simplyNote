@@ -10,9 +10,7 @@ import { sortItemSliceByTitle } from '../../reducers/selectors';
 
 
 const mapStateToProps = state => ({
-  note: state.noteDetail,
-  notebooks: state.notebooks,
-  errors: state.errors.createForm
+  note: state.noteDetail
 });
 
 const mapDispatchToProps = (dispatch, { match }) => ({
