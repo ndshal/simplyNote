@@ -119,12 +119,10 @@
     -> Add list of tags to note state
   - [x] Tag index, effectively a copy of notebookIndex
   - [x] Tag selector component in editor
-    -> Autocomplete search field
-    -> This is where you want to refactor the editor!
   - [ ] Delete Tags
   - [x] Can remove tags from note
   - [ ] drop down with all tags
-  - [ ] On saving with tags, note index does not update - doesnt receive new props?
+  - [x] On saving with tags, note index does not update - doesnt receive new props?
   - [ ] Tags are not sorted alphabetically
 
 # Phase 6: General Bug Fixes

@@ -6,7 +6,7 @@ class Note < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
 
-  def create_tags_from_names(tag_names)
+  def tag_names=(tag_names)
     self.tags = tag_names.map do |tag_name|
       Tag.find_or_create_by(name: tag_name, author: self.author)
     end
