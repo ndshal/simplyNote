@@ -65,6 +65,8 @@ class NoteDetail extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const note = createRawNoteBody(this.state);
+    console.log(note);
+
     this.processForm(note);
   }
 
@@ -77,6 +79,7 @@ class NoteDetail extends Component {
 
         <TagSelector
           tags={tags}
+          onChange={this.update('tags')}
           />
 
         <RichEditor

@@ -5,14 +5,10 @@ class TagSelector extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {currentTags: [], tagInput: ''};
+    this.state = {tagInput: ''};
 
     this.onChange = this.onChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
-
-  componentWillReceiveProps(newProps) {
-    this.setState({currentTags: newProps.tags});
   }
 
   onChange(e) {
@@ -22,23 +18,21 @@ class TagSelector extends Component {
   handleKeyPress(e) {
     if (e.which === 13) {
       e.preventDefault();
-      const newTags = merge([], this.state.currentTags);
+      const newTags = merge([], this.props.tags);
       newTags.push(this.state.tagInput);
-      this.setState({
-        currentTags: newTags,
-        tagInput: ''
-      });
+      this.props.onChange(newTags);
     }
   }
 
   render () {
-    let { currentTags, tagInput } = this.state;
+    let { tagInput } = this.state;
+    let { tags } = this.props;
 
     return(
       <div className='tag-selector'>
         <i className='fa fa-tag'></i>
         <ul className='current-tags'>
-          {currentTags.map(tag => <li key={tag}>{tag}</li>)}
+          {tags.map(tag => <li key={tag}>{tag}</li>)}
         </ul>
         <input
           value={tagInput}
