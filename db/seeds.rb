@@ -8,7 +8,9 @@
 
 john = User.create!(username: 'john@example.com', password: 'password')
 
+johns_notes = Notebook.create(author_id: john.id, name: 'John\'s Notebook', is_default: true)
 react = Notebook.create!(author_id: john.id, name: 'React Concepts')
+
 Note.create!(
   notebook_id: react.id,
   author_id: john.id,

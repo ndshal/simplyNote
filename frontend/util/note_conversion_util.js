@@ -43,7 +43,7 @@ export const createRawNoteBody = (note) => {
 
 export const createEmptyNote = (currentPath) => {
   const notebookMatch = currentPath.match(/home\/notebook\/(\d+)/);
-  let notebook_id = '';
+  let notebook_id = null;
   if(notebookMatch) {
     notebook_id = parseInt(notebookMatch[1]);
   }

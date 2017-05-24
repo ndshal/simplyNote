@@ -13,7 +13,9 @@ const mapStateToProps = ({ notebooks }, { value }) => {
 
   return {
     notebooks: sortItemSliceByName(notebooks),
-    currentTitle
+    defaultId: notebooks.defaultId,
+    currentTitle,
+    value
   };
 };
 

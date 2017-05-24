@@ -3,7 +3,7 @@ class Api::NotebooksController < ApplicationController
 
   def index
     @notebooks = Notebook.includes(:notes).where(author_id: current_user.id)
-    @default_id = @notebooks.where(is_default: true).first.id
+    @default_id = Notebook.find_by(author_id: current_user.id, is_default: true).id
   end
 
   def create

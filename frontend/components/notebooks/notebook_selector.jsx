@@ -6,8 +6,6 @@ class NotebookSelect extends Component {
     super(props);
     this.state={listView: false};
 
-    console.log(this.props);
-
     this.toggleListView = this.toggleListView.bind(this);
     this.closeListView = this.closeListView.bind(this);
     this.isCurrentNotebook = this.isCurrentNotebook.bind(this);
@@ -15,6 +13,12 @@ class NotebookSelect extends Component {
 
   componentDidMount() {
     this.props.fetchAllNotebooks();
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(!newProps.value && newProps.defaultId) {
+      this.props.update(newProps.defaultId);
+    }
   }
 
   componentWillUpdate(newProps, newState) {
@@ -37,7 +41,6 @@ class NotebookSelect extends Component {
 
   render() {
     let { notebooks, value, update, currentTitle } = this.props;
-
     let ulClass = 'hidden';
     if (this.state.listView) {
       ulClass = 'notebook-selector-ul';
