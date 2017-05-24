@@ -1,0 +1,14 @@
+.tag-selector {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.current-tags {
+  display: flex;
+}
+
+.current-tags li {
+  padding: 3px;
+  border: 1px solid $grey;
+}

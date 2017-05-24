@@ -45,5 +45,6 @@ export const createEmptyNote = () => ({
     id: null,
     title: '',
     body: EditorState.createEmpty(),
-    notebook_id: ''
+    notebook_id: '',
+    tags: []
 });
