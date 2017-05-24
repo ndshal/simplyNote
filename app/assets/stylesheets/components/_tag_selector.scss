@@ -1,7 +1,10 @@
 .tag-selector {
   display: flex;
   justify-content: space-around;
-  width: 50%;
+}
+
+.tag-selector input {
+  flex-shrink: 1;
 }
 
 .current-tags {

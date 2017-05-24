@@ -79,7 +79,6 @@ class NoteDetail extends Component {
         onSubmit={this.handleSubmit}>
 
         <div className='editor-controls'>
-
           <TagSelectorContainer
             tagNames={tag_names}
             onChange={this.update('tag_names')}
