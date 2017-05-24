@@ -33,8 +33,8 @@ class DeleteObject extends Component {
           </span>
         </header>
 
-        <div>
-          Are you sure you want to delete <span>{name}</span>?
+        <div className='message'>
+          Are you sure you want to delete <span className='subject'>{name}</span>?
         </div>
 
         <div className='object-form-btns'>

@@ -9,7 +9,7 @@
 }
 
 .object-form-header {
-  border-bottom: 1px solid $grey;
+  border-bottom: 1px solid $dark-grey;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -28,11 +28,19 @@
   color: $dark-grey;
 }
 
-.object-form input {
+.object-form input, .object-form .message {
   margin: 30px auto;
   font-size: 30px;
   font-weight: 200;
   text-align: center;
+}
+
+.object-form .message {
+  color: $darkest;
+}
+
+.object-form .message .subject {
+  font-weight: 700;
 }
 
 .object-form input::placeholder {
