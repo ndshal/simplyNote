@@ -8,10 +8,18 @@ class RichEditor extends Component {
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.onTab = this.onTab.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-    this.onChange = props.update('body');
+    this.onChange = this.props.update('body');
 
-    this.focusTitle = this.refs.title.focus;
-    this.focusBody = () => this.onChange(EditorState.moveFocusToEnd(this.props.editorState));
+    this.focusTitle = this.focusTitle.bind(this);
+    this.focusBody = this.focusBody.bind(this);
+  }
+
+  focusTitle() {
+    this.refs.title.focus();
+  }
+
+  focusBody() {
+    this.onChange(EditorState.moveFocusToEnd(this.props.editorState));
   }
 
   handleEnter(e) {
@@ -60,7 +68,6 @@ class RichEditor extends Component {
           onTab={this.onTab}
           onChange={this.onChange}
           placeholder="Just start typing!"
-          ref="editor"
           spellCheck={true}
         />
       </div>
