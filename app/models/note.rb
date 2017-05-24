@@ -11,9 +11,4 @@ class Note < ApplicationRecord
       Tag.find_or_create_by(name: tag_name, author: self.author)
     end
   end
-
-  def body_preview
-    words = self.body.split[0..10].join(' ')
-    words.length < 40 ? words : self.body[0..40]
-  end
 end

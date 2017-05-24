@@ -25,7 +25,7 @@ export const updateNote = note => {
     method: 'patch',
     url: `api/notes/${note.id}`,
     data: { note }
-  })
+  });
 };
 
 export const deleteNote = id => (

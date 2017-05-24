@@ -7,6 +7,7 @@ import { merge } from 'lodash';
 
 const notesReducer = (state = {}, action) => {
   Object.freeze(state);
+  const newState = merge({}, state);
   switch (action.type) {
     case RECEIVE_ALL_NOTES:
       return action.notes;
@@ -14,9 +15,9 @@ const notesReducer = (state = {}, action) => {
       const trimmedNote = merge({}, action.note);
       delete trimmedNote.body;
       delete trimmedNote.tag_names;
-      return merge({}, state, {[trimmedNote.id]: trimmedNote});
+      newState[trimmedNote.id] = trimmedNote;
+      return newState;
     case REMOVE_NOTE:
-      const newState = merge({}, state);
       delete newState[action.id];
       return newState;
     default:

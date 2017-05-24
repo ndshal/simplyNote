@@ -10,6 +10,8 @@ class Api::NotesController < ApplicationController
   end
 
   def create
+    params[:note][:tag_names] ||= []
+
     @note = Note.new(note_params)
     @note.author = current_user
     if @note.save
@@ -20,6 +22,8 @@ class Api::NotesController < ApplicationController
   end
 
   def update
+    params[:note][:tag_names] ||= []
+
     @note = Note.find_by(id: params[:id])
     if @note.update_attributes(note_params)
       @note.updated_at = Time.now
