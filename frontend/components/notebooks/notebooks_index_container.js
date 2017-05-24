@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
-import { sortItemSliceByDate } from '../../reducers/selectors';
-import { deleteNotebook } from '../../actions/notebooks_actions';
+import { sortItemSliceByName } from '../../reducers/selectors';
+import { fetchAllNotebooks, deleteNotebook } from '../../actions/notebooks_actions';
 import NotebooksIndex from './notebooks_index';
 
 const mapStateToProps = ({ notebooks }) => ({
-  notebooks: sortItemSliceByDate(notebooks)
+  notebooks: sortItemSliceByName(notebooks)
 });
 const mapDispatchToProps = dispatch => ({
-  deleteNotebook: id => dispatch(deleteNotebook(id))
+  deleteNotebook: id => dispatch(deleteNotebook(id)),
+  fetchAllNotebooks: () => dispatch(fetchAllNotebooks())
 });
 
 export default connect(

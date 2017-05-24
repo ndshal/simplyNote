@@ -9,11 +9,6 @@ import TagFormContainer from '../tags/tag_form_container';
 
 
 class Home extends Component {
-  componentDidMount() {
-    this.props.fetchAllNotebooks();
-    this.props.fetchAllTags();
-  }
-
   render() {
     return (
       <secion className='home-content'>
@@ -25,11 +20,6 @@ class Home extends Component {
 
         <Route exact path='/home/tags' component={TagsIndexContainer} />
         <Route exact path='/home/tags/new' component={TagFormContainer} />
-
-        <footer>
-          <h2> Welcome, {this.props.currentUser.username}</h2>
-          <button onClick={this.props.signout}>Sign Out</button>
-        </footer>
       </secion>
     );
   }

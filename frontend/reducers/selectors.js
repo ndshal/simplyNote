@@ -29,12 +29,12 @@ export const sortItemSliceByDate = itemSlice => (
   sortItemsByDate(values(itemSlice))
 );
 
-export const sortItemsByTitle = items => {
+export const sortItemsByName = items => {
   return items.sort(
     (a,b) => {
-      if(a.title < b.title) {
+      if(a.name < b.name) {
         return -1;
-      } else if (a.title > b.title) {
+      } else if (a.name > b.name) {
         return 1;
       } else {
         return 0;
@@ -43,8 +43,8 @@ export const sortItemsByTitle = items => {
   );
 };
 
-export const sortItemSliceByTitle = itemSlice => (
-  sortItemsByTitle(values(itemSlice))
+export const sortItemSliceByName = itemSlice => (
+  sortItemsByName(values(itemSlice))
 );
 
 export const sortItemSliceAlphabetically = itemSlice => {

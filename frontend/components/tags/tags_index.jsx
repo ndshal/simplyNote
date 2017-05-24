@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import TagIndexItem from './tag_index_item';
 
 class TagsIndex extends Component {
+  componentDidMount() {
+    this.props.fetchAllTags();
+  }
+
   renderTags () {
     const { tags, deleteTag } = this.props;
 
