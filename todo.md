@@ -90,7 +90,6 @@
 - [x] Placeholder in edit form is not clickable.
 - [ ] Style editor
 - [ ] More functions in editor
-- [ ] Style editor
 
 # Phase 4: Notebooks
 ## Backend
@@ -123,9 +122,11 @@
   - [x] Tag selector component in editor
     -> Autocomplete search field
     -> This is where you want to refactor the editor!
+  - [ ] Delete Tags
+  - [ ] Can remove tags from note
+  - [ ] Tags are not sorted alphabetically
 
 # Phase 6: General Bug Fixes
   - [ ] Search inputs in notebooks and notes index
   - [ ] You got some n+1 queries, kid
-  - [ ] Tags are not sorted alphabetically
   - [ ] NotebookSelector ul doesnt close on click
