@@ -15,16 +15,18 @@ class NotebookSelect extends Component {
     this.props.fetchAllNotebooks();
   }
 
+  componentWillUpdate(newProps, newState) {
+    if( newState.listView) {
+      this.refs.listView.focus();
+    }
+  }
+
   closeListView() {
     this.setState({listView: false});
   }
 
   toggleListView() {
-    this.setState(
-      {listView: !this.state.listView},
-      () => this.refs.listView.focus()
-    );
-
+    this.setState({listView: !this.state.listView});
   }
 
   isCurrentNotebook(notebook) {
@@ -47,7 +49,7 @@ class NotebookSelect extends Component {
       <div className='notebook-selector'>
         <button
           className='notebook-selector-btn'
-          onClick={this.toggleListView}>
+          onMouseDown={this.toggleListView}>
           <i className="fa fa-book"></i>
           <span>{currentTitle}</span>
         </button>
@@ -55,7 +57,7 @@ class NotebookSelect extends Component {
           className={ulClass}
           tabIndex="0"
           onBlur={this.closeListView}
-          ref="listView">
+          ref='listView'>
           <li key={0} className='notebook-selector-header'>
             <div className='notebook-selector-header-text'>
               notebooks
@@ -71,7 +73,7 @@ class NotebookSelect extends Component {
                 <li
                   className={liClass}
                   key={notebook.id}
-                  onClick={() => update(notebook.id)}>
+                  onClick={() => update(notebook.id, this.closeListView)}>
                   <div className='notebook-selector-text'>
                     {notebook.name}
                   </div>

@@ -4,7 +4,7 @@ import { sortItemSliceByName } from '../../reducers/selectors';
 import NotebookSelector from './notebook_selector';
 
 const mapStateToProps = ({ notebooks }) => ({
-  notebooks: sortItemSliceByName(notebooks)
+  notebooks
 });
 
 const mapDispatchToProps = dispatch => ({

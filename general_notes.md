@@ -17,3 +17,32 @@ okay, think about the state. What are the actions?
     - tagSelector needs all tags and currentTags
   on Save, need to update counts of notebooks and tags - potentially fetch new tags.
   can possibly do this in a lifecyle method that knows about previous props and future props - send out ajax requests. Only in noteDetail, note necessarily in tagSelector/notebookSelector?
+
+
+Render notebook save errors
+Notebook Selector
+does not show name on some notebooks?
+dropdown focusing / onBlur
+users should have a default notebook
+Tags
+delete tag functionality
+decide between delete page and 'modal'
+Tags are note sorted alphabetically (are they?)
+Tag Selector
+add drop down with autocomplete
+Might still have n + 1 queries
+Editor
+block styles get applied to placeholder -> could be good or bad
+Splash screen styling
+
+
+Search bars in notes, notebooks, tags index
+Edit page for notebook?
+if setting default notebook, can change that here
+Editor extensions
+checkbox
+code block
+plugins, e.g.
+emoji
+insert image
+katex
