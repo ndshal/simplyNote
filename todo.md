@@ -122,7 +122,7 @@
     -> Autocomplete search field
     -> This is where you want to refactor the editor!
   - [ ] Delete Tags
-  - [ ] Can remove tags from note
+  - [x] Can remove tags from note
   - [ ] Tags are not sorted alphabetically
 
 # Phase 6: General Bug Fixes
