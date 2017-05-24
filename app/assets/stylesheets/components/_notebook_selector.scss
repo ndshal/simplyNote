@@ -2,6 +2,9 @@
   position: relative;
   border-right: 1px solid $grey;
   padding-right: 16px;
+
+  display: flex;
+  align-items: center;
 }
 
 .notebook-selector-ul {
