@@ -8,12 +8,14 @@ class TagIndexItem extends Component {
   }
 
   render () {
-    const { linkPath, name } = this.props;
+    const { linkPath, name, note_count } = this.props;
 
     return (
       <li className='tag-index-item'>
         <Link to={linkPath}>
-          {name}
+          <i className='fa fa-trash'></i>
+          <span>{name}</span>
+          <span className='tag-note-count'>{note_count}</span>
         </Link>
       </li>
     );
