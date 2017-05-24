@@ -1,21 +1,13 @@
 import { connect } from 'react-redux';
-import { sortItemsByDate, selectNotesByFilter } from '../../reducers/selectors';
+import { sortItemsByDate, selectNotesByFilter, getHeadingFromFilter } from '../../reducers/selectors';
 import { fetchAllNotes, deleteNote } from '../../actions/notes_actions';
 import NotesIndex from './notes_index';
 
 const mapStateToProps = (state, { url, filter }) => {
-  let heading;
-  if (filter.object) {
-    const objectName = state[`${filter.object}s`][filter.objectId].name;
-    heading = `${filter.object}: ${objectName}`;
-  } else {
-    heading = 'notes';
-  }
-
   return {
     notes: sortItemsByDate(selectNotesByFilter(state.notes, filter)),
-    url,
-    heading
+    heading: getHeadingFromFilter(state, filter),
+    url
   };
 };
 

@@ -19,6 +19,20 @@ export const selectNotesByFilter = (notes, filter) => {
   return filteredNotes;
 };
 
+export const getHeadingFromFilter = (state, filter) => {
+  let heading = 'notes';
+  let objectName = '';
+  if (filter.object === 'notebook' && state.notebooks.byId[filter.objectId]) {
+    objectName = state.notebooks.byId[filter.objectId].name;
+    heading = `notebook: ${objectName}`;
+  } else if (filter.object === 'tag' && state.tags[filter.objectId]) {
+    objectName = state.tags[filter.objectId].name;
+    heading = `tag: ${objectName}`;
+  }
+
+  return heading;
+};
+
 export const sortItemsByDate = items => {
   return items.sort(
     (a,b) => (new Date(b.updated_at) - new Date(a.updated_at))
@@ -43,9 +57,16 @@ export const sortItemsByName = items => {
   );
 };
 
-export const sortItemSliceByName = itemSlice => (
-  sortItemsByName(values(itemSlice))
-);
+export const sortItemSliceByName = itemSlice => {
+  let items;
+  if (itemSlice.byId) {
+    items = values(itemSlice.byId);
+  } else {
+    items  = values(itemSlice);
+  }
+
+  return sortItemsByName(items);
+};
 
 export const sortItemSliceAlphabetically = itemSlice => {
   let sortedSlice = {};

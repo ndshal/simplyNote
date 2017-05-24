@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { values } from 'lodash';
+import { values, merge } from 'lodash';
 
 class NotebookSelect extends Component {
   constructor(props) {
     super(props);
     this.state={listView: false};
+
+    console.log(this.props);
 
     this.toggleListView = this.toggleListView.bind(this);
     this.closeListView = this.closeListView.bind(this);
@@ -34,12 +36,8 @@ class NotebookSelect extends Component {
   }
 
   render() {
-    let { notebooks, value, update } = this.props;
-    let currentTitle = '';
-    if (notebooks[value]) {
-      currentTitle = notebooks[value].name;
-    }
-    notebooks = values(notebooks);
+    let { notebooks, value, update, currentTitle } = this.props;
+
     let ulClass = 'hidden';
     if (this.state.listView) {
       ulClass = 'notebook-selector-ul';
@@ -64,7 +62,7 @@ class NotebookSelect extends Component {
             </div>
           </li>
           {
-            notebooks.map(notebook => {
+            values(notebooks).map(notebook => {
               let liClass='notebook-selector-item';
               if (this.isCurrentNotebook(notebook)) {
                 liClass += ' current-notebook';

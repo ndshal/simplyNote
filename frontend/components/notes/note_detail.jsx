@@ -17,6 +17,8 @@ class NoteDetail extends Component {
     this.state = createEmptyNote(this.props.location.pathname);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.focusBody = () => {if (this.refs.editor) { this.refs.editor.focusBody();}};
   }
 
    componentDidMount() {
@@ -24,7 +26,7 @@ class NoteDetail extends Component {
        this.props.fetchNote()
        .then(({note}) => this.setState(
          createEditorNoteBody(note),
-         this.refs.editor.focusBody
+         this.focusBody
         )
       );
      }
