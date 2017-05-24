@@ -14,6 +14,10 @@ class TagForm extends Component {
     this.update = this.update.bind(this);
   }
 
+  componentDidMount() {
+    this.refs.name.focus();
+  }
+
   handleCancel(e) {
     e.preventDefault();
     this.props.history.goBack();
@@ -66,7 +70,8 @@ class TagForm extends Component {
         <input
           value={name}
           onChange={this.update('name')}
-          placeholder='Name your tag' />
+          placeholder='Name your tag'
+          ref='name'/>
 
         {this.newFormButtons()}
       </form>
