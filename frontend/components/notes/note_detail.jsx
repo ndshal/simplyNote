@@ -17,6 +17,7 @@ class NoteDetail extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
    componentDidMount() {
      if(this.props.formType === 'edit') {
        this.props.fetchNote()
@@ -26,6 +27,10 @@ class NoteDetail extends Component {
         )
       );
      }
+   }
+
+   componentWillUpdate(newProps) {
+     console.log(newProps);
    }
 
    componentWillReceiveProps(newProps) {
