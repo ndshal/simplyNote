@@ -1,10 +1,44 @@
 .tag-selector {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+
+  margin-right: 15px;
+}
+
+.tag-selector > i {
+  color: $darker-grey;
+  padding: 2px;
+  margin-right: 4px;
 }
 
 .tag-selector input {
-  flex-shrink: 1;
+  width: 10px;
+}
+
+.tag-selector input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.tag-selector input:hover {
+  cursor: pointer;
+}
+
+.tag-selector input:hover::-webkit-input-placeholder {
+    color: $green;
+}
+
+.tag-selector input:focus {
+  width: auto;
+  cursor: text;
+}
+
+.tag-selector input:focus, .note-tag {
+  margin: 5px;
+  background: $grey;
+  padding: 3px;
+  border: 1px solid $dark-grey;
+  border-radius: 2px;
 }
 
 .current-tags {
@@ -12,8 +46,11 @@
 }
 
 .note-tag {
+  margin: 5px;
+  background: $grey;
   padding: 3px;
-  border: 1px solid $grey;
+  border: 1px solid $dark-grey;
+  border-radius: 2px;
 }
 
 .note-tag i {

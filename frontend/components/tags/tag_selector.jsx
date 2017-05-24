@@ -59,6 +59,7 @@ class TagSelector extends Component {
           onKeyPress={this.handleKeyPress}
           onChange={this.onChange}
           placeholder='+'
+          size={tagInput.length+1}
           />
       </div>
     );

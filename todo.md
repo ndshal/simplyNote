@@ -123,6 +123,7 @@
     -> This is where you want to refactor the editor!
   - [ ] Delete Tags
   - [x] Can remove tags from note
+  - [ ] On saving with tags, note index does not update - doesnt receive new props?
   - [ ] Tags are not sorted alphabetically
 
 # Phase 6: General Bug Fixes
