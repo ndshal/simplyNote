@@ -17,6 +17,7 @@ class NoteDetail extends Component {
     this.state = createEmptyNote(this.props.location.pathname);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSave = this.handleSave.bind(this);
 
     this.focusBody = () => {if (this.refs.editor) { this.refs.editor.focusBody();}};
   }
@@ -30,6 +31,8 @@ class NoteDetail extends Component {
         )
       );
      }
+
+     this.saveInterval = setInterval(this.handleSave, 10000);
    }
 
    componentWillReceiveProps(newProps) {
@@ -49,20 +52,37 @@ class NoteDetail extends Component {
      }
    }
 
+   componentWillUnmount() {
+     clearInterval(this.saveInterval);
+   }
+
   update(field) {
     return (value, cb) => this.setState({[field]: value}, cb);
   }
 
   processForm(note) {
     if(this.props.formType === 'edit') {
-      this.props.updateNote(note);
+      return this.props.updateNote(note);
     } else {
       const path = this.props.location.pathname;
       const indexPath = path.match(/(.*)\/\d*/)[1];
 
-      this.props.createNote(note)
+      return this.props.createNote(note)
         .then(({note}) => this.props.history.push(`${indexPath}/${note.id}`))
         .then(this.props.clearErrors);
+    }
+  }
+
+  handleSave() {
+    if(this.state.title !== '') {
+      console.log(`saving note ${this.state.title}`);
+      this.setState({saved: false});
+
+      setTimeout(()=> {
+        const note = createRawNoteBody(this.state);
+        this.processForm(note)
+          .then(() => this.setState({saved: true}));
+      }, 1500);
     }
   }
 
@@ -77,6 +97,15 @@ class NoteDetail extends Component {
     const errClass = errors.length === 0 ? 'hidden' : 'note-errors';
     return (
       <div className={errClass}>{errors.join(', ')}</div>
+    );
+  }
+
+  renderLoader() {
+    const loaderClass = this.state.saved ? 'saved loader' : 'saving loader';
+    return (
+      <div className={loaderClass}>
+      <i className='fa fa-check'></i>
+      </div>
     );
   }
 
@@ -117,6 +146,9 @@ class NoteDetail extends Component {
           editorState={body}
           ref="editor"
         />
+
+      {this.renderLoader()}
+
         <button
           onClick={this.handleSubmit}>Save Note</button>
       </from>

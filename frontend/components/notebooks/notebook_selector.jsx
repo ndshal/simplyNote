@@ -22,7 +22,7 @@ class NotebookSelect extends Component {
   }
 
   componentWillUpdate(newProps, newState) {
-    if( newState.listView) {
+    if(newState.listView) {
       this.refs.listView.focus();
     }
   }

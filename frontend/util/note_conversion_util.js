@@ -37,6 +37,7 @@ export const createEditorNoteBody = (note) => {
 export const createRawNoteBody = (note) => {
   const newNote = merge({}, note);
   newNote.body = convertToRaw(newNote.body.getCurrentContent());
+  newNote.saved = true;
 
   return newNote;
 };
@@ -53,6 +54,7 @@ export const createEmptyNote = (currentPath) => {
     title: '',
     body: EditorState.createEmpty(),
     notebook_id,
-    tag_names: []
+    tag_names: [],
+    saved: false
   };
 };
