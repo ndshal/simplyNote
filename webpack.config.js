@@ -16,7 +16,13 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
-      }
+      },
+      {
+        test: /plugin\.css$/,
+        loaders: [
+          'style-loader', 'css-loader',
+        ],
+      },
     ]
   },
   devtool: 'source-maps',

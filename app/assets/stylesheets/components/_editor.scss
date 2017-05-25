@@ -37,10 +37,10 @@
 
 .inline-controls, .block-controls {
   padding-left: 16px;
+  border-right: 1px solid $grey;
 }
 
 .inline-controls {
-  border-right: 1px solid $grey;
   border-left: 1px solid $grey;
 }
 

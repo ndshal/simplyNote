@@ -3,11 +3,6 @@ import { EditorState, RichUtils } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
 import { styleMap, getBlockStyle } from './style_controls';
 
-import createEmojiPlugin from 'draft-js-emoji-plugin';
-
-const emojiPlugin = createEmojiPlugin();
-const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
-
 class RichEditor extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +50,7 @@ class RichEditor extends Component {
   }
 
   render () {
-    const {editorState, title, update} = this.props;
+    const {editorState, title, update, plugins} = this.props;
 
     return (
       <div className='editor-root'>
@@ -77,12 +72,9 @@ class RichEditor extends Component {
           onTab={this.onTab}
           onChange={this.onChange}
           placeholder="Just start typing!"
-          plugins={[emojiPlugin]}
+          plugins={plugins}
           spellCheck={true}
         />
-
-        <EmojiSuggestions />
-        <EmojiSelect />
       </div>
     );
   }

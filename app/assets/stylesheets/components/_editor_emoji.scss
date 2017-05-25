@@ -1,32 +1,41 @@
 .draftJsEmojiPlugin__emojiSelect__2SjnO {
   display: inline-block;
 }
-.draftJsEmojiPlugin__emojiSelectButton__1hHuM, .draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC {
+.draftJsEmojiPlugin__emojiSelectButton__1hHuM,
+.draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC {
   margin: 0;
+  margin-left: 2px;
   padding: 0;
-  width: 2.5em;
+  width: 1.5em;
   height: 1.5em;
   box-sizing: border-box;
-  line-height: 1.2em;
+  line-height: 0.8em;
   font-size: 1.5em;
   color: #888;
   background: #fff;
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
   border-radius: 1.5em;
   cursor: pointer;
 }
-.draftJsEmojiPlugin__emojiSelectButton__1hHuM:focus, .draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC:focus {
+.draftJsEmojiPlugin__emojiSelectButton__1hHuM:focus,
+.draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC:focus {
   outline: 0;
   /* reset for :focus */
 }
-.draftJsEmojiPlugin__emojiSelectButton__1hHuM:hover, .draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC:hover {
-  background: #f3f3f3;
+.draftJsEmojiPlugin__emojiSelectButton__1hHuM:hover,
+.draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC:hover {
+  // background: #f3f3f3;
+  background: rgba(0,0,0,0);
+  // color: $green;
 }
-.draftJsEmojiPlugin__emojiSelectButton__1hHuM:active, .draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC:active {
-  background: #e6e6e6;
+.draftJsEmojiPlugin__emojiSelectButton__1hHuM:active,
+.draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC:active {
+  // background: #e6e6e6;
+  background: rgba(0,0,0,0);
 }
 .draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC {
-  background: #ededed;
+  // background: #ededed;
+  background: rgba(0,0,0,0);
 }
 .draftJsEmojiPlugin__emojiSelectPopover__3rwHu {
   margin-top: 10px;
@@ -61,7 +70,8 @@
 .draftJsEmojiPlugin__emojiSelectPopoverGroup__2J_ye {
     padding: 0 .5em;
 }
-.draftJsEmojiPlugin__emojiSelectPopoverGroup__2J_ye:first-child .draftJsEmojiPlugin__emojiSelectPopoverGroupTitle__2gFs6 {
+.draftJsEmojiPlugin__emojiSelectPopoverGroup__2J_ye:first-child
+.draftJsEmojiPlugin__emojiSelectPopoverGroupTitle__2gFs6 {
   display: none;
 }
 .draftJsEmojiPlugin__emojiSelectPopoverGroupTitle__2gFs6 {
@@ -110,7 +120,8 @@
 .draftJsEmojiPlugin__emojiSelectPopoverToneSelectItem__3VVdN:first-child {
   border-right: 1px solid #e0e0e0;
 }
-.draftJsEmojiPlugin__emojiSelectPopoverEntry__3nQtJ, .draftJsEmojiPlugin__emojiSelectPopoverEntryFocused__GHigP {
+.draftJsEmojiPlugin__emojiSelectPopoverEntry__3nQtJ,
+.draftJsEmojiPlugin__emojiSelectPopoverEntryFocused__GHigP {
   padding: 0;
   width: 100%;
   height: 100%;
@@ -142,7 +153,8 @@
   width: 2.5em;
   height: 2.5em;
 }
-.draftJsEmojiPlugin__emojiSelectPopoverNavEntry__2bPuZ, .draftJsEmojiPlugin__emojiSelectPopoverNavEntryActive__2G0lt {
+.draftJsEmojiPlugin__emojiSelectPopoverNavEntry__2bPuZ,
+.draftJsEmojiPlugin__emojiSelectPopoverNavEntryActive__2G0lt {
   padding: 0;
   width: 100%;
   height: 100%;
@@ -172,11 +184,14 @@
   border-radius: .125em;
   cursor: pointer;
 }
-.draftJsEmojiPlugin__emojiSelectPopoverGroups__3NIl6:hover .draftJsEmojiPlugin__emojiSelectPopoverScrollbar__QWjCt {
+.draftJsEmojiPlugin__emojiSelectPopoverGroups__3NIl6:hover
+.draftJsEmojiPlugin__emojiSelectPopoverScrollbar__QWjCt {
   opacity: .3;
 }
-.draftJsEmojiPlugin__emojiSelectPopoverGroups__3NIl6 .draftJsEmojiPlugin__emojiSelectPopoverScrollbar__QWjCt:hover,
-.draftJsEmojiPlugin__emojiSelectPopoverGroups__3NIl6 .draftJsEmojiPlugin__emojiSelectPopoverScrollbar__QWjCt:active {
+.draftJsEmojiPlugin__emojiSelectPopoverGroups__3NIl6
+.draftJsEmojiPlugin__emojiSelectPopoverScrollbar__QWjCt:hover,
+.draftJsEmojiPlugin__emojiSelectPopoverGroups__3NIl6
+.draftJsEmojiPlugin__emojiSelectPopoverScrollbar__QWjCt:active {
   opacity: .6;
 }
 

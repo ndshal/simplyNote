@@ -11,6 +11,13 @@ import { InlineStyleControls, BlockStyleControls } from '../editor/style_control
 import TagSelectorContainer from '../tags/tag_selector_container';
 import NotebookSelectorContainer from '../notebooks/notebook_selector_container';
 
+import createEmojiPlugin from 'draft-js-emoji-plugin';
+
+const emojiPlugin = createEmojiPlugin();
+const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
+
+const plugins = [emojiPlugin];
+
 class NoteDetail extends Component {
   constructor(props) {
     super(props);
@@ -138,16 +145,21 @@ class NoteDetail extends Component {
             editorState={body}
             onChange={this.update('body')}
           />
+        
+          <EmojiSelect />
         </div>
 
         <RichEditor
           title={title}
           update={this.update}
           editorState={body}
+          plugins={plugins}
           ref="editor"
         />
 
-      {this.renderLoader()}
+        <EmojiSuggestions />
+
+        {this.renderLoader()}
 
         <button
           onClick={this.handleSubmit}>Save Note</button>
