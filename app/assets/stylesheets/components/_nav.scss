@@ -1,6 +1,7 @@
 .side-nav {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 
   background-color: $light-grey;
@@ -12,33 +13,34 @@
 }
 
 .top-links, .center-links, .bottom-links {
+  width: 100%;
+
+  position: absolute;
   display: flex;
   flex-direction: column;
-  position: absolute;
-}
-
-.top-links {
-  top: 12%;
-}
-
-.center-links {
-  width: 100%;
-  top: 35%;
-  bottom: 35%;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
+.top-links {
+  top: 15vh;
+}
+
+.center-links {
+  justify-content: space-around;
+  top: 30vh;
+  bottom: 45vh;
+}
+
 .bottom-links {
-  bottom: 5%;
+  bottom: 2vh;
 }
 
 .bottom-border {
   background: $grey;
   min-height: 1px;
   width: 80%;
-  position: absolute;
-  bottom: 15%;
+  margin-bottom: 2vh;
 }
 
 .side-nav i {
@@ -48,7 +50,9 @@
   color: $green;
 }
 
+
 .top-links i {
+  background: white;
   border: 1px solid $dark-grey;
   font-size: 14px;
   padding: 12px;

@@ -88,7 +88,7 @@
 - [x] Rerenders index on save
 - [x] Tab focus in editor
 - [x] Placeholder in edit form is not clickable.
-- [ ] Style editor
+- [x] Style editor
 - [ ] More functions in editor
 
 # Phase 4: Notebooks
@@ -126,8 +126,7 @@
   - [x] Tags are not sorted alphabetically
 
 # Phase 6: General Bug Fixes
-  - [ ] Search inputs in notebooks and notes index
-  - [ ] You got some n+1 queries, kid
+  - [x] Search inputs in notebooks and notes index
   - [x] NotebookSelector ul doesnt close on click
   - [ ] Seed with welcome note
   - [ ] Style splash Screen
