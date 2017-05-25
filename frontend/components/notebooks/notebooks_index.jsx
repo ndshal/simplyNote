@@ -8,15 +8,11 @@ class NotebooksIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {searchTerm: ''};
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = e => this.setState({searchTerm: e.target.value});
   }
 
   componentDidMount() {
     this.props.fetchAllNotebooks();
-  }
-
-  handleChange(e) {
-    this.setState({searchTerm: e.target.value})
   }
 
   render () {

@@ -9,7 +9,7 @@ class NotesIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {notes: [], searchTerm: ''};
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = e => this.setState({searchTerm: e.target.value});
   }
 
   componentDidMount() {
@@ -37,10 +37,6 @@ class NotesIndex extends Component {
       const filteredNotes = filterItemsBySearchTerm(newProps.notes, 'title', searchTerm);
       this.setState({notes: filteredNotes});
     }
-  }
-
-  handleChange(e) {
-    this.setState({searchTerm: e.target.value.toLowerCase()});
   }
 
   render () {
