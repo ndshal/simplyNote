@@ -32,7 +32,7 @@ class NoteDetail extends Component {
       );
      }
 
-     this.saveInterval = setInterval(this.handleSave, 10000);
+     this.saveInterval = setInterval(this.handleSave, 8000);
    }
 
    componentWillReceiveProps(newProps) {
@@ -75,7 +75,6 @@ class NoteDetail extends Component {
 
   handleSave() {
     if(this.state.title !== '') {
-      console.log(`saving note ${this.state.title}`);
       this.setState({saved: false});
 
       setTimeout(()=> {
@@ -119,14 +118,14 @@ class NoteDetail extends Component {
         {this.renderErrors()}
 
         <div className='editor-controls'>
-          <TagSelectorContainer
-            tagNames={tag_names}
-            onChange={this.update('tag_names')}
-            />
-
           <NotebookSelectorContainer
             value={notebook_id}
             update={this.update('notebook_id')}
+          />
+        
+        <TagSelectorContainer
+          tagNames={tag_names}
+          onChange={this.update('tag_names')}
           />
 
           <InlineStyleControls

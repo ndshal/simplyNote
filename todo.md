@@ -130,3 +130,6 @@
   - [ ] You got some n+1 queries, kid
   - [x] NotebookSelector ul doesnt close on click
   - [ ] Seed with welcome note
+  - [ ] Style splash Screen
+  - [ ] some sort of current user info
+  - [ ] Get favicon
