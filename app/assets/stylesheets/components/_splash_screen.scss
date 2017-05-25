@@ -55,14 +55,14 @@
   justify-content: center;
   font-family: $sans-serif;
 
-  // background-image: asset-url('fabian-irsara-92113.jpg');
   background:
     linear-gradient(
       rgba(0, 0, 0, 0.3),
       rgba(0, 0, 0, 0.3)
     ),
     asset-url('thomas-lefebvre-3950.jpg');
-  // background-image: asset-url('markus-spiske-37930.jpg');
+    //asset-url('markus-spiske-37930.jpg');
+    //asset-url('fabian-irsara-92113.jpg');
   background-size: cover;
 
   // padding: 50px 0;
