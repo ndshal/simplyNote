@@ -17,10 +17,8 @@ class NotesIndex extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if(this.state.notes.length !== newProps.notes.length) {
-      const filteredNotes = filterItemsBySearchTerm(newProps.notes, 'title', this.state.searchTerm);
-      this.setState({notes: filteredNotes});
-    }
+    const filteredNotes = filterItemsBySearchTerm(newProps.notes, 'title', this.state.searchTerm);
+    this.setState({notes: filteredNotes});
 
     const currentPath = newProps.location.pathname;
     if(currentPath.endsWith('notes')) {
