@@ -20,7 +20,7 @@ export const stringifyNoteBody = (note) => {
   return newNote;
 };
 
-export const createEditorNoteBody = (note) => {
+export const createEditorNoteBody = (note, decorator) => {
   const newNote = merge({}, note);
   let contentState;
 
@@ -29,7 +29,7 @@ export const createEditorNoteBody = (note) => {
   } else {
     contentState = convertFromRaw(newNote.body);
   }
-  const editorState = EditorState.createWithContent(contentState);
+  const editorState = EditorState.createWithContent(contentState, decorator);
   newNote.body = editorState;
   return newNote;
 };
@@ -42,7 +42,7 @@ export const createRawNoteBody = (note) => {
   return newNote;
 };
 
-export const createEmptyNote = (currentPath) => {
+export const createEmptyNote = (currentPath, decorator) => {
   const notebookMatch = currentPath.match(/home\/notebook\/(\d+)/);
   let notebook_id = null;
   if(notebookMatch) {
@@ -52,7 +52,7 @@ export const createEmptyNote = (currentPath) => {
   return {
     id: null,
     title: '',
-    body: EditorState.createEmpty(),
+    body: EditorState.createEmpty(decorator),
     notebook_id,
     tag_names: [],
     saved: false

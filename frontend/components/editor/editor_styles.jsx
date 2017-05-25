@@ -27,6 +27,11 @@ export const BLOCK_TYPES = [
     label: 'ul',
     icon: <li className='fa fa-list-ul'></li>,
     style: 'unordered-list-item',
+  },
+  {
+    label: 'code-block',
+    icon: <li className='fa fa-code'></li>,
+    style: 'code-block'
   }
 ];
 
