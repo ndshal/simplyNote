@@ -56,6 +56,7 @@ class NotesIndex extends Component {
       <aside className='notes-index'>
         <header>
           <div className='header-title'>{heading}</div>
+          <div className='item-count'>{noteCount}</div>
           <form>
             <input
               className='search-bar'
@@ -63,7 +64,6 @@ class NotesIndex extends Component {
               onChange={this.handleChange}
               placeholder='Search by note title'/>
           </form>
-          <div className='item-count'>{noteCount}</div>
         </header>
         <ul className='notes-list'>
           { notes.map(
