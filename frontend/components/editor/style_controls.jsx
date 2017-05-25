@@ -18,6 +18,7 @@ export const styleMap = {
 export const getBlockStyle = (block) => {
   switch (block.getType()) {
     case 'blockquote': return 'editor-blockquote';
+    case 'code-block': return 'editor-code-block';
     default: return null;
   }
 };

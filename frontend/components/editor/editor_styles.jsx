@@ -10,7 +10,11 @@ export const POSSIBLE_BLOCK_TYPES = [
   {label: 'Blockquote', style: 'blockquote'},
   {label: 'UL', style: 'unordered-list-item'},
   {label: 'OL', style: 'ordered-list-item'},
-  {label: 'Code Block', style: 'code-block'},
+  {
+    label: 'Code Block',
+    icon: <li className='fa fa-code'></li>,
+    style: 'code-block'
+  }
 ];
 
 export const BLOCK_TYPES = [
@@ -23,8 +27,7 @@ export const BLOCK_TYPES = [
     label: 'ul',
     icon: <li className='fa fa-list-ul'></li>,
     style: 'unordered-list-item',
-  },
-  {label: 'Code Block', icon: <span>code</span>, style: 'code-block'},
+  }
 ];
 
 export const INLINE_STYLES = [

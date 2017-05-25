@@ -8,9 +8,6 @@ import TagsIndexContainer from '../tags/tags_index_container';
 import TagFormContainer from '../tags/tag_form_container';
 import DeleteObjectContainer from '../delete/delete_object_container';
 
-import ColorfulEditorExample from '../editor/color_editor_example';
-
-
 class Home extends Component {
   render() {
     return (
@@ -23,8 +20,6 @@ class Home extends Component {
 
         <Route exact path='/home/tags' component={TagsIndexContainer} />
         <Route exact path='/home/tags/new' component={TagFormContainer} />
-
-        <Route path='/home/colors' component={ColorfulEditorExample} />
 
         <Route exact path='/home/:object/:objectId/delete' component={DeleteObjectContainer} />
       </secion>
