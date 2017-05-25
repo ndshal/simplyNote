@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import NoteIndexItem from './note_index_item';
 import { merge } from 'lodash';
-import { filterNotesBySearchTerm } from '../../reducers/selectors';
+import { filterItemsBySearchTerm } from '../../reducers/selectors';
 
 
 class NotesIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {notes: [], searchTerm: ''};
-    // this.state = {searchTerm: ''};
-
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -20,7 +18,7 @@ class NotesIndex extends Component {
 
   componentWillReceiveProps(newProps) {
     if(this.state.notes.length !== newProps.notes.length) {
-      const filteredNotes = filterNotesBySearchTerm(newProps.notes, this.state.searchTerm);
+      const filteredNotes = filterItemsBySearchTerm(newProps.notes, 'title', this.state.searchTerm);
       this.setState({notes: filteredNotes});
     }
 
@@ -36,7 +34,7 @@ class NotesIndex extends Component {
 
   componentWillUpdate(newProps, { searchTerm }) {
     if(searchTerm !== this.state.searchTerm) {
-      const filteredNotes = filterNotesBySearchTerm(newProps.notes, searchTerm);
+      const filteredNotes = filterItemsBySearchTerm(newProps.notes, 'title', searchTerm);
       this.setState({notes: filteredNotes});
     }
   }

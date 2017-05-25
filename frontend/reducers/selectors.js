@@ -99,13 +99,13 @@ export const sortItemSliceAlphabetically = itemSlice => {
   return sortedSlice;
 };
 
-export const filterNotesBySearchTerm = (notes, searchTerm) => {
-  let filteredNotes = [];
-  notes.forEach(note => {
-    if(note.title.toLowerCase().includes(searchTerm)){
-      filteredNotes.push(note);
+export const filterItemsBySearchTerm = (items, field, searchTerm) => {
+  let filteredItems = [];
+  items.forEach(item => {
+    if(item[field].toLowerCase().includes(searchTerm)){
+      filteredItems.push(item);
     }
   });
 
-  return filteredNotes;
+  return filteredItems;
 };
