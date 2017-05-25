@@ -28,6 +28,9 @@ class TagSelector extends Component {
         newTags.push(this.state.tagInput);
       }
       this.props.onChange(newTags, this.setState({tagInput: ''}));
+    } else if (e.which === 9) {
+      e.preventDefault();
+      this.setState({tagInput: ''}, () => this.props.focusBody());
     }
   }
 
@@ -58,7 +61,7 @@ class TagSelector extends Component {
         </ul>
         <input
           value={tagInput}
-          onKeyPress={this.handleKeyPress}
+          onKeyDown={this.handleKeyPress}
           onChange={this.onChange}
           placeholder='+'
           size={tagInput.length+1}

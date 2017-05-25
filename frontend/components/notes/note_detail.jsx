@@ -126,6 +126,7 @@ class NoteDetail extends Component {
         <TagSelectorContainer
           tagNames={tag_names}
           onChange={this.update('tag_names')}
+          focusBody={this.focusBody}
           />
 
           <InlineStyleControls
