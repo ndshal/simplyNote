@@ -23,7 +23,8 @@ export const BLOCK_TYPES = [
     label: 'ul',
     icon: <li className='fa fa-list-ul'></li>,
     style: 'unordered-list-item',
-  }
+  },
+  {label: 'Code Block', icon: <span>code</span>, style: 'code-block'},
 ];
 
 export const INLINE_STYLES = [
@@ -46,5 +47,10 @@ export const INLINE_STYLES = [
     label: 'strikethrough',
     icon: <i className='fa fa-strikethrough'></i>,
     style: 'STRIKETHROUGH'
+  },
+  {
+    label: 'highlight',
+    icon: <i className='fa fa-pencil'></i>,
+    style: 'HIGHLIGHT'
   }
 ];

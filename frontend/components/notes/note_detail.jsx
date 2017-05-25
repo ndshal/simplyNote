@@ -122,7 +122,7 @@ class NoteDetail extends Component {
             value={notebook_id}
             update={this.update('notebook_id')}
           />
-        
+
         <TagSelectorContainer
           tagNames={tag_names}
           onChange={this.update('tag_names')}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Editor, EditorState, RichUtils } from 'draft-js';
+import { styleMap } from './style_controls';
 
 class RichEditor extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class RichEditor extends Component {
         <Editor
           className='editor'
           editorState={editorState}
+          customStyleMap={styleMap}
           handleKeyCommand={this.handleKeyCommand}
           onTab={this.onTab}
           onChange={this.onChange}

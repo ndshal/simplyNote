@@ -10,6 +10,9 @@ export const styleMap = {
     fontSize: 16,
     padding: 2,
   },
+  HIGHLIGHT: {
+    background: 'rgba(243,243,21,1.0)',
+   }
 };
 
 export const getBlockStyle = (block) => {
