@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import NoteIndexItem from './note_index_item';
 import { merge } from 'lodash';
 import { filterItemsBySearchTerm } from '../../reducers/selectors';
+import NoteIndexItem from './note_index_item';
 
 
 class NotesIndex extends Component {
