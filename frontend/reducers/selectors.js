@@ -97,4 +97,15 @@ export const sortItemSliceAlphabetically = itemSlice => {
   }
 
   return sortedSlice;
-}
+};
+
+export const filterNotesBySearchTerm = (notes, searchTerm) => {
+  let filteredNotes = [];
+  notes.forEach(note => {
+    if(note.title.toLowerCase().includes(searchTerm)){
+      filteredNotes.push(note);
+    }
+  });
+
+  return filteredNotes;
+};
