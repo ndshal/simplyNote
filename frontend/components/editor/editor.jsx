@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { Editor, EditorState, RichUtils } from 'draft-js';
+import { EditorState, RichUtils } from 'draft-js';
+import Editor from 'draft-js-plugins-editor';
 import { styleMap, getBlockStyle } from './style_controls';
+
+import createEmojiPlugin from 'draft-js-emoji-plugin';
+
+const emojiPlugin = createEmojiPlugin();
+const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
 
 class RichEditor extends Component {
   constructor(props) {
@@ -9,7 +15,7 @@ class RichEditor extends Component {
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.onTab = this.onTab.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-    this.onChange = this.props.update('body');
+    this.onChange = (editorState) => this.props.update('body')(editorState, null);
 
     this.focusTitle = this.focusTitle.bind(this);
     this.focusBody = this.focusBody.bind(this);
@@ -71,8 +77,12 @@ class RichEditor extends Component {
           onTab={this.onTab}
           onChange={this.onChange}
           placeholder="Just start typing!"
+          plugins={[emojiPlugin]}
           spellCheck={true}
         />
+
+        <EmojiSuggestions />
+        <EmojiSelect />
       </div>
     );
   }
