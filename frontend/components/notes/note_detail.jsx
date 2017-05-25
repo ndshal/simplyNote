@@ -93,7 +93,7 @@ class NoteDetail extends Component {
 
   renderErrors() {
     const { errors } = this.props;
-    const errClass = errors.length === 0 ? 'hidden' : 'note-errors';
+    const errClass = errors.length === 0 ? 'hidden' : 'create-errors';
     return (
       <div className={errClass}>{errors.join(', ')}</div>
     );
