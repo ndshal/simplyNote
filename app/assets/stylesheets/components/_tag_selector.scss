@@ -51,6 +51,9 @@
   padding: 3px;
   border: 1px solid $dark-grey;
   border-radius: 2px;
+
+  display: flex;
+  align-items: center;
 }
 
 .note-tag i {
