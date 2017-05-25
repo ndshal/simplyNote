@@ -12,15 +12,15 @@ class DeleteObject extends Component {
 
   dependentsMessage() {
     let messageHead, messageTail;
-    let noteWord = 'notes';
     const noteCount = this.props.notes.length;
-    if (noteCount === 1) noteWord = 'note';
+    let noteWord = noteCount === 1? 'note' : 'notes';
+    let isWord = noteCount === 1? 'is' : 'are';
 
     if (this.props.object === 'notebook') {
       messageHead = 'This notebook contains ';
       messageTail = ` ${noteWord}.`;
     } else if (this.props.object === 'tag') {
-      messageHead = 'There are ';
+      messageHead = `There ${isWord} `;
       messageTail = ` ${noteWord} with this tag.`;
     }
 
