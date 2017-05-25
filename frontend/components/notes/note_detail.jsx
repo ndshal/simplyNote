@@ -72,12 +72,22 @@ class NoteDetail extends Component {
     this.processForm(note);
   }
 
+  renderErrors() {
+    const { errors } = this.props;
+    const errClass = errors.length === 0 ? 'hidden' : 'note-errors';
+    return (
+      <div className={errClass}>{errors.join(', ')}</div>
+    );
+  }
+
   render() {
     const { title, body, notebook_id, tag_names } = this.state;
     return (
       <from
         className='note-detail'
         onSubmit={this.handleSubmit}>
+
+        {this.renderErrors()}
 
         <div className='editor-controls'>
           <TagSelectorContainer

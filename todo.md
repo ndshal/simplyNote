@@ -103,8 +103,8 @@
      -> Put this in its own component?
   - [x] Style notebook selector ul
   - [x] Add new notebook page / button
-  - [ ] New note errors!
-  - [ ] Every user gets a default notebook on create (in users controller)
+  - [x] New note errors!
+  - [x] Every user gets a default notebook on create (in users controller)
       -  set notebook select to, in order,
       - note.notebook_id, path.notebook_id, default_notebook.id
 
@@ -119,13 +119,14 @@
     -> Add list of tags to note state
   - [x] Tag index, effectively a copy of notebookIndex
   - [x] Tag selector component in editor
-  - [ ] Delete Tags
+  - [x] Delete Tags
   - [x] Can remove tags from note
   - [ ] drop down with all tags
   - [x] On saving with tags, note index does not update - doesnt receive new props?
-  - [ ] Tags are not sorted alphabetically
+  - [x] Tags are not sorted alphabetically
 
 # Phase 6: General Bug Fixes
   - [ ] Search inputs in notebooks and notes index
   - [ ] You got some n+1 queries, kid
-  - [ ] NotebookSelector ul doesnt close on click
+  - [x] NotebookSelector ul doesnt close on click
+  - [ ] Seed with welcome note

@@ -23,3 +23,15 @@
   color: $greener;
   font-family: serif;
 }
+
+.note-errors {
+  position: absolute;
+  bottom: 5%;
+  right: 45%;
+  background: $error-red;
+  color: white;
+
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 10px;
+}
