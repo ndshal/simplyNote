@@ -60,9 +60,12 @@ export const sortItemSliceByDate = itemSlice => (
 export const sortItemsByName = items => {
   return items.sort(
     (a,b) => {
-      if(a.name < b.name) {
+      const aName = a.name.toLowerCase();
+      const bName = b.name.toLowerCase();
+
+      if(aName < bName) {
         return -1;
-      } else if (a.name > b.name) {
+      } else if (aName > bName) {
         return 1;
       } else {
         return 0;
