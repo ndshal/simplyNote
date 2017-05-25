@@ -10,10 +10,9 @@ class Api::NotesController < ApplicationController
   end
 
   def create
-    params[:note][:tag_names] ||= []
-
     @note = Note.new(note_params)
     @note.author = current_user
+    @note.tag_names = params[:note][:tag_names] ||= []
     if @note.save
       render :show
     else
@@ -22,10 +21,9 @@ class Api::NotesController < ApplicationController
   end
 
   def update
-    params[:note][:tag_names] ||= []
-
     @note = Note.find_by(id: params[:id])
     if @note.update_attributes(note_params)
+      @note.tag_names = params[:note][:tag_names] ||= []
       @note.updated_at = Time.now
       # adding tags is note updating the note object
       render :show
@@ -48,6 +46,6 @@ class Api::NotesController < ApplicationController
 
   def note_params
     params.require(:note)
-      .permit(:title, :body, :notebook_id, :author_id, tag_names: [])
+      .permit(:title, :body, :notebook_id, :author_id)
   end
 end
