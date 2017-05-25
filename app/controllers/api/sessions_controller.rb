@@ -2,7 +2,7 @@ class Api::SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:user][:username])
     if !@user
-      render json: ['Username is invalid'], status: 422
+      render json: ['Username does not exist'], status: 422
     elsif !@user.is_password?(params[:user][:password])
       render json: ['Password is invalid'], status: 422
     else
