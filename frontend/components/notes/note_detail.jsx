@@ -92,12 +92,6 @@ class NoteDetail extends Component {
     }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const note = createRawNoteBody(this.state);
-    this.processForm(note);
-  }
-
   renderErrors() {
     const { errors } = this.props;
     const errClass = errors.length === 0 ? 'hidden' : 'create-errors';
@@ -167,9 +161,6 @@ class NoteDetail extends Component {
         />
 
         {this.renderLoader()}
-
-        <button
-          onClick={this.handleSubmit}>Save Note</button>
       </from>
     );
   }
