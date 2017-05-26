@@ -12,14 +12,9 @@ import TagSelectorContainer from '../tags/tag_selector_container';
 import NotebookSelectorContainer from '../notebooks/notebook_selector_container';
 
 import createEmojiPlugin from 'draft-js-emoji-plugin';
-import createMathjaxPlugin from 'draft-js-mathjax-plugin';
-
 const emojiPlugin = createEmojiPlugin();
-const mathjaxPlugin =createMathjaxPlugin({completion: 'none'});
-
 const { EmojiSuggestions, EmojiSelect } = emojiPlugin;
-
-const plugins = [mathjaxPlugin];
+const plugins = [emojiPlugin]
 
 class NoteDetail extends Component {
   constructor(props) {
