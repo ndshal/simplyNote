@@ -28,8 +28,34 @@ draft.js giphy demo
 
 To streamline the note-taking process, notes are automatically saved and sent back to the database. Before sending the note to the database, SimplyNote packages the current editor state, which includes both text content and styling, into a JSON object that is then processed and stored by Rails.
 
-```
-AJAX request, note_conversion_util.js
+```js
+//note_detail.js
+handleSave() {
+  if(this.state.title !== '') {
+    this.setState({saved: false});
+
+    setTimeout(()=> {
+      const note = createRawNoteBody(this.state);
+      this.updateNote(note)
+        .then(() => this.setState({saved: true}));
+    }, 1500);
+  }
+}
+
+//notes_actions.js
+export const updateNote = note => dispatch => (
+  NoteAPIUtil.updateNote(stringifyNoteBody(note))
+    .then(note => dispatch(receiveSingleNote(parseNoteBody(note))))
+);
+
+//note_api_util.js
+export const updateNote = note => {
+  return $.ajax({
+    method: 'patch',
+    url: `api/notes/${note.id}`,
+    data: { note }
+  });
+};
 ```
 
 On the backend, notes are stored in a PostgreSQL table, with columns corresponding to `id`, `title`, `body`, `notebook_id`, and `updated_at`. `body` is the packaged editor state, and `notebook_id` is a reference to the notebook that contains the note.
