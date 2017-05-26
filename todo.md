@@ -89,7 +89,7 @@
 - [x] Tab focus in editor
 - [x] Placeholder in edit form is not clickable.
 - [x] Style editor
-- [ ] More functions in editor
+- [x] More functions in editor
 
 # Phase 4: Notebooks
 ## Backend
@@ -128,7 +128,7 @@
 # Phase 6: General Bug Fixes
   - [x] Search inputs in notebooks and notes index
   - [x] NotebookSelector ul doesnt close on click
+  - [x] Style splash Screen
   - [ ] Seed with welcome note
-  - [ ] Style splash Screen
   - [ ] some sort of current user info
-  - [ ] Get favicon
+  - [x] Get favicon
