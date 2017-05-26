@@ -52,8 +52,17 @@ class RichEditor extends Component {
   render () {
     const {editorState, title, update, plugins} = this.props;
 
+    let className='editor-root';
+    const contentState = editorState.getCurrentContent();
+    if (!contentState.hasText()) {
+      if (contentState.getBlockMap().first().getType() !== 'unstyled') {
+        console.log('found placeholder!');
+        className += ' editor-hidePlaceholder';
+      }
+    }
+
     return (
-      <div className='editor-root'>
+      <div className={className}>
         <input
           className='note-title'
           onKeyPress={this.handleEnter}
