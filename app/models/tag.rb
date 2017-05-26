@@ -1,6 +1,6 @@
 class Tag < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
-  validates :author, presence: true
+  validates :name, :author, presence: true
+  validates :name, uniqueness: {scope: :author}
 
   belongs_to :author, class_name: :User
   has_many :taggings, dependent: :destroy

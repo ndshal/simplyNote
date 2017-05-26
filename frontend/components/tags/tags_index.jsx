@@ -1,21 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { sortItemsByName } from '../../reducers/selectors';
+import { filterItemsBySearchTerm, sortItemsByName } from '../../reducers/selectors';
 import TagIndexItem from './tag_index_item';
 
 class TagsIndex extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {searchTerm: ''};
+    this.handleChange = e => this.setState({searchTerm: e.target.value});
+  }
+
   componentDidMount() {
     this.props.fetchAllTags();
   }
 
+  buildTags(searchTerm) {
+    const { tags } = this.props;
+    let filteredTags = {};
+    Object.keys(tags).map(letterKey => {
+      const tagsForLetter = filterItemsBySearchTerm(tags[letterKey], 'name', searchTerm);
+      if (tagsForLetter[0]) {
+        filteredTags[letterKey] = sortItemsByName(tagsForLetter);
+      }
+    });
+
+    return filteredTags;
+  }
+
   renderTags () {
-    const { tags, deleteTag } = this.props;
+    const { deleteTag } = this.props;
+    const { searchTerm } = this.state;
+    const tags = this.buildTags(searchTerm);
+
     const sortFunc = (a,b) => {
       if(a < b) { return -1; }
       else if(a > b) { return 1; }
       else { return 0; }
     };
-
     const sortedLetters = Object.keys(tags).sort(sortFunc);
 
     return (
@@ -25,7 +46,7 @@ class TagsIndex extends Component {
           <li key={letterKey}>
             <span className='letter-label'>{letterKey}</span>
             <ul className='tags-by-letter-ul'>
-              {sortItemsByName(tags[letterKey]).map(
+              {tags[letterKey].map(
                 tag=> <TagIndexItem
                   key={tag.id}
                   linkPath={`/home/tag/${tag.id}`}
@@ -50,6 +71,13 @@ class TagsIndex extends Component {
             <Link to='/home/tags/new'>
               <i className="fa fa-plus"></i>
             </Link>
+            <form>
+              <input
+                className='search-bar'
+                value={this.state.searchTerm}
+                onChange={this.handleChange}
+                placeholder='Search for tag'/>
+            </form>
         </header>
 
         {this.renderTags()}

@@ -12,8 +12,9 @@
 }
 
 .notes-index > header {
-  padding-left: 15px;
-  padding-top: 15px;
+  // padding-left: 15px;
+  // padding-top: 15px;
+  padding: 15px;
   border-bottom: 1px solid $grey;
 }
 
@@ -27,8 +28,20 @@
   color: $dark-grey;
   font-size: 18px;
   text-transform: lowercase;
-  margin-top: 45px;
-  margin-bottom: 5px;
+  margin: 5px 0;
+}
+
+.search-bar {
+  width: 75%;
+
+  margin-top: 40px;
+  // margin-bottom: 10px;
+  padding: 8px 5px;
+  border: 1px solid $grey;
+}
+
+.search-bar::placeholder {
+  color: $dark-grey;
 }
 
 .index-item {

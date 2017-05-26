@@ -18,6 +18,10 @@ class NotebookForm extends Component {
     this.refs.name.focus();
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleCancel(e) {
     e.preventDefault();
     this.props.history.goBack();
@@ -58,6 +62,14 @@ class NotebookForm extends Component {
     );
   }
 
+  renderErrors() {
+    const { errors } = this.props;
+    const errClass = errors.length === 0 ? 'hidden' : 'create-errors';
+    return (
+      <div className={errClass}>{errors.join(', ')}</div>
+    );
+  }
+
   render() {
     const { name } = this.state;
     return (
@@ -65,6 +77,7 @@ class NotebookForm extends Component {
         className='object-form'
         onSubmit={this.handleSubmit}>
 
+        {this.renderErrors()}
         {this.newFormHeader()}
 
         <input

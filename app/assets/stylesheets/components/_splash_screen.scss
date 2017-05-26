@@ -1,4 +1,6 @@
 .splash-screen {
+
+  font-family: "Scope One", serif;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -34,13 +36,14 @@
   font-size: 30px;
   font-weight: 300;
   color: white;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 1px 1px 2px #000000;
 }
 
 .description-message {
+  font-family: "Scope One", serif;
   font-size: 20px;
   color: white;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 1px 1px 2px #000000;
   font-weight: 300;
   margin-top: 20px;
   margin-left: -10px;

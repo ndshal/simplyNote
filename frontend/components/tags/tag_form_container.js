@@ -1,12 +1,18 @@
 import { connect } from 'react-redux';
-import { createTag} from '../../actions/tags_actions';
+import { clearErrors } from '../../actions/errors_actions';
+import { createTag } from '../../actions/tags_actions';
 import TagForm from './tag_form';
 
+const mapStateToProps = state => ({
+  errors: state.errors.createForm
+});
+
 const mapDispatchToProps = dispatch => ({
-  createTag: tag => dispatch(createTag(tag))
+  createTag: tag => dispatch(createTag(tag)),
+  clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(TagForm);

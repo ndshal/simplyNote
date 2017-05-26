@@ -45,9 +45,9 @@ const Nav = ({signout, location}) => {
         </Link>
       </div>
 
-      <div className='bottom-border'></div>
 
       <div className='bottom-links'>
+        <div className='bottom-border'></div>
         <a onClick={signout} >
           <i className="fa fa-sign-out"></i>
           {linkLabel('logout')}
