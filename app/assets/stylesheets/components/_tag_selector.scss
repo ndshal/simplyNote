@@ -29,6 +29,7 @@
 }
 
 .tag-selector input:focus {
+  font-family: $serif;
   width: auto;
   cursor: text;
 }
@@ -46,6 +47,8 @@
 }
 
 .note-tag {
+  font-family: $serif;
+
   margin: 5px;
   background: $grey;
   padding: 3px;
