@@ -68,7 +68,7 @@ On the frontend, the `/notebooks` page contains an index component that fetches 
 
 For convenience, every user starts with a personal notebook, which is created when they first create an account. By default, a new note will be placed in this personal notebook, but users can always choose which notebook they are working in via a drop-down menu above the main note editor.
 
-![SimplyNote notebooks](docs/images/simply_notebooks_composite.png)
+![SimplyNote notebooks](docs/images/simply_note_notebooks_composite.png)
 
 ## Project Design
 
