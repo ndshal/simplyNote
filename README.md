@@ -19,9 +19,6 @@ On entering the page, the index fetches notes already in the database by dispatc
 Clicking each note in the index list will bring up a detailed view in the editor. This is again accomplished with an AJAX request to Rails, this time dispatched by the editor component.
 
 The editor allows for various styling options (bold, highlighting, lists, etc), which can be accessed via a toolbar above the editor, or keyboard shortcuts (for example, CMD+B bolds text).
-```
-draft.js giphy demo
-```
 
 To streamline the note-taking process, notes are automatically saved and sent back to the database. Before sending the note to the database, SimplyNote packages the current editor state, which includes both text content and styling, into a JSON object that is then processed and stored by Rails.
 
@@ -71,9 +68,7 @@ On the frontend, the `/notebooks` page contains an index component that fetches 
 
 For convenience, every user starts with a personal notebook, which is created when they first create an account. By default, a new note will be placed in this personal notebook, but users can always choose which notebook they are working in via a drop-down menu above the main note editor.
 
-```
-Image of notebook dropdown, or giphy demo of notebook changing.
-```
+![SimplyNote notebooks](docs/images/simply_notebooks_composite.png)
 
 ## Project Design
 
