@@ -14,47 +14,9 @@ The main page of SimplyNote consists of an index of all saved notes and a editor
 
 ![SimplyNote notes index](docs/images/simply_note_index.png)
 
-On entering the page, the index fetches notes already in the database by dispatching an AJAX request to the Rails API. The index component then renders the list of notes, sorted by the most recently updated. In order to save memory on the frontend, only the basic details of notes are fetched.
+Clicking each note in the index list will bring up a detailed view in the editor. The editor allows for various styling options (bold, highlighting, lists, etc), which can be accessed via a toolbar above the editor, or keyboard shortcuts (for example, CMD+B bolds text)
 
-Clicking each note in the index list will bring up a detailed view in the editor. This is again accomplished with an AJAX request to Rails, this time dispatched by the editor component.
-
-The editor allows for various styling options (bold, highlighting, lists, etc), which can be accessed via a toolbar above the editor, or keyboard shortcuts (for example, CMD+B bolds text).
-
-To streamline the note-taking process, notes are automatically saved and sent back to the database. Before sending the note to the database, SimplyNote packages the current editor state, which includes both text content and styling, into a JSON object that is then processed and stored by Rails.
-
-The following code snippet demonstrates a piece of the Redux cycle that accomplishes the update procedure. The noteDetail React component dispatches an action, which, when received by middleware, sends off an AJAX request to update the Rails database. Upon receipt, the Rails response is parsed and saved into the Redux state, causing the noteDetail component to update.
-
-```js
-//note_detail.jsx
-handleSave() {
-  if(this.state.title !== '') {
-    this.setState({saved: false});
-
-    setTimeout(()=> {
-      const note = createRawNoteBody(this.state);
-      this.updateNote(note)
-        .then(() => this.setState({saved: true}));
-    }, 1500);
-  }
-}
-
-//notes_actions.js
-export const updateNote = note => dispatch => (
-  NoteAPIUtil.updateNote(stringifyNoteBody(note))
-    .then(note => dispatch(receiveSingleNote(parseNoteBody(note))))
-);
-
-//note_api_util.js
-export const updateNote = note => {
-  return $.ajax({
-    method: 'PATCH',
-    url: `api/notes/${note.id}`,
-    data: { note }
-  });
-};
-```
-
-On the backend, notes are stored in a PostgreSQL table, with columns corresponding to `id`, `title`, `body`, `notebook_id`, and `updated_at`. `body` is the packaged editor state, and `notebook_id` is a reference to the notebook that contains the note.
+To streamline the note-taking process, notes are automatically saved and sent back to the database. On the backend, notes are stored in a PostgreSQL table, with columns corresponding to `id`, `title`, `body`, `notebook_id`, and `updated_at`. `body` is the packaged editor state, and `notebook_id` is a reference to the notebook that contains the note.
 
 ### Filtering notes by notebook
 
@@ -69,6 +31,12 @@ On the frontend, the `/notebooks` page contains an index component that fetches 
 For convenience, every user starts with a personal notebook, which is created when they first create an account. By default, a new note will be placed in this personal notebook, but users can always choose which notebook they are working in via a drop-down menu above the main note editor.
 
 ![SimplyNote notebooks](docs/images/simply_note_notebooks_composite.png)
+
+### Tagging a note
+
+In the editor, users can add multiple tags to one note. Tags are a separate table in the database, and have a many-to-many relationship with notes via a join table. When adding a new tag to a note, if the tag is already in the database, then it is simply added to the note. If the tag does not yet exist, it is automatically created.
+
+Similarly to notebooks, the `/tags` page has a list of tags, sorted alphabetically. Clicking on a tag will show all of the notes that correspond to a particular tag.
 
 ## Project Design
 
