@@ -23,7 +23,6 @@ class NoteDetail extends Component {
     this.state.loaded = false;
 
     this.update = this.update.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSave = this.handleSave.bind(this);
 
     this.focusBody = () => {if (this.refs.editor) { this.refs.editor.focusBody();}};
