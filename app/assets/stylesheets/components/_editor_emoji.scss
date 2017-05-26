@@ -1,5 +1,6 @@
 .draftJsEmojiPlugin__emojiSelect__2SjnO {
   display: inline-block;
+  position: relative;
 }
 .draftJsEmojiPlugin__emojiSelectButton__1hHuM,
 .draftJsEmojiPlugin__emojiSelectButtonPressed__3sOeC {
@@ -41,6 +42,7 @@
   margin-top: 10px;
   padding: 0 .3em;
   position: absolute;
+  right: 0;
   z-index: 1000;
   box-sizing: content-box;
   background: #fff;
