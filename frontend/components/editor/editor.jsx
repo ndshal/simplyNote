@@ -56,7 +56,6 @@ class RichEditor extends Component {
     const contentState = editorState.getCurrentContent();
     if (!contentState.hasText()) {
       if (contentState.getBlockMap().first().getType() !== 'unstyled') {
-        console.log('found placeholder!');
         className += ' editor-hidePlaceholder';
       }
     }
