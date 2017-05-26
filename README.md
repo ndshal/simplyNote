@@ -28,6 +28,8 @@ draft.js giphy demo
 
 To streamline the note-taking process, notes are automatically saved and sent back to the database. Before sending the note to the database, SimplyNote packages the current editor state, which includes both text content and styling, into a JSON object that is then processed and stored by Rails.
 
+The order of operations follows Redux cycle methodology - the noteDetail React component dispatches an Action, which sends an AJAX request to update the Rails database. The Rails response is then parsed and saved into the Redux state, which updates the noteDetail component.
+
 ```js
 //note_detail.js
 handleSave() {
@@ -51,7 +53,7 @@ export const updateNote = note => dispatch => (
 //note_api_util.js
 export const updateNote = note => {
   return $.ajax({
-    method: 'patch',
+    method: 'PATCH',
     url: `api/notes/${note.id}`,
     data: { note }
   });
