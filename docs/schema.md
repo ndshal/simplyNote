@@ -23,7 +23,8 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users), indexed
 title       | string    | not null
-description | string    |
+is_default  | boolean   | not null, default: false
+
 
 ## tags
 column name | data type | details

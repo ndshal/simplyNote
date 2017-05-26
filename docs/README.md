@@ -19,10 +19,10 @@ navigation, adequate seed data and sufficient CSS styling:
 - [x] Hosting on Heroku
 - [x] Notes
 - [x] Notebooks
-- [ ] Tags
+- [x] Tags
 - [x] Rich-text editing
-- [ ] **Bonus:** Search
-- [ ] **Bonus:** Autosave and change-logs for notes
+- [x] **Bonus:** Search
+- [x] **Bonus:** Autosave
 
 ## Design Docs
 * [View Wireframes][wireframes]
