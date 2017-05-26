@@ -20,6 +20,8 @@ class NoteDetail extends Component {
   constructor(props) {
     super(props);
     this.state = createEmptyNote(this.props.location.pathname);
+    this.state.loaded = false;
+
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSave = this.handleSave.bind(this);
@@ -114,7 +116,17 @@ class NoteDetail extends Component {
   }
 
   render() {
-    const { title, body, notebook_id, tag_names } = this.state;
+    const { title, body, notebook_id, tag_names, loaded } = this.state;
+    if (!this.state.loaded) {
+      return(
+        <from
+          className='note-detail'>
+
+          <h1> Loading! </h1>
+        </from>
+      );
+    }
+
     return (
       <from
         className='note-detail'

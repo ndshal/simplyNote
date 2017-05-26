@@ -31,6 +31,8 @@ export const createEditorNoteBody = (note, decorator) => {
   }
   const editorState = EditorState.createWithContent(contentState, decorator);
   newNote.body = editorState;
+  newNote.loaded = true;
+
   return newNote;
 };
 
@@ -55,6 +57,7 @@ export const createEmptyNote = (currentPath, decorator) => {
     body: EditorState.createEmpty(decorator),
     notebook_id,
     tag_names: [],
-    saved: false
+    saved: false,
+    loaded: true,
   };
 };
