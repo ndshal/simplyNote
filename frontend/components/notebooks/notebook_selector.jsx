@@ -21,10 +21,8 @@ class NotebookSelect extends Component {
     }
   }
 
-  componentWillUpdate(newProps, newState) {
-    if(newState.listView) {
-      this.refs.listView.focus();
-    }
+  componentDidUpdate() {
+    this.refs.listView.focus();
   }
 
   closeListView() {
@@ -50,7 +48,7 @@ class NotebookSelect extends Component {
       <div className='notebook-selector'>
         <button
           className='notebook-selector-btn'
-          onMouseDown={this.toggleListView}>
+          onClick={this.toggleListView}>
           <i className="fa fa-book"></i>
           <span>{currentTitle}</span>
         </button>
