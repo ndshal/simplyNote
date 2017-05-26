@@ -70,6 +70,18 @@
   border: 6px solid $green;
 }
 
+.loader.onfetch {
+  width: 100px;
+  height: 100px;
+
+  border: 6px solid $light-grey;
+  border-top: 8px solid $green;
+  animation: spin 2s linear infinite;
+
+  top: 42%;
+  left: 57%;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }

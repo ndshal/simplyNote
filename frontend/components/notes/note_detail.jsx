@@ -120,9 +120,8 @@ class NoteDetail extends Component {
     if (!this.state.loaded) {
       return(
         <from
-          className='note-detail'>
-
-          <h1> Loading! </h1>
+          className='note-detail loading'>
+          <div className='loader onfetch'></div>
         </from>
       );
     }
@@ -166,8 +165,6 @@ class NoteDetail extends Component {
           plugins={plugins}
           ref="editor"
         />
-
-        <EmojiSuggestions />
 
         {this.renderLoader()}
 
