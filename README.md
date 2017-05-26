@@ -20,18 +20,17 @@ On entering the page, the index fetches notes already in the database by dispatc
 
 Clicking each note in the index list will bring up a detailed view in the editor. This is again accomplished with an AJAX request to Rails, this time dispatched by the editor component.
 
-The editor allows for various styling options (bold, highlighting, lists, etc) and is implemented using the [Draft.js][draft] open source library, which was developed at Facebook.
-
+The editor allows for various styling options (bold, highlighting, lists, etc), which can be accessed via a toolbar above the editor, or keyboard shortcuts (for example, CMD+B bolds text).
 ```
 draft.js giphy demo
 ```
 
 To streamline the note-taking process, notes are automatically saved and sent back to the database. Before sending the note to the database, SimplyNote packages the current editor state, which includes both text content and styling, into a JSON object that is then processed and stored by Rails.
 
-The order of operations follows Redux cycle methodology - the noteDetail React component dispatches an Action, which sends an AJAX request to update the Rails database. The Rails response is then parsed and saved into the Redux state, which updates the noteDetail component.
+The following code snippet demonstrates a piece of the Redux cycle that accomplishes the update procedure. The noteDetail React component dispatches an action, which, when received by middleware, sends off an AJAX request to update the Rails database. Upon receipt, the Rails response is parsed and saved into the Redux state, causing the noteDetail component to update.
 
 ```js
-//note_detail.js
+//note_detail.jsx
 handleSave() {
   if(this.state.title !== '') {
     this.setState({saved: false});
@@ -84,19 +83,28 @@ SimplyNote was designed and built in a two week period. View the original [propo
 
 ## Technologies
 
-  * Rails, MVC, RESTful API
-  * React.js, Redux methodology (list dependencies like react-router v4, yarn?)
-  * Communication with AJAX requests dispatched from the frontend by jQuery
-  * Draft.js, an open source RTF editor created by facebook
-  * BCrypt
+Rails is an MVC framework that allows a straightforward setup of a PostgreSQL relational database and corresponding RESTful API. Since React.js takes care of rendering all HTML, the Rails API is setup to only serve JSON. On the frontend, AJAX requests are sent and received using jQuery.
+
+From here, the received JSON objects corresponding notes, notebooks and tags are parsed and rendered by React following the Redux implementation of the Flux methodology. The Redux data flow is unidirectional, and the state is setup to be modular, - there are separate reducers and actions for notes, the editor state, notebooks, and tags.
+
+Once rendered,RichText editing of notes is achieved using [Draft.js][draft], an open source library developed by Facebook.
+
+For more details on includes packages, see [dependencies][dependencies]
 
 ## Future Directions
-  * Note sharing between Users
-  * Improved search Fuzy.js
-  * change-logs
-  * testings / accessibility
 
-[draft]: https://draftjs.org
+I plan to continue adding to SimplyNote as time permits. Some ideas for next steps include
+
+  * Note sharing between Users
+  * Improved search features using the Fuzy.js external library - this will allow searching for notes by title, body, tags, etc.
+  * Change-logs for notes - record history of changes to individual notes
+  * Adding unit, integration and end-to-end tests
+  * Using [Electron][electron] to deploy SimplyNote as a cross-platform desktop app
+
+
 [evernote]: https://evernote.com/
 [dev-readme]: docs/README.md
 [live-link]: https://simplynote.herokuapp.com/
+[draft]: https://draftjs.org
+[dependencies]: docs/dependencies.md
+[electron]: https://electron.atom.io/
