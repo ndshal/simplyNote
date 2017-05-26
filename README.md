@@ -12,9 +12,7 @@
 ### Note Rendering and Editing
 The main page of SimplyNote consists of an index of all saved notes and a editor component.
 
-```
-image
-```
+![SimplyNote notes index](docs/images/simply_note_index.png)
 
 On entering the page, the index fetches notes already in the database by dispatching an AJAX request to the Rails API. The index component then renders the list of notes, sorted by the most recently updated. In order to save memory on the frontend, only the basic details of notes are fetched.
 
