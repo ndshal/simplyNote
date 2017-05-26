@@ -28,7 +28,7 @@ class SessionForm extends Component {
   handleDemo(e) {
     e.persist();
     this.setState({
-      username: 'john@example.com',
+      username: 'notetaker23',
       password: 'password'
     }, () => this.handleSubmit(e));
   }
