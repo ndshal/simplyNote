@@ -17,10 +17,12 @@ class RichEditor extends Component {
   }
 
   focusTitle() {
+    this.focusTitle.active = true;
     this.refs.title.focus();
   }
 
   focusBody() {
+    this.focusTitle.active = false;
     this.onChange(EditorState.moveFocusToEnd(this.props.editorState));
   }
 

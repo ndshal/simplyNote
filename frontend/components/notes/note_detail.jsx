@@ -25,26 +25,25 @@ class NoteDetail extends Component {
     this.update = this.update.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.loadNote = this.loadNote.bind(this);
-
-    this.focusTitle = () => {if (this.refs.editor) { this.refs.editor.focusTitle();}};
-    this.focusBody = () => {if (this.refs.editor) { this.refs.editor.focusBody();}};
+    this.focusTitle = () => { if (this.refs.editor) { this.refs.editor.focusTitle();}};
+    this.focusBody = () => { if (this.refs.editor) { this.refs.editor.focusBody();}};
   }
 
-   componentDidMount() {
-     this.loadNote(this.props);
+ componentDidMount() {
+   this.loadNote(this.props);
 
-     this.saveInterval = setInterval(this.handleSave, 8000);
-   }
+   this.saveInterval = setInterval(this.handleSave, 8000);
+ }
 
-   componentWillReceiveProps(newProps) {
-     if(this.props.pathId !== newProps.pathId) {
-       this.loadNote(newProps);
-     }
-   }
+  componentWillReceiveProps(newProps) {
+    if(this.props.pathId !== newProps.pathId) {
+      this.loadNote(newProps);
+    }
+  }
 
-   componentWillUnmount() {
-     clearInterval(this.saveInterval);
-   }
+  componentWillUnmount() {
+    clearInterval(this.saveInterval);
+  }
 
   loadNote(props) {
     if(props.formType === 'new') {
@@ -80,7 +79,12 @@ class NoteDetail extends Component {
   }
 
   handleSave() {
-    if(this.state.title !== '') {
+    if(this.state.title !== ''
+      && this.refs.editor
+      && !this.refs.editor.focusTitle.active) {
+      // need to check if title is no longer focused to avoid
+      // autosave mid typing of title
+
       this.setState({saved: false});
 
       setTimeout(()=> {

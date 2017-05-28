@@ -39,7 +39,7 @@ class NoteIndexItem extends Component {
 
   handleDelete() {
     const path = this.props.location.pathname;
-    const indexPath = path.match(/(.*)\/\d*/)[1];
+    const indexPath = path.match(/(.*)\/\d+/)[1];
 
     this.props.deleteNote()
       .then(
