@@ -11,7 +11,7 @@ const linkLabel = (text) => (
 const Nav = ({signout, location}) => {
   const path = location.pathname;
   let indexPath = '/home/notes';
-  let regmatch = path.match(/\/home\/(notebook|tag)\/\d/);
+  let regmatch = path.match(/\/home\/(notebook|tag)\/\d+/);
 
   if(regmatch){
     indexPath = `${regmatch[0]}/notes`;

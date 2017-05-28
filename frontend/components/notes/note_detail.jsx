@@ -24,43 +24,43 @@ class NoteDetail extends Component {
 
     this.update = this.update.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.loadNote = this.loadNote.bind(this);
 
+    this.focusTitle = () => {if (this.refs.editor) { this.refs.editor.focusTitle();}};
     this.focusBody = () => {if (this.refs.editor) { this.refs.editor.focusBody();}};
   }
 
    componentDidMount() {
-     if(this.props.formType === 'edit') {
-       this.props.fetchNote()
-       .then(({note}) => this.setState(
-         createEditorNoteBody(note),
-         this.focusBody
-        )
-      );
-     }
+     this.loadNote(this.props);
 
      this.saveInterval = setInterval(this.handleSave, 8000);
    }
 
    componentWillReceiveProps(newProps) {
      if(this.props.pathId !== newProps.pathId) {
-       if(newProps.formType === 'new') {
-         this.setState(
-           createEmptyNote(this.props.location.pathname),
-           this.refs.editor.focusTitle
-         );
-       } else {
-         newProps.fetchNote()
-         .then(({note}) => this.setState(
-           createEditorNoteBody(note),
-           this.refs.editor.focusBody
-         ));
-       }
+       this.loadNote(newProps);
      }
    }
 
    componentWillUnmount() {
      clearInterval(this.saveInterval);
    }
+
+  loadNote(props) {
+    if(props.formType === 'new') {
+      this.setState(
+        createEmptyNote(props.location.pathname),
+        this.focusTitle
+      );
+    } else {
+      props.fetchNote().then(
+        ({note}) => this.setState(
+          createEditorNoteBody(note),
+          this.focusBody
+        )
+      );
+    }
+  }
 
   update(field) {
     return (value, cb) => this.setState({[field]: value}, cb);
@@ -71,7 +71,7 @@ class NoteDetail extends Component {
       return this.props.updateNote(note);
     } else {
       const path = this.props.location.pathname;
-      const indexPath = path.match(/(.*)\/\d*/)[1];
+      const indexPath = path.match(/(.*)\/new/)[1];
 
       return this.props.createNote(note)
         .then(({note}) => this.props.history.push(`${indexPath}/${note.id}`))
@@ -112,10 +112,10 @@ class NoteDetail extends Component {
     const { title, body, notebook_id, tag_names, loaded } = this.state;
     if (!this.state.loaded) {
       return(
-        <from
+        <form
           className='note-detail loading'>
           <div className='loader onfetch'></div>
-        </from>
+        </form>
       );
     }
 
