@@ -65,7 +65,7 @@ I plan to continue adding to SimplyNote as time permits. Some ideas for next ste
 
 [evernote]: https://evernote.com/
 [dev-readme]: docs/README.md
-[live-link]: https://simplynote.herokuapp.com/
+[live-link]: http://www.simply-note.me
 [draft]: https://draftjs.org
 [dependencies]: docs/dependencies.md
 [electron]: https://electron.atom.io/
