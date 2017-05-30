@@ -94,10 +94,12 @@ footer {
 
 .footer-links a {
   padding: 5px;
+  border-radius: 5px;
 }
 
 .footer-links a:hover {
-  text-decoration: underline;
+  background: $darker-grey;
+  color: white;
 }
 
 .info {
