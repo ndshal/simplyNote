@@ -22,7 +22,6 @@ class RichEditor extends Component {
   }
 
   focusBody() {
-    this.focusTitle.active = false;
     this.onChange(EditorState.moveFocusToEnd(this.props.editorState));
   }
 
@@ -68,6 +67,7 @@ class RichEditor extends Component {
           className='note-title'
           onKeyPress={this.handleEnter}
           onChange={(e) => update('title')(e.target.value)}
+          onBlur={() => this.focusTitle.active = false}
           value={title}
           placeholder='title your note...'
           ref="title"
