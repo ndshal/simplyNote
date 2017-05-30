@@ -21,7 +21,7 @@
 .note-detail {
   flex: 5;
   background: white;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .notes.detail-full-screen .notes-index {
