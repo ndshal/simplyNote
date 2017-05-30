@@ -41,7 +41,7 @@ class DeleteObject extends Component {
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteObject()
-      .then(this.props.history.goBack());
+      .then(this.props.history.push(`/home/${this.props.object}s`));
   }
 
 
