@@ -10,7 +10,8 @@ class RichEditor extends Component {
     this.handleKeyCommand = this.handleKeyCommand.bind(this);
     this.onTab = this.onTab.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
-    this.onChange = (editorState) => this.props.update('body')(editorState, null);
+
+    this.onChange = (editorState) => this.props.update('body')(editorState, null)
 
     this.focusTitle = this.focusTitle.bind(this);
     this.focusBody = this.focusBody.bind(this);

@@ -6,6 +6,7 @@ import {
   createRawNoteBody,
   createEmptyNote
 } from '../../util/note_conversion_util';
+import { debounce } from '../../util/save_util';
 import RichEditor from '../editor/editor';
 import { InlineStyleControls, BlockStyleControls } from '../editor/style_controls';
 import TagSelectorContainer from '../tags/tag_selector_container';
@@ -21,6 +22,7 @@ class NoteDetail extends Component {
     super(props);
     this.state = createEmptyNote(this.props.location.pathname);
     this.state.loaded = false;
+    this.idleTimeout = null;
 
     this.update = this.update.bind(this);
     this.handleSave = this.handleSave.bind(this);
@@ -31,8 +33,6 @@ class NoteDetail extends Component {
 
  componentDidMount() {
    this.loadNote(this.props);
-
-   this.saveInterval = setInterval(this.handleSave, 8000);
  }
 
   componentWillReceiveProps(newProps) {
@@ -42,7 +42,7 @@ class NoteDetail extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.saveInterval);
+    clearInterval(this.idleTimeout);
   }
 
   loadNote(props) {
@@ -62,7 +62,11 @@ class NoteDetail extends Component {
   }
 
   update(field) {
-    return (value, cb) => this.setState({[field]: value}, cb);
+    return (value, cb) => {
+      clearTimeout(this.idleTimeout);
+      this.idleTimeout = setTimeout(this.handleSave, 5000);
+      this.setState({[field]: value}, cb);
+    };
   }
 
   processForm(note) {
