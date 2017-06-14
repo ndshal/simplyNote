@@ -6,7 +6,6 @@ import {
   createRawNoteBody,
   createEmptyNote
 } from '../../util/note_conversion_util';
-import { debounce } from '../../util/save_util';
 import RichEditor from '../editor/editor';
 import { InlineStyleControls, BlockStyleControls } from '../editor/style_controls';
 import TagSelectorContainer from '../tags/tag_selector_container';
@@ -37,6 +36,7 @@ class NoteDetail extends Component {
 
   componentWillReceiveProps(newProps) {
     if(this.props.pathId !== newProps.pathId) {
+      clearInterval(this.idleTimeout);
       this.loadNote(newProps);
     }
   }
@@ -87,7 +87,7 @@ class NoteDetail extends Component {
       && this.refs.editor
       && !this.refs.editor.focusTitle.active) {
       // need to check if title is no longer focused to avoid
-      // autosave mid typing of title
+      // saving mid typing of title
 
       this.setState({saved: false});
 
