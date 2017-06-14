@@ -21,6 +21,7 @@ class NoteDetail extends Component {
     super(props);
     this.state = createEmptyNote(this.props.location.pathname);
     this.state.loaded = false;
+    this.state.saved = true;
     this.idleTimeout = null;
 
     this.update = this.update.bind(this);
@@ -64,7 +65,7 @@ class NoteDetail extends Component {
   update(field) {
     return (value, cb) => {
       clearTimeout(this.idleTimeout);
-      this.idleTimeout = setTimeout(this.handleSave, 5000);
+      this.idleTimeout = setTimeout(this.handleSave, 4000);
       this.setState({[field]: value}, cb);
     };
   }
