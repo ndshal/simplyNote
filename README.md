@@ -14,6 +14,31 @@ The main page of SimplyNote consists of an index of all saved notes and a editor
 
 ![SimplyNote notes index](docs/images/simply_note_index.png)
 
+```js
+<aside className='notes-index'>
+  <header>
+    <div className='header-title'>{heading}</div>
+    <div className='item-count'>{noteCount}</div>
+    <form>
+      <input
+        className='search-bar'
+        value={searchTerm}
+        onChange={this.handleChange}
+        placeholder='Search by note title'/>
+    </form>
+  </header>
+  <ul className='notes-list'>
+    { notes.map(
+      note => <NoteIndexItem
+      key={note.id}
+      linkPath={`${url}/${note.id}`}
+      deleteNote={()=>this.props.deleteNote(note.id)}
+      {...note} />) }
+  </ul>
+</aside>
+The `render` function of the `NotesIndex` component.
+```
+
 Clicking each note in the index list will bring up a detailed view in the editor. The editor allows for various styling options (bold, highlighting, lists, etc), which can be accessed via a toolbar above the editor, or keyboard shortcuts (for example, CMD+B bolds text)
 
 To streamline the note-taking process, notes are automatically saved and sent back to the database. On the backend, notes are stored in a PostgreSQL table, with columns corresponding to `id`, `title`, `body`, `notebook_id`, and `updated_at`. `body` is the packaged editor state, and `notebook_id` is a reference to the notebook that contains the note.
@@ -25,6 +50,29 @@ Users have the option to organize their notes into notebooks. On the backend the
   * a user `has_many` notebooks
   * a notebook `has_many` notes
   * a note `belongs_to` a single notebook
+
+These associations, defined in the ActiveRecord models `Note` and `Notebook`, simplify the logic of sending data to the frontend.
+
+```ruby
+class Api::NotebooksController < ApplicationController
+  before_action :ensure_logged_in
+
+  def index
+    @notebooks = Notebook.includes(:notes).where(author_id: current_user.id)
+    @default_id = Notebook.find_by(author_id: current_user.id, is_default: true).id
+  end
+
+  def create
+    @notebook = Notebook.new(notebook_params)
+    @notebook.author = current_user
+
+    if @notebook.save
+      render :show
+    else
+      render json: @notebook.errors.full_messages, status: 422
+    end
+  ends
+```
 
 On the frontend, the `/notebooks` page contains an index component that fetches and renders a list of the current users notebooks. From this page, users can create or delete notebooks. Selecting a particular notebook shows the main notes page, but with the note list filtered to show only the notes in the selected notebook.
 
