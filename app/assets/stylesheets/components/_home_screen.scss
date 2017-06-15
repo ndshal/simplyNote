@@ -9,13 +9,15 @@
 
 .notes {
   position: relative;
-  width: 96vw;
   display: flex;
+
+  width: 96vw;
 }
 
 .notes-index {
   flex: 2;
   max-width: 26vw;
+  overflow-y: hidden;
 }
 
 .note-detail {
