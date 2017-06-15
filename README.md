@@ -15,7 +15,8 @@ The main page of SimplyNote consists of an index of all saved notes and a editor
 ![SimplyNote notes index](docs/images/simply_note_index.png)
 
 To maintain DRY code, the React components that make up with index page are modular,
-and deal with separate concerns. 
+and deal with separate concerns. Below, the `NotesIndex` component holds `NotesIndexItems`, and
+is completely separate from the `Editor`.
 
 ```js
 <aside className='notes-index'>
