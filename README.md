@@ -14,6 +14,9 @@ The main page of SimplyNote consists of an index of all saved notes and a editor
 
 ![SimplyNote notes index](docs/images/simply_note_index.png)
 
+To maintain DRY code, the React components that make up with index page are modular,
+and deal with separate concerns. 
+
 ```js
 <aside className='notes-index'>
   <header>
@@ -36,8 +39,8 @@ The main page of SimplyNote consists of an index of all saved notes and a editor
       {...note} />) }
   </ul>
 </aside>
-The `render` function of the `NotesIndex` component.
 ```
+The `render` function of the `NotesIndex` component.
 
 Clicking each note in the index list will bring up a detailed view in the editor. The editor allows for various styling options (bold, highlighting, lists, etc), which can be accessed via a toolbar above the editor, or keyboard shortcuts (for example, CMD+B bolds text)
 
