@@ -65,7 +65,7 @@ class NoteDetail extends Component {
   update(field) {
     return (value, cb) => {
       clearTimeout(this.idleTimeout);
-      this.idleTimeout = setTimeout(this.handleSave, 4000);
+      this.idleTimeout = setTimeout(this.handleSave, 1500);
       this.setState({[field]: value}, cb);
     };
   }
@@ -96,7 +96,7 @@ class NoteDetail extends Component {
         const note = createRawNoteBody(this.state);
         this.processForm(note)
           .then(() => this.setState({saved: true}));
-      }, 1500);
+      }, 1000);
     }
   }
 
