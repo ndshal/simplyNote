@@ -65,7 +65,7 @@ class NoteDetail extends Component {
   update(field) {
     return (value, cb) => {
       clearTimeout(this.idleTimeout);
-      this.idleTimeout = setTimeout(this.handleSave, 1500);
+      this.idleTimeout = setTimeout(this.handleSave, 1800);
       this.setState({[field]: value}, cb);
     };
   }
